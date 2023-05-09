@@ -6,7 +6,7 @@ class User extends Connection {
 	private $password='';
 	private $name='';
 	private $nohp='';
-	private $idrole='';
+	private $roleid='';
 	private $role='';
 	
 	private $hasil= false;
@@ -25,7 +25,7 @@ class User extends Connection {
 	}
 
 	public function AddUser(){
-		$sql = "INSERT INTO user(email, password, name, nohp, idrole)
+		$sql = "INSERT INTO user(email, password, name, nohp, roleid)
 				VALUES ('$this->email', '$this->password', '$this->name', '$this->nohp', 'role2')";				
 		$this->hasil = $this->connection->exec($sql);
 				
@@ -36,7 +36,7 @@ class User extends Connection {
 	}
 	
 	public function UpdateUser(){
-		$sql = "UPDATE user SET email = '$this->email', password='$this->password', name='$this->name', nohp='$this->nohp' WHERE iduser = '$this->iduser'";
+		$sql = "UPDATE user SET email = '$this->email', password='$this->password', name='$this->name', nohp='$this->nohp' WHERE userid = '$this->userid'";
 		$this->hasil = $this->connection->exec($sql);
 			
 		if($this->hasil)
@@ -68,7 +68,7 @@ class User extends Connection {
 				$this->password=$data->password;
 				$this->name=$data->name;
 				$this->nohp=$data->nohp;
-				$this->idrole=$data->idrole;
+				$this->roleid=$data->roleid;
 			}
 		}
 	}
@@ -85,13 +85,13 @@ class User extends Connection {
 				$this->password = $data->password;
 				$this->name = $data->name;
 				$this->nohp = $data->nohp;
-				$this->idrole = $data->idrole;
+				$this->roleid = $data->roleid;
 			}
 		}		
 	}
 	
 	public function SelectAllUser(){
-		$sql = "SELECT u.*, r.role FROM user u, role r WHERE u.idrole=r.idrole ORDER BY userid";
+		$sql = "SELECT u.*, r.role FROM user u, role r WHERE u.roleid=r.roleid ORDER BY userid";
 		$result = $this->connection->query($sql);
 		
 		$arrResult = Array();
@@ -105,7 +105,7 @@ class User extends Connection {
 				$objUser->password = $data->password;
 				$objUser->name=$data->name;
 				$objUser->nohp=$data->nohp;
-				$objUser->idrole=$data->idrole;
+				$objUser->roleid=$data->roleid;
 				$objUser->role=$data->role;
 				$arrResult[$i] = $objUser;
 				$i++;
@@ -132,7 +132,7 @@ class User extends Connection {
 				$objUser->password = $data->password;
 				$objUser->name=$data->name;
 				$objUser->nohp=$data->nohp;
-				$objUser->idrole=$data->idrole;
+				$objUser->roleid=$data->roleid;
 				$arrResult[$cnt] = $objUser;
 				$cnt++;
 			}
