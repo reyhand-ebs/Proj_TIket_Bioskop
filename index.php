@@ -5,6 +5,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -15,6 +17,23 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="container">
+                <div class="dropdown">
+                <button class="btn btn-lg btn-dark dropdown-toggle" type="button" data-toggle="dropdown">
+                    Genre
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Adventure</a>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Comedy</a>
+                    <a class="dropdown-item" href="#">Crime</a>
+                    <a class="dropdown-item" href="#">Drama</a>
+                    <a class="dropdown-item" href="#">Horror</a>
+                    <a class="dropdown-item" href="#">Thriller</a>
+                    <a class="dropdown-item" href="#">Romance</a>
+                </div>
+                </div>
+            </div>
             <!--<div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -28,12 +47,20 @@
                     </li>
                 </ul>
             </div>-->
-            <a href="pages/register.php"><button class="btn btn-lg btn-dark ms-md-3 rounded-3 " style="background-color: rgb(251, 129, 34)">Register</button></a>
+            <a href="pages/login.php"><button class="btn btn-lg btn-dark ms-md-3 rounded-3 " style="background-color: rgb(251, 129, 34)">Login</button></a>
         </div>
     </nav>
 
 <br></br>
 <br></br>
+    <div class="container">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Cari judul, orang, genre">
+        <div class="input-group-append">
+            <button class="btn btn-dark" style="background-color: rgb(29, 34, 40)" type="button">Search</button>
+        </div>
+        </div>
+    </div>
 <br></br>
 <br></br>
 <br></br>
