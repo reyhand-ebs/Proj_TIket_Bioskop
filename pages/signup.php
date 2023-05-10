@@ -1,41 +1,43 @@
 <?php
 include('./inc.koneksi.php');
 require_once('./class/class.user.php');
+require_once('./class/class.mail.php');
 
-if (isset($_POST['btnLogin'])) {
-
-	$email = $_POST['email'];
-	$password = $_POST['password'];
-
+if (isset($_POST['btnRegister'])) {
+	$inputemail = $_POST["email"];
+	$password = $_POST["password"];
+	$retypepassword = $_POST["retypepassword"];
 	$objUser = new User();
-	$objUser->ValidateEmail($email);
-
+	$objUser->ValidateEmail($inputemail);
+	$objUser->hasil = false;
 	if ($objUser->hasil) {
-
-		$ismatch = password_verify($password, $objUser->password);
-
-		if ($ismatch) {
-			if (!isset($_SESSION)) {
-				session_start();
-			}
-
-			$_SESSION["userid"] = $objUser->userid;
-			$_SESSION["email"] = $objUser->email;
-			$_SESSION["name"] = $objUser->name;
-			$_SESSION["idrole"] = $objUser->idrole;
-
-			echo "<script>alert('Login sukses');</script>";
-
-			if ($objUser->idrole == 'role1') {
-				echo '<script>window.location = "dashboardadmin.php";</script>';
-			} else if ($objUser->idrole == 'role2') {
-				echo '<script>window.location = "dashboardmember.php";</script>';
-			}
-		} else {
-			echo "<script>alert('Password tidak match');</script>";
-		}
+		echo "<script>alert('Email sudah terdaftar'); </script>";
 	} else {
-		echo "<script>alert('Email tidak terdaftar');</script>";
+		if ($password != $retypepassword) {
+			echo "<script>alert('Password tidak match, silahkan cek kembali password anda'); </script>";
+		} else {
+			$objUser->email = $_POST["email"];
+			$objUser->password = password_hash($password, PASSWORD_DEFAULT);
+			//$objUser->password = password_hash($password, PASSWORD_DEFAULT);		
+			$objUser->name = $_POST['name'];
+			$objUser->nohp = $_POST['nohp'];
+			$token=hash('sha256', md5(date('Y-m-d')));
+			$objUser->token = $token;
+			$objUser->AddUser();
+
+			$subject = "Verifikasi Registrasi Email";
+			$message = '<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
+					Silakan klik tautan berikut untuk mengkonfirmasi email anda:
+					</span>
+					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
+						<a href="http://localhost/activation.php?t='.$token.'">http://localhost/activation.php?t='.$token.'</a>
+					</span>';
+
+			Mail::SendMail($objUser->email, $objUser->name, $subject, $message);
+			
+			echo "<script> alert('Registrasi berhasil, silahkan cek email anda'); </script>";
+			echo '<script> window.location="index.php?p=login"; </script>';
+		}
 	}
 }
 ?>
@@ -61,23 +63,27 @@ if (isset($_POST['btnLogin'])) {
 				<h1 class="title pb-5 text-center"><strong>Sign Up</strong></h1>
 				<form action="" class="row g-3 justify-content-center" method="POST">
 					<div class="col-md-10">
-						<input type="email" class="form-control mt-2 form-control-lg rounded-pill" placeholder="E-mail" name="email" required>
-					</div>
-                    <div class="col-md-10">
-						<input type="text" class="form-control mt-2 form-control-lg rounded-pill" placeholder="Nama" name="nama" required>
-					</div>
-                    <div class="col-md-10">
-						<input type="text" class="form-control mt-2 form-control-lg rounded-pill" placeholder="No HP" name="nohp" required>
+						<input type="email" class="form-control mt-2 form-control-lg rounded-pill" placeholder="E-mail"
+							name="email" required>
 					</div>
 					<div class="col-md-10">
-						<input type="password" class="form-control mt-2 form-control-lg rounded-pill" placeholder="Password" name="password"><br>
+						<input type="text" class="form-control mt-2 form-control-lg rounded-pill" placeholder="Nama"
+							name="name" required>
 					</div>
-                    <div class="col-md-10">
-						<input type="password" class="form-control mt-2 form-control-lg rounded-pill" placeholder="Re-Type Password" name="retypepassword"><br>
+					<div class="col-md-10">
+						<input type="text" class="form-control mt-2 form-control-lg rounded-pill" placeholder="No HP"
+							name="nohp" required>
+					</div>
+					<div class="col-md-10">
+						<input type="password" class="form-control mt-2 form-control-lg rounded-pill"
+							placeholder="Password" name="password" required><br>
+						<input type="password" class="form-control form-control-lg rounded-pill"
+							placeholder="Re-Type Password" name="retypepassword" required>
 					</div>
 					<div class="col-md-6 d-grid">
-						<button class="btn btn-primary rounded-pill btn-lg" name="btnLogin" type="submit" value="Login">Login</button>
-						<p>Belum punya akun? <a href="index.php?p=register" style="color: #4285F4">Register</a></p>
+						<button class="btn btn-primary rounded-pill btn-lg" name="btnRegister" type="submit"
+							value="Register">Register</button>
+						<p>Sudah punya akun? <a href="index.php?p=login" style="color: #4285F4">Register</a></p>
 					</div>
 				</form>
 			</div>

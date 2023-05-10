@@ -3,7 +3,7 @@
     --secondary: #55BEAB;
 }
 
-#inputlogin {
+#inputlogin{
     width: 500px;
     height: auto;
     font-size: 16px;
@@ -12,8 +12,7 @@
     margin-top: 50px;
     margin-bottom: 50px;
 }
-
-#inputsignup {
+#inputsignup{
     width: 500px;
     height: auto;
     font-size: 16px;

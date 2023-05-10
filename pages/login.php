@@ -22,13 +22,13 @@ if (isset($_POST['btnLogin'])) {
 			$_SESSION["userid"] = $objUser->userid;
 			$_SESSION["email"] = $objUser->email;
 			$_SESSION["name"] = $objUser->name;
-			$_SESSION["roleid"] = $objUser->roleid;
+			$_SESSION["idrole"] = $objUser->idrole;
 
 			echo "<script>alert('Login sukses');</script>";
 
-			if ($objUser->roleid == 'role1') {
+			if ($objUser->idrole == 'role1') {
 				echo '<script>window.location = "dashboardadmin.php";</script>';
-			} else if ($objUser->roleid == 'role2') {
+			} else if ($objUser->idrole == 'role2') {
 				echo '<script>window.location = "dashboardmember.php";</script>';
 			}
 		} else {
@@ -65,6 +65,7 @@ if (isset($_POST['btnLogin'])) {
 					</div>
 					<div class="col-md-10">
 						<input type="password" class="form-control mt-2 form-control-lg rounded-pill" placeholder="Password" name="password"><br>
+						<p><a href=""></a> Lupa Password?</p>
 					</div>
 					<div class="col-md-6 d-grid">
 						<button class="btn btn-primary rounded-pill btn-lg" name="btnLogin" type="submit" value="Login">Login</button>
