@@ -30,7 +30,7 @@ if (isset($_POST['btnRegister'])) {
 					Silakan klik tautan berikut untuk mengkonfirmasi email anda:
 					</span>
 					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
-						<a href="http://localhost/activation.php?t='.$token.'">http://localhost/activation.php?t='.$token.'</a>
+						<a href="http://localhost/Proj_Tiket_Bioskop/activation.php?t='.$token.'">http://localhost/Proj_Tiket_Bioskop/activation.php?t='.$token.'</a>
 					</span>';
 
 			Mail::SendMail($objUser->email, $objUser->name, $subject, $message);
@@ -46,14 +46,6 @@ if (isset($_POST['btnRegister'])) {
 
 <head>
 	<title>Tubirit | Sign Up</title>
-
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-		crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-	<link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
