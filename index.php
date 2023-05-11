@@ -11,13 +11,44 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top py-0 px-2" style="background-color: rgb(29, 34, 40)">
-        <div class="container-fluid">
-            <a href="index.php?p=home" class="navbar-brand"><img src="img/bioskop online.png" alt="" class="w-50"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <img src="img/bioskop online.png" width="170">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Film Saya</a>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Genre
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Adventure</a></li>
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Comedy</a></li>
+                <li><a class="dropdown-item" href="#">Crime</a></li>
+                <li><a class="dropdown-item" href="#">Drama</a></li>
+                <li><a class="dropdown-item" href="#">Horror</a></li>
+                <li><a class="dropdown-item" href="#">Thriller</a></li>
+                <li><a class="dropdown-item" href="#">Romance</a></li>
+            </ul>
+        </ul>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Cari</button>
+        </form>
+        <button class="btn btn-primary" type="submit">Masuk</button>
+        </div>
+    </div>
+    </nav>
+            <!--<div class="container">
                 <div class="dropdown">
                 <button class="btn btn-lg btn-dark dropdown-toggle" type="button" data-toggle="dropdown">
                     Genre
@@ -33,23 +64,7 @@
                     <a class="dropdown-item" href="#">Romance</a>
                 </div>
                 </div>
-            </div>
-            <!--<div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="index.php?p=home" class="nav-link text-white">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="index.php?p=explore" class="nav-link text-white">Explore</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="index.php?p=contact" class="nav-link text-white">Contact</a>
-                    </li>
-                </ul>
             </div>-->
-            <a href="pages/login.php"><button class="btn btn-lg btn-dark ms-md-3 rounded-3 " style="background-color: rgb(251, 129, 34)">Login</button></a>
-        </div>
-    </nav>
 
 <br></br>
 <br></br>
