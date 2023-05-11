@@ -10,30 +10,6 @@
 	<link rel="stylesheet" href="./css/style.css">
 </head>
 
-<!--<body>
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top py-0 px-2" style="background-color: rgb(29, 34, 40)">
-        <div class="container-fluid">
-            <a href="index.php?p=home" class="navbar-brand"><img src="../img/bioskop online.png" alt="" class="w-50"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="index.php?p=home" class="nav-link text-white">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="index.php?p=explore" class="nav-link text-white">Explore</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="index.php?p=contact" class="nav-link text-white">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <a href="register.php"><button class="btn btn-lg btn-dark ms-md-3 rounded-3 " style="background-color: rgb(251, 129, 34)">Register</button></a>
-        </div>
-    </nav>-->
-
 <body>
 	<div class="container py-5 justify-content-center rounded-5" id="inputlogin">
 		<div class="row">
@@ -49,35 +25,13 @@
 					</div>
 					<div class="col-md-6 d-grid">
 						<button class="btn btn-primary rounded-pill btn-lg" name="btnLogin" type="submit" value="Login">Login</button>
-						<p>Belum punya akun? <a href="index.php?p=signup" style="color: #4285F4">Register</a></p>
+						<p>Belum punya akun? <a href="register.php" style="color: #4285F4">Register</a></p>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 </body>
-	<!--<div class="container py-5">
-		<div class="col-md-6">
-			<h1 class="title pb-5"><strong>LOGIN</strong></h1>
-			<form action="" class="row g-3 justify-content-center" method="POST">
-				<div class="col-md-10">
-					<label for="email">Email: </label>
-					<input type="email" class="form-control mt-2" placeholder="Enter E-mail" name="email" required>
-				</div>
-				<div class="col-md-10">
-					<label for="password">Password: </label>
-					<input type="password" class="form-control mt-2" placeholder="Password" name="password">
-				</div>
-				<div class="col-md-10">	
-					<a href="login.php" style="color: #4285F4">Forgot Password?</a></br></br>
-					<p>Belum punya akun? <a href="register.php" style="color: #4285F4">Register</a></p>
-				</div>
-				<div class="col-md-3 d-grid">
-					<button class="btn btn-dark" style="background-color: rgb(29, 34, 40)" name="btnLogin" type="submit" value="Login">Login</button>
-				</div>
-			</form>
-		</div>
-	</div>-->
 </body>
 
 </html>

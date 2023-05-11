@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: rgb(29, 34, 40)">
     <div class="container-fluid">
         <img src="img/bioskop online.png" width="170">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,41 +41,15 @@
             </ul>
         </ul>
         <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Cari</button>
+            <input class="form-control me-2 rounded-4" type="search" placeholder="Cari film atau orang.." aria-label="Search">
+            <button class="btn btn-outline-success rounded-4" type="submit">Cari</button>
         </form>
-        <button class="btn btn-primary" type="submit">Masuk</button>
         </div>
+        <a href="pages/login.php"><button class="btn btn-dark ms-md-3 rounded-4" style="background-color: #C70039;">Masuk</button></a>
     </div>
     </nav>
-            <!--<div class="container">
-                <div class="dropdown">
-                <button class="btn btn-lg btn-dark dropdown-toggle" type="button" data-toggle="dropdown">
-                    Genre
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Adventure</a>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Comedy</a>
-                    <a class="dropdown-item" href="#">Crime</a>
-                    <a class="dropdown-item" href="#">Drama</a>
-                    <a class="dropdown-item" href="#">Horror</a>
-                    <a class="dropdown-item" href="#">Thriller</a>
-                    <a class="dropdown-item" href="#">Romance</a>
-                </div>
-                </div>
-            </div>-->
-
 <br></br>
 <br></br>
-    <div class="container">
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Cari judul, orang, genre">
-        <div class="input-group-append">
-            <button class="btn btn-dark" style="background-color: rgb(29, 34, 40)" type="button">Search</button>
-        </div>
-        </div>
-    </div>
 <br></br>
 <br></br>
 <br></br>
