@@ -1,19 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
 
 :root {
     --primary: #D3EBCD;
-    --secondary: #AEDBCE;
-    --dark: #21252f;
-    --body: #ffffff;
+    --secondary: #113250;
+    --dark: #1F1F1F;
+    --body: #1F1F1F;
     --white: #ffffff;
 }
 
-.body {
-    background: #ffffff;
-    font-family: 'Poppins', sans-serif;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#inputlogin{
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #113250;
+    font-family: 'Inter', sans-serif;
+}
+
+.login {
+    width: 360px;
+    height: min-content;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #1F1F1F;
+}
+
+.login h1 {
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+.login form .form-group {
+    margin-bottom: 12px;
+}
+
+.login form input[type="submit"] {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+/*body {
+    background-color: #1F1F1F;
+    font-family: 'Inter', sans-serif;
+}*/
+
+/*#inputlogin{
     width: 500px;
     height: auto;
     font-size: 16px;
@@ -30,10 +67,6 @@
     border: 1px solid #ccc;
     margin-top: 50px;
     margin-bottom: 50px;
-}
-
-.logo {
-    width: 10px;
 }
 
 .card-effect {
@@ -57,3 +90,4 @@ form .form-control {
     border-radius: 0;
     background-color: rgba(0,0,0,0.02);
 }
+*/

@@ -2,15 +2,20 @@
 <html lang="en">
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
     <!--header-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: rgb(29, 34, 40)">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0F0E0E">
     <div class="container-fluid">
         <img src="img/bioskop online.png" width="170">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,11 +45,11 @@
             </ul>
         </ul>
         <form class="d-flex" role="search">
-            <input class="form-control me-2 rounded-4" type="search" placeholder="Cari film atau orang.." aria-label="Search">
-            <button class="btn btn-outline-success rounded-4" type="submit">Cari</button>
+            <input class="form-control me-2 rounded-5" type="search" placeholder="Cari film atau orang.." aria-label="Search">
+            <button class="btn btn-outline-success rounded-5" type="submit">Cari</button>
         </form>
         </div>
-        <a href="pages/login.php"><button class="btn btn-dark ms-md-3 rounded-4" style="background-color: #C70039;">Masuk</button></a>
+        <a href="pages/login.php"><button class="btn btn-dark ms-md-3 rounded-5" style="background-color: #113250;">Masuk</button></a>
     </div>
     </nav>
 
@@ -71,6 +76,32 @@
     </button>
     </div>
 
+    <div class="container">
+        <h2>Film Terlaris</h2>
+        <div class="row">
+            <div class="col-2 mb-3">
+                <img src="img/avatar.jpg" class="card-img-top" alt="">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/avatar.jpg" class="card-img-top" alt="">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/avatar.jpg" class="card-img-top" alt="">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/avatar.jpg" class="card-img-top" alt="">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/avatar.jpg" class="card-img-top" alt="">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/avatar.jpg" class="card-img-top" alt="">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/avatar.jpg" class="card-img-top" alt="">
+            </div>
+        </div>
+    </div>
     <!-- card -->
     <section class="p-5">
     <h2 style="padding-left: 10px;">Film Terlaris</h2>

@@ -2,16 +2,47 @@
 <html lang="en">
 
 <head>
-	<title>bioskop online | Register</title>
+	<title>Bioskop Online | Daftar</title>
 
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<!--header-->
+    <div class="register">
+        <h1 class="text-center">Daftar</h1>
+        <form>
+            <div class="form-group">
+                <label class="form-label" for="nama">Nama</label>
+                <input class="form-control" type="nama" id="nama" placeholder="Nama">
+            </div>
+			<div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-control" type="email" id="email" placeholder="Email">
+            </div>
+			<div class="form-group">
+                <label class="form-label" for="nohp">Nomor Telepon</label>
+                <input class="form-control" type="nohp" id="nohp" placeholder="Nomor Telepon">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="password">Password</label>
+                <input class="form-control" type="password" id="password" placeholder="Password">
+            </div>
+			<div class="form-group">
+                <label class="form-label" for="password">Konfirmasi Password</label>
+                <input class="form-control" type="password" id="password" placeholder="Konfirmasi Password">
+            </div>
+            <div class="button-container">
+                <input class="btn rounded-pill" type="submit" value="Daftar"></br>
+            </div>
+            <p class="text-center">Sudah punya akun? <a href="login.php" style="color: #70AFE9">Masuk</a></p>
+        </form>
+    </div>
+
+<!--
+<body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: rgb(29, 34, 40)">
     <div class="container-fluid">
         <a href="../index.php"><img src="../img/bioskop online.png" width="170"></a>
@@ -81,7 +112,7 @@
 				</form>
 			</div>
 		</div>
-	</div>
+	</div>-->
 </body>
 
 </html>
