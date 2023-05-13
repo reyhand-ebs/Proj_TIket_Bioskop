@@ -1,38 +1,3 @@
-<?php
-include('./inc.koneksi.php');
-require_once('./class/class.user.php');
-require_once('./class/class.mail.php');
-
-if (isset($_POST['btnSubmit'])) {
-    $inputemail = $_POST["email"];
-
-    $objUser = new User();
-    $objUser->ValidateEmail($inputemail);
-    $objUser->hasil = false;
-    if ($objUser->hasil) {
-        echo "<script>alert('Email tidak terdaftar'); </script>";
-    } else {
-        $objUser->email = $_POST["email"];
-        date_default_timezone_set("Asia/Jakarta");
-        $token = hash('sha256', md5(date('Y-m-d') . date("h")));
-        $objUser->token = $token;
-        $objUser->UpdateToken();
-
-        $subject = "Konfirmasi Ganti Password";
-        $message = '<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
-					Silakan klik tautan berikut untuk mengganti password email anda:
-					</span>
-					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
-						<a href="http://localhost/Proj_Tiket_Bioskop/changepassword.php?t=' . $token . '">http://localhost/Proj_Tiket_Bioskop/changepassword.php?t=' . $token . '</a>
-					</span>';
-
-        Mail::SendMail($objUser->email, $objUser->name, $subject, $message);
-
-        echo "<script> alert('Konfirmasi email berhasil dikirim, silahkan cek email anda'); </script>";
-        echo '<script> window.location="index.php?p=login"; </script>';
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
