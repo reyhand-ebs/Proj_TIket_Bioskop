@@ -21,7 +21,8 @@ if (isset($_POST['btnRegister'])) {
 			//$objUser->password = password_hash($password, PASSWORD_DEFAULT);		
 			$objUser->name = $_POST['name'];
 			$objUser->nohp = $_POST['nohp'];
-			$token=hash('sha256', md5(date('Y-m-d')));
+			date_default_timezone_set("Asia/Jakarta");
+			$token=hash('sha256', md5(date('Y-m-d').date("h")));
 			$objUser->token = $token;
 			$objUser->AddUser();
 
@@ -45,7 +46,7 @@ if (isset($_POST['btnRegister'])) {
 <html lang="en">
 
 <head>
-	<title>Tubirit | Sign Up</title>
+	<title>Bioskop 165 | Sign Up</title>
 </head>
 
 <body>
@@ -75,7 +76,7 @@ if (isset($_POST['btnRegister'])) {
 					<div class="col-md-6 d-grid">
 						<button class="btn btn-primary rounded-pill btn-lg" name="btnRegister" type="submit"
 							value="Register">Register</button>
-						<p>Sudah punya akun? <a href="index.php?p=login" style="color: #4285F4">Register</a></p>
+						<p>Sudah punya akun? <a href="index.php?p=login" style="color: #4285F4">Login</a></p>
 					</div>
 				</form>
 			</div>

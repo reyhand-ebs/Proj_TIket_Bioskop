@@ -1,7 +1,7 @@
 <?php
 	class Connection {
 
-	private $host = "mysql:host=localhost;dbname=tiket_bioskop";
+	private $host = "mysql:host=localhost;dbname=bioskop";
 	private $struser = "root";
 	private $strpassword = "";
 	public $connection;

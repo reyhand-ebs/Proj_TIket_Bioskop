@@ -1,7 +1,7 @@
 <html lang="en">
 
 <head>
-    <title>Tubirit | Login</title>
+    <title>Bioskop 165 | Activation</title>
 </head>
 
 <body>
@@ -11,7 +11,8 @@
         include('./inc.koneksi.php');
         require_once('./class/class.user.php');
         //$token=$_GET['t'];
-        $token = hash('sha256', md5(date('Y-m-d')));
+        date_default_timezone_set("Asia/Jakarta");
+        $token=hash('sha256', md5(date('Y-m-d').date("h")));
 
         $objUser = new User();
 	    $objUser->ValidateToken($token);

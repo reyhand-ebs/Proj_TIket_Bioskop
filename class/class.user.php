@@ -10,7 +10,6 @@ class User extends Connection {
 	private $aktif='';
 	private $idrole='';
 	private $role='';
-	
 	private $hasil= false;
 	private $message ='';
 	
@@ -19,13 +18,11 @@ class User extends Connection {
     	return $this->$atribute;
 		}
 	}
-
 	public function __set($atribut, $value){
 		if (property_exists($this, $atribut)) {
 			$this->$atribut = $value;
 		}
 	}
-
 	public function AddUser(){
 		$sql = "INSERT INTO user(email, password, name, nohp, token, aktif, roleid)
 				VALUES ('$this->email', '$this->password', '$this->name', '$this->nohp', '$this->token', '0','role2')";
@@ -36,9 +33,8 @@ class User extends Connection {
 		else
 			$this->message ='Data gagal ditambahkan!';	
 	}
-	
 	public function UpdateUser(){
-		$sql = "UPDATE user SET email = '$this->email', password='$this->password', name='$this->name', nohp='$this->nohp' WHERE iduser = '$this->iduser'";
+		$sql = "UPDATE user SET email = '$this->email', password='$this->password', name='$this->name', nohp='$this->nohp' WHERE userid = '$this->userid'";
 		$this->hasil = $this->connection->exec($sql);
 			
 		if($this->hasil)
@@ -46,7 +42,25 @@ class User extends Connection {
 		else
 			$this->message ='Data gagal diubah!';
 	}
-		
+	public function UpdatePassword(){
+		$sql = "UPDATE user SET password='$this->password' WHERE userid = '$this->userid'";
+		$this->hasil = $this->connection->exec($sql);
+			
+		if($this->hasil)
+			$this->message ='Password berhasil diubah!';
+		else
+			$this->message ='Password gagal diubah!';
+	}
+	public function UpdateToken(){
+		$sql = "UPDATE user SET token='$this->token' WHERE userid = '$this->userid'";
+		$this->hasil = $this->connection->exec($sql);
+			
+		if($this->hasil)
+			$this->message ='Token berhasil diubah!';
+		else
+			$this->message ='Token gagal diubah!';
+	}
+
 	public function DeleteUser(){
 		$sql = "DELETE FROM user WHERE userid=$this->userid";
 		$this->hasil = $this->connection->exec($sql);

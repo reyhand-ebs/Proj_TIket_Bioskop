@@ -1,3 +1,48 @@
+<?php
+include('./inc.koneksi.php');
+require_once('./class/class.user.php');
+//$token=$_GET['t'];
+date_default_timezone_set("Asia/Jakarta");
+$token = hash('sha256', md5(date('Y-m-d') . date("h")));
+
+$objUser = new User();
+$objUser->ValidateToken($token);
+
+if ($objUser->hasil) {
+    if (isset($_POST['btnSubmit'])) {
+        $inputemail = $_POST["email"];
+
+        $objUser = new User();
+        $objUser->ValidateEmail($inputemail);
+        $objUser->hasil = false;
+        if ($objUser->hasil) {
+            echo "<script>alert('Email tidak terdaftar'); </script>";
+        } else {
+            $objUser->email = $_POST["email"];
+            date_default_timezone_set("Asia/Jakarta");
+            $token = hash('sha256', md5(date('Y-m-d') . date("h")));
+            $objUser->token = $token;
+            $objUser->UpdateToken();
+
+            $subject = "Konfirmasi Ganti Password";
+            $message = '<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
+                        Silakan klik tautan berikut untuk mengganti password email anda:
+                        </span>
+                        <span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
+                            <a href="http://localhost/Proj_Tiket_Bioskop/changepassword.php?t=' . $token . '">http://localhost/Proj_Tiket_Bioskop/changepassword.php?t=' . $token . '</a>
+                        </span>';
+
+            Mail::SendMail($objUser->email, $objUser->name, $subject, $message);
+
+            echo "<script> alert('Konfirmasi email berhasil dikirim, silahkan cek email anda'); </script>";
+            echo '<script> window.location="index.php?p=login"; </script>';
+        }
+    }
+} else {
+    //data tidak di temukan
+    echo '<div class="alert alert-warning">Invalid Token!</div>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,12 +54,13 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <title>Bioskop 165 | Lupa Password</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-dark sticky-top py-0 px-2">
         <div class="container-fluid">
-            <a href="index.php?p=home" class="navbar-brand"><img src="./img/bioskop online.png" alt="logo bioskop"
+            <a href="" class="navbar-brand disabled"><img src="./img/bioskop online.png" alt="logo bioskop"
                     class="w-50"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +69,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav fs-6">
                     <li class="nav-item">
-                        <a href="index.php?p=home" class="nav-link text-white">Home</a>
+                        <a href="index.php?p=home" class="nav-link disabled text-white">Home</a>
                     </li>
                 </ul>
             </div>
@@ -31,29 +77,28 @@
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-md btn-outline-success" type="submit">Search</button>
             </form>
-            <a href="index.php?p=login"><button class="btn btn-md btn-primary ms-md-3 rounded-3">Login</button></a>
-            <a href="index.php?p=register"><button
-                    class="btn btn-md btn-outline-primary ms-md-3 rounded-3">Register</button></a>
+            <button class="btn btn-md btn-primary ms-md-3 rounded-3 disabled">Login</button>
+            <button class="btn btn-md btn-outline-primary ms-md-3 rounded-3 disabled">Register</button>
         </div>
     </nav>
-
-    <?php
-    $pages_dir = 'pages';
-    if (!empty($_GET['p'])) {
-        $pages = scandir($pages_dir, 0);
-        unset($pages[0], $pages[1]);
-
-        $p = $_GET['p'];
-        if (in_array($p . '.php', $pages)) {
-            include($pages_dir . '/' . $p . '.php');
-        } else {
-            echo 'Halaman tidak ditemukan! :(';
-        }
-    } else {
-        include($pages_dir . '/login.php');
-    }
-    ?>
-
+    <div class="container py-5 justify-content-center rounded-5" id="inputlogin">
+        <div class="row">
+            <div class="col align-self-center">
+                <h1 class="title pb-5 text-center"><strong>Masukkan Password</strong></h1>
+                <form action="" class="row g-3 justify-content-center" method="POST">
+                    <div class="col-md-10">
+                        <label for="email">Masukkan email :</label>
+                        <input type="email" class="form-control mt-2 form-control-lg rounded-pill" placeholder="E-mail"
+                            name="email" required>
+                    </div>
+                    <div class="col-md-6 d-grid">
+                        <button class="btn btn-primary rounded-pill btn-lg" name="btnSubmit" type="submit"
+                            value="Submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <footer class="bg-dark text-white pt-5">
         <div class="footer-top mt-20 container">
             <div class="row gy-4">
