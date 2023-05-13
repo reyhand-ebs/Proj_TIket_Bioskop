@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<!--footer-->
+<!--header-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: rgb(29, 34, 40)">
     <div class="container-fluid">
         <a href="../index.php"><img src="../img/bioskop online.png" width="170"></a>
@@ -49,7 +49,6 @@
         <a href="../pages/login.php"><button class="btn btn-dark ms-md-3 rounded-4" style="background-color: #C70039;">Masuk</button></a>
     </div>
     </nav>
-
 	<div class="container py-5 justify-content-center rounded-5" id="inputlogin">
 		<div class="row">
 			<div class="col align-self-center">
