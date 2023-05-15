@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Home | Bioskop 165</title>
+    <title>Beranda | Bioskop 165</title>
 </head>
 
 <body>

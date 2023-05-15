@@ -1,47 +1,33 @@
 <?php
 include('./inc.koneksi.php');
 require_once('./class/class.user.php');
-//$token=$_GET['t'];
-date_default_timezone_set("Asia/Jakarta");
-$token = hash('sha256', md5(date('Y-m-d') . date("h")));
 
-$objUser = new User();
-$objUser->ValidateToken($token);
+if (isset($_POST['btnSubmit'])) {
+    $password = $_POST["newpass"];
+    $repassword = $_POST["renewpass"];
 
-if ($objUser->hasil) {
-    if (isset($_POST['btnSubmit'])) {
-        $inputemail = $_POST["email"];
-
-        $objUser = new User();
-        $objUser->ValidateEmail($inputemail);
-        $objUser->hasil = false;
-        if ($objUser->hasil) {
-            echo "<script>alert('Email tidak terdaftar'); </script>";
+    $objUser = new User();
+    $objUser->ValidateTokenNew($_GET['t']);
+    if ($objUser->hasil) {
+        if (strlen($password) < 8) {
+            echo "<script>alert('Password harus terdiri dari minimal 8 karakter');</script>";
+        } else if (!preg_match("/^[a-zA-Z0-9]+$/", $password)) {
+            echo "<script>alert('Password hanya boleh terdiri dari huruf abjad dan angka');</script>";
+        } else if ($password == strtolower($password)) {
+            echo "<script>alert('Password harus mengandung huruf kapital');</script>";
+        } else if ($password != $repassword) {
+            echo "<script>alert('Kata sandi tidak sama');</script>";
         } else {
-            $objUser->email = $_POST["email"];
-            date_default_timezone_set("Asia/Jakarta");
-            $token = hash('sha256', md5(date('Y-m-d') . date("h")));
-            $objUser->token = $token;
-            $objUser->UpdateToken();
-
-            $subject = "Konfirmasi Ganti Password";
-            $message = '<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
-                        Silakan klik tautan berikut untuk mengganti password email anda:
-                        </span>
-                        <span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
-                            <a href="http://localhost/Proj_Tiket_Bioskop/changepassword.php?t=' . $token . '">http://localhost/Proj_Tiket_Bioskop/changepassword.php?t=' . $token . '</a>
-                        </span>';
-
-            Mail::SendMail($objUser->email, $objUser->name, $subject, $message);
-
-            echo "<script> alert('Konfirmasi email berhasil dikirim, silahkan cek email anda'); </script>";
+            $objUser->password = password_hash($password, PASSWORD_DEFAULT);
+            $objUser->UpdateUser();
+            echo "<script> alert('Password berhasil diubah, silahkan masuk kembali ke akun anda'); </script>";
             echo '<script> window.location="index.php?p=login"; </script>';
         }
+    } else {
+        //data tidak ditemukan
+        echo '<div class="alert alert-warning">Invalid Token!</div>';
     }
-} else {
-    //data tidak di temukan
-    echo '<div class="alert alert-warning">Invalid Token!</div>';
-}
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +40,7 @@ if ($objUser->hasil) {
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Bioskop 165 | Lupa Password</title>
+    <title>Masukkan Kata Sandi | Bioskop 165</title>
 </head>
 
 <body>
@@ -84,12 +70,17 @@ if ($objUser->hasil) {
     <div class="container py-5 justify-content-center rounded-5" id="inputlogin">
         <div class="row">
             <div class="col align-self-center">
-                <h1 class="title pb-5 text-center"><strong>Masukkan Password</strong></h1>
+                <h1 class="title pb-5 text-center"><strong>Masukkan Kata Sandi</strong></h1>
                 <form action="" class="row g-3 justify-content-center" method="POST">
                     <div class="col-md-10">
-                        <label for="email">Masukkan email :</label>
-                        <input type="email" class="form-control mt-2 form-control-lg rounded-pill" placeholder="E-mail"
-                            name="email" required>
+                        <!-- <label for="newpass">Kata Sandi Baru: </label> -->
+                        <input type="password" class="form-control mt-2 form-control-lg rounded-pill" placeholder="Kata Sandi Baru"
+                            name="newpass" required>
+                    </div>
+                    <div class="col-md-10">
+                        <!-- <label for="renewpass">Konfirmasi Kata Sandi Baru :</label> -->
+                        <input type="password" class="form-control mt-2 form-control-lg rounded-pill" placeholder="Konfirmasi Kata Sandi Baru"
+                            name="renewpass" required>
                     </div>
                     <div class="col-md-6 d-grid">
                         <button class="btn btn-primary rounded-pill btn-lg" name="btnSubmit" type="submit"

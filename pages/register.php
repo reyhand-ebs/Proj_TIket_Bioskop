@@ -13,9 +13,15 @@ if (isset($_POST['btnRegister'])) {
 	if ($objUser->hasil) {
 		echo "<script>alert('Email sudah terdaftar'); </script>";
 	} else {
-		if ($password != $retypepassword) {
-			echo "<script>alert('Password tidak match, silahkan cek kembali password anda'); </script>";
-		} else {
+        if (strlen($password) < 8) {
+            echo "<script>alert('Password harus terdiri dari minimal 8 karakter');</script>";
+        } else if (!preg_match("/^[a-zA-Z0-9]+$/", $password)) {
+            echo "<script>alert('Password hanya boleh terdiri dari huruf abjad dan angka');</script>";
+        } else if ($password == strtolower($password)) {
+            echo "<script>alert('Password harus mengandung huruf kapital');</script>";
+        } else if ($password != $retypepassword) {
+            echo "<script>alert(''Password tidak match, silahkan cek kembali password anda');</script>";
+        } else {
 			$objUser->email = $_POST["email"];
 			$objUser->password = password_hash($password, PASSWORD_DEFAULT);
 			//$objUser->password = password_hash($password, PASSWORD_DEFAULT);		
@@ -46,14 +52,14 @@ if (isset($_POST['btnRegister'])) {
 <html lang="en">
 
 <head>
-	<title>Bioskop 165 | Sign Up</title>
+	<title>Daftar Akun | Bioskop 165</title>
 </head>
 
 <body>
 	<div class="container py-5 justify-content-center rounded-5" id="inputsignup">
 		<div class="row">
 			<div class="col align-self-center">
-				<h1 class="title pb-5 text-center"><strong>Sign Up</strong></h1>
+				<h1 class="title pb-5 text-center"><strong>Daftar</strong></h1>
 				<form action="" class="row g-3 justify-content-center" method="POST">
 					<div class="col-md-10">
 						<input type="email" class="form-control mt-2 form-control-lg rounded-pill" placeholder="E-mail"
@@ -75,8 +81,8 @@ if (isset($_POST['btnRegister'])) {
 					</div>
 					<div class="col-md-6 d-grid">
 						<button class="btn btn-primary rounded-pill btn-lg" name="btnRegister" type="submit"
-							value="Register">Register</button>
-						<p>Sudah punya akun? <a href="index.php?p=login" style="color: #4285F4">Login</a></p>
+							value="Register">Daftar</button>
+						<p>Sudah punya akun? <a href="index.php?p=login" style="color: #4285F4">Masuk</a></p>
 					</div>
 				</form>
 			</div>

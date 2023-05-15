@@ -23,17 +23,17 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav fs-6">
                     <li class="nav-item">
-                        <a href="index.php?p=home" class="nav-link text-white">Home</a>
+                        <a href="index.php?p=home" class="nav-link text-white">Beranda</a>
                     </li>
                 </ul>
             </div>
             <form class="d-flex mx-5" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-md btn-outline-success" type="submit">Search</button>
+                <input class="form-control me-2" type="search" placeholder="Cari Film atau Genre" aria-label="Search">
+                <button class="btn btn-md btn-outline-success" type="submit">Cari</button>
             </form>
-            <a href="index.php?p=login"><button class="btn btn-md btn-primary ms-md-3 rounded-3">Login</button></a>
+            <a href="index.php?p=login"><button class="btn btn-md btn-primary ms-md-3 rounded-3">Masuk</button></a>
             <a href="index.php?p=register"><button
-                    class="btn btn-md btn-outline-primary ms-md-3 rounded-3">Register</button></a>
+                    class="btn btn-md btn-outline-primary ms-md-3 rounded-3">Daftar</button></a>
         </div>
     </nav>
 

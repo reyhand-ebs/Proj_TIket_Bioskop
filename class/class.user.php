@@ -12,7 +12,6 @@ class User extends Connection {
 	private $role='';
 	private $hasil= false;
 	private $message ='';
-	
 	public function __get($atribute) {
 	if (property_exists($this, $atribute)) {
     	return $this->$atribute;
@@ -42,15 +41,6 @@ class User extends Connection {
 		else
 			$this->message ='Data gagal diubah!';
 	}
-	public function UpdatePassword(){
-		$sql = "UPDATE user SET password='$this->password' WHERE userid = '$this->userid'";
-		$this->hasil = $this->connection->exec($sql);
-			
-		if($this->hasil)
-			$this->message ='Password berhasil diubah!';
-		else
-			$this->message ='Password gagal diubah!';
-	}
 	public function UpdateToken(){
 		$sql = "UPDATE user SET token='$this->token' WHERE userid = '$this->userid'";
 		$this->hasil = $this->connection->exec($sql);
@@ -60,7 +50,6 @@ class User extends Connection {
 		else
 			$this->message ='Token gagal diubah!';
 	}
-
 	public function DeleteUser(){
 		$sql = "DELETE FROM user WHERE userid=$this->userid";
 		$this->hasil = $this->connection->exec($sql);
@@ -70,7 +59,6 @@ class User extends Connection {
 		else
 			$this->message ='Data gagal dihapus!';
 	}
-
 	public function ValidateToken($token) {
 		$sql = "SELECT * FROM user WHERE token= '$token' AND aktif='0'";
 		$resultOne = $this->connection->query($sql);
@@ -88,13 +76,27 @@ class User extends Connection {
 			}
 		}
 	}
-
+	public function ValidateTokenNew($token) {
+		$sql = "SELECT * FROM user WHERE token= '$token' AND aktif='1'";
+		$resultOne = $this->connection->query($sql);
+		if ($resultOne->rowCount() == 1){
+			while ($data = $resultOne->fetch(PDO::FETCH_OBJ)) {
+				$this->hasil = true;
+				$this->userid = $data->userid;
+				$this->email = $data->email;
+				$this->password=$data->password;
+				$this->name=$data->name;
+				$this->nohp=$data->nohp;
+				$this->token=$data->token;
+				$this->idrole=$data->roleid;
+				$this->aktif = $data->aktif;
+			}
+		}
+	}
 	public function UpdateAktif() {
 		$sql = "UPDATE user SET aktif='1' WHERE token='$this->token' AND aktif='0'";
 		$this->hasil = $this->connection->exec($sql);
 	}
-	
-
 	public function ValidateEmail($inputemail){
 		$sql = "SELECT * FROM user WHERE email = '$inputemail' AND aktif='1'";
 		$resultOne = $this->connection->query($sql);
@@ -111,7 +113,6 @@ class User extends Connection {
 			}
 		}
 	}
-	
 	public function SelectOneUser(){
 		$sql = "SELECT * FROM user WHERE userid = '$this->userid'";
 		$result = $this->connection->query($sql);
@@ -128,7 +129,6 @@ class User extends Connection {
 			}
 		}		
 	}
-	
 	public function SelectAllUser(){
 		$sql = "SELECT u.*, r.role FROM user u, role r WHERE u.idrole=r.idrole ORDER BY userid";
 		$result = $this->connection->query($sql);
@@ -152,7 +152,6 @@ class User extends Connection {
 		}
 		return $arrResult;
 	}
-	
 	public function SelectAllUserByUserid($currentuserid){
 		if ($currentuserid == NULL)
 			$sql = "SELECT * FROM user WHERE userid IS NULL";
