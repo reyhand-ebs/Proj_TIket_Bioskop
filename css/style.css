@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
     --primary: #D3EBCD;
@@ -8,86 +8,16 @@
     --white: #ffffff;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{  
+    font-family: 'Inter', sans-serif;
+    font-weight: lighter;
+    color: #ffffff;
 }
 
 body {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #113250;
-    font-family: 'Inter', sans-serif;
-}
-
-.login {
-    width: 360px;
-    height: min-content;
-    padding: 20px;
-    border-radius: 12px;
     background-color: #1F1F1F;
 }
 
-.login h1 {
-    font-size: 36px;
-    margin-bottom: 25px;
+.btn {
+    font-weight: 500;
 }
-
-.login form .form-group {
-    margin-bottom: 12px;
-}
-
-.login form input[type="submit"] {
-    font-size: 20px;
-    margin-top: 15px;
-}
-
-/*body {
-    background-color: #1F1F1F;
-    font-family: 'Inter', sans-serif;
-}*/
-
-/*#inputlogin{
-    width: 500px;
-    height: auto;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-#inputsignup{
-    width: 500px;
-    height: auto;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-.card-effect {
-    box-shadow: var(--box-shadow);
-    background-color: var(--white);
-    padding: 25px;
-    transition: all 0.35s ease;
-}
-
-.card-effect:hover {
-    box-shadow: none;
-    transform: translateY(5px);
-}
-
-form input.form-control {
-    height: 56px;
-}
-
-form .form-control {
-    border: transparent;
-    border-radius: 0;
-    background-color: rgba(0,0,0,0.02);
-}
-*/
