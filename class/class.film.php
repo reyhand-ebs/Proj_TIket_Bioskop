@@ -1,4 +1,5 @@
 <?php
+
 class Film extends Connection {
 	private $id_film='';
 	private $judul_film = '';
@@ -57,47 +58,6 @@ class Film extends Connection {
 		else
 			$this->message ='Data gagal dihapus!';
 	}
-
-	//public function ValidateToken($token) {
-	//	$sql = "SELECT * FROM user WHERE token= '$token' AND aktif='0'";
-	//	$resultOne = $this->connection->query($sql);
-	//	if ($resultOne->rowCount() == 1){
-	//		while ($data = $resultOne->fetch(PDO::FETCH_OBJ)) {
-	//			$this->hasil = true;
-	//			$this->userid = $data->userid;
-	//			$this->email = $data->email;
-	//			$this->password=$data->password;
-	//			$this->name=$data->name;
-	//			$this->nohp=$data->nohp;
-	//			$this->token=$data->token;
-	//			$this->idrole=$data->roleid;
-	//			$this->aktif = $data->aktif;
-	//		}
-	//	}
-	//}
-
-	//public function UpdateAktif() {
-	//	$sql = "UPDATE user SET aktif='1' WHERE token='$this->token' AND aktif='0'";
-	//	$this->hasil = $this->connection->exec($sql);
-	//}
-	
-
-	//public function ValidateEmail($inputemail){
-		//$sql = "SELECT * FROM user WHERE email = '$inputemail' AND aktif='1'";
-		//$resultOne = $this->connection->query($sql);
-
-		//if ($resultOne->rowCount() == 1){
-		//	while ($data = $resultOne->fetch(PDO::FETCH_OBJ)) {
-		//		$this->hasil = true;
-		//		$this->userid = $data->userid;
-		//		$this->email = $data->email;
-		//		$this->password=$data->password;
-		//		$this->name=$data->name;
-		//		$this->nohp=$data->nohp;
-		//		$this->roleid=$data->roleid;
-		//	}
-		//}
-	//}
 	
 	public function SelectOneFilm(){
 		$sql = "SELECT * FROM film WHERE id_film = '$this->id_film'";
@@ -128,9 +88,48 @@ class Film extends Connection {
 		$result = $this->connection->query($sql);
 		
 		$arrResult = Array();
+    }
+
+    public function SearchFilm() {
+        $sql = "SELECT * FROM film WHERE judul_film like '%".$kata_cari."%' OR aktor like '%".$kata_cari."%' ORDER BY id ASC";
+        $result = $this->connection->query($sql);
+
+        $arrResult = Array();
+
 		$i=0;
 		if($result->rowCount() > 0){
 			while($data= $result->fetch(PDO::FETCH_OBJ))
+			{
+				$objFilm = new Film();
+				$objFilm->id_film = $data->id_film; 
+				$objFilm->judul_film = $data->judul_film;
+				$objFilm->rilis = $data->rilis;
+				$objFilm->genre=$data->genre;
+				$objFilm->durasi=$data->durasai;
+				$objFilm->detail_film=$data->detail_film;
+				$objFilm->produser=$data->produser;
+                $objFilm->penulis=$data->penulis;
+                $objFilm->sutradara=$data->sutradara;
+                $objFilm->produksi=$data->produksi;
+                $objFilm->aktor=$data->aktor;
+				$arrResult[$i] = $objFilm;
+				$i++;
+			}
+		}
+		return $arrResult;
+	}
+
+    public function SelectAllFilmByFilmid($currentuserid){
+		if ($currentuserid == NULL)
+			$sql = "SELECT * FROM film WHERE id_film IS NULL";
+		else
+			$sql = "SELECT * FROM film WHERE id_film = $currentuserid";				
+		$result = $this->connection->query($sql);
+			
+		$arrResult = Array();
+		$cnt=0;
+		if($result->rowCount() > 0){				
+			while ($data= $result->fetch(PDO::FETCH_OBJ))
 			{
 				$objfilm = new Film();
 				$objfilm->id_film = $data->id_film;
@@ -144,15 +143,15 @@ class Film extends Connection {
 				$objfilm->sutradara=$data->sutradara;
                 $objfilm->produksi=$data->produksi;
 				$objfilm->aktor=$data->aktor;
-                //$objfilm->genreid = $data->genreid;
-				$arrResult[$i] = $objfilm;
-				$i++;
+                $objfilm->genreid = $data->genreid;
+				$arrResult[$cnt] = $objfilm;
+				$cnt++;
 			}
 		}
 		return $arrResult;
 	}
-	
-	public function SelectAllFilmByFilmid($currentuserid){
+    
+    public function SelectAllFilmByFilmid($currentuserid){
 		if ($currentuserid == NULL)
 			$sql = "SELECT * FROM film WHERE id_film IS NULL";
 		else
@@ -185,5 +184,3 @@ class Film extends Connection {
 	}
 }
 ?>
-    	
-	
