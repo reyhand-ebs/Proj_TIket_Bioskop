@@ -37,7 +37,7 @@
                   </div>
 
                   <div class="text-center">
-                    <a href="register.php"
+                    <a href="login.php"
                       style="color: #70AFE9;">< Kembali</a>
                   </div>
                 </form>
