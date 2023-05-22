@@ -26,6 +26,9 @@
             <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Beranda</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Film Saya</a>
+            </li>
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Genre
@@ -41,12 +44,21 @@
                 <li><a class="dropdown-item" href="#">Romance</a></li>
             </ul>
         </ul>
-        <form class="d-flex" role="search">
+        <form class="d-flex mr-2" role="search">
             <input class="form-control me-2 rounded-5" type="search" placeholder="Cari film atau orang.." aria-label="Search">
             <button class="btn btn-outline-success rounded-5" type="submit">Cari</button>
         </form>
         </div>
-        <a href="pages/login.php"><button class="btn btn-dark ms-md-3 rounded-5" style="background-color: #113250;">Masuk</button></a>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="img/profile.png" width=40>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Favorit</a></li>
+                    <li><a class="dropdown-item" href="#" style="#color: #FF0000;">Logout</a></li>
+                </ul>
+            </div>
     </div>
     </nav>
 
