@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Cari Film</title>
+	<title>Cari Genre</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
@@ -13,7 +13,7 @@
 
 <body>
     <div class="container mt-5 mb-5">
-        <h3 class="mb-4">Anda mencari : '<i>avatar</i>'</h3>
+        <h3 class="mb-4">Adventure</h3>
         <div class="row">
             <div class="col-2 mb-3" style="position: relative; display: inline-block;">
                 <img src="../img/avatar.jpg" class="card-img-top" style="border-radius: 10px;" alt="">
