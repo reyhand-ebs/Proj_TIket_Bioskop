@@ -21,3 +21,28 @@ body {
 .btn {
     font-weight: 500;
 }
+
+.rating {
+    display: inline-block;
+  }
+  
+  .rating input[type="radio"] {
+    display: none;
+  }
+  
+  .rating label {
+    float: right;
+    width: 20px;
+    height: 20px;
+    margin-left: 2px;
+    background-image: url("star.png"); /* Ganti dengan URL gambar bintang Anda */
+    background-position: 0 -20px;
+    cursor: pointer;
+  }
+  
+  .rating label:hover,
+  .rating label:hover ~ label,
+  .rating input[type="radio"]:checked ~ label {
+    background-position: 0 0;
+  }
+  

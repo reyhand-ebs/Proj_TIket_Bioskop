@@ -15,12 +15,16 @@
     <div class="container mt-5 mb-5">
         <div class="row">
             <div class="col-6 mb-4">
-                <iframe width="100%" height="310" src="https://www.youtube.com/embed/qDjF9Bkib28" style="border-radius: 20px;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe width="100%" height="310" src="https://www.youtube.com/embed/qDjF9Bkib28" style="border-radius: 10px;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 <!--<img src="../img/dr cha.jpg" style="width: 100%; height: 500px; border-radius: 20px; filter: grayscale(100%);">-->
             </div>
             <div class="col-6">
                 <h1>Doctor Cha (2023)</h1>
-                <h6 class="mb-5">Komedi, Drama Keluarga - 8 episode</h6>
+                <h6 class="mb-3">Komedi, Drama Keluarga - 8 episode</h6>
+                <div class="mb-4">
+                    <img src="../img/star.png" width="20" style="float: left; margin: 3px;">
+                    <h4>4.6</h4>
+                </div>
                 <a href=""><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #FFFFFF; color: #113250; font-weight: 500; text-align: left;"><i class="fa-solid fa-plus fa-lg" style="color: #113250;"></i>Tambahkan ke</br>Wishlist Saya</button></a>
                 <a href=""><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #113250; color: #FFFFFF; font-weight: 500;"><i class="fa-solid fa-ticket" style="color: #ffffff;"></i>Beli Tiket</br>IDR 15.000</button></a>
             </div>
@@ -45,17 +49,53 @@
     </div>
 
     <div class="container">
-        <h2>Review</h2>
+        <h2>Ulasan</h2>
         <hr style="color: #30689C; border-width: 4px; margin-top: 20px;">
         <div class="row">
-            <div class="col-1">
+            <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5">
+                <label for="star5"></label>
+                <input type="radio" id="star4" name="rating" value="4">
+                <label for="star4"></label>
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3"></label>
+                <input type="radio" id="star2" name="rating" value="2">
+                <label for="star2"></label>
+                <input type="radio" id="star1" name="rating" value="1">
+                <label for="star1"></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <textarea rows="4" style="width: 100%; color: #1F1F1F; border-radius: 10px;" placeholder="Tulis ulasan..."></textarea>
+                <div class="mt-2 mb-4 text-right">
+                    <a href=""><button class="btn btn-lg rounded-pill" style="color: #FFFFFF; font-weight: 400; font-size: 15px;">Batal</button></a>
+                    <a href=""><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #113250; color: #FFFFFF; font-weight: 400; font-size: 15px;">Kirim</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1 mr-2">
                 <div class="rounded-circle">
-                    <img src="../img/bg.jpg" style="width: 70px; height: 70px; border-radius: 50%;" alt="Gambar" class="img-fluid">
+                    <img src="../img/profile.png" style="width: 70px;" alt="Gambar">
                 </div>
             </div>
             <div class="col-11">
                 <h5>Chiekal Mulia</h5>
-                <p>Rating 5</p>
+                <img src="../img/star.png" width="15" style="float: left; margin: 3px;"><p>5</p>
+                <p class="mt-2">"Keren film nyee..."</p>
+            </div>
+        </div>
+        <hr color="grey">
+        <div class="row">
+            <div class="col-1">
+                <div class="rounded-circle">
+                    <img src="../img/profile.png" style="width: 70px;" alt="Gambar">
+                </div>
+            </div>
+            <div class="col">
+                <h5>Khaira Isyara</h5>
+                <img src="../img/star.png" width="15" style="float: left; margin: 3px;"><p>5</p>
                 <p>"Keren film nyee..."</p>
             </div>
         </div>
@@ -63,12 +103,12 @@
         <div class="row">
             <div class="col-1">
                 <div class="rounded-circle">
-                    <img src="../img/bg.jpg" style="width: 70px; height: 70px; border-radius: 50%;" alt="Gambar" class="img-fluid">
+                    <img src="../img/profile.png" style="width: 70px;" alt="Gambar">
                 </div>
             </div>
             <div class="col">
                 <h5>Khaira Isyara</h5>
-                <p>Rating 5</p>
+                <img src="../img/star.png" width="15" style="float: left; margin: 3px;"><p>5</p>
                 <p>"Keren film nyee..."</p>
             </div>
         </div>
@@ -76,25 +116,12 @@
         <div class="row">
             <div class="col-1">
                 <div class="rounded-circle">
-                    <img src="../img/bg.jpg" style="width: 70px; height: 70px; border-radius: 50%;" alt="Gambar" class="img-fluid">
+                    <img src="../img/profile.png" style="width: 70px;" alt="Gambar">
                 </div>
             </div>
             <div class="col">
                 <h5>Khaira Isyara</h5>
-                <p>Rating 5</p>
-                <p>"Keren film nyee..."</p>
-            </div>
-        </div>
-        <hr color="grey">
-        <div class="row">
-            <div class="col-1">
-                <div class="rounded-circle">
-                    <img src="../img/bg.jpg" style="width: 70px; height: 70px; border-radius: 50%;" alt="Gambar" class="img-fluid">
-                </div>
-            </div>
-            <div class="col">
-                <h5>Khaira Isyara</h5>
-                <p>Rating 5</p>
+                <img src="../img/star.png" width="15" style="float: left; margin: 3px;"><p>5</p>
                 <p>"Keren film nyee..."</p>
             </div>
         </div>
