@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark sticky-top py-0 px-2">
+    <nav class="navbar navbar-expand-lg navbar-primary sticky-top py-0 px-2" style="background-color: #0F0E0E;">
         <div class="container-fluid">
             <a href="index.php?p=home" class="navbar-brand"><img src="./img/bioskop online.png" alt="logo bioskop"
                     class="w-50"></a>
@@ -54,7 +54,7 @@
     }
     ?>
 
-    <footer class="bg-dark text-white pt-5">
+    <footer class="bg-black text-white pt-5">
         <div class="footer-top mt-20 container">
             <div class="row gy-4">
                 <div class="col-lg-4">
