@@ -1,3 +1,53 @@
+<?php
+include('./inc.koneksi.php');
+require_once('./class/class.user.php');
+require_once('./class/class.mail.php');
+
+if (isset($_POST['btnRegister'])) {
+	$inputemail = $_POST["email"];
+	$password = $_POST["password"];
+	$retypepassword = $_POST["retypepassword"];
+	$objUser = new User();
+	$objUser->ValidateEmail($inputemail);
+	$objUser->hasil = false;
+	if ($objUser->hasil) {
+		echo "<script>alert('Email sudah terdaftar'); </script>";
+	} else {
+        if (strlen($password) < 8) {
+            echo "<script>alert('Password harus terdiri dari minimal 8 karakter');</script>";
+        } else if (!preg_match("/^[a-zA-Z0-9]+$/", $password)) {
+            echo "<script>alert('Password hanya boleh terdiri dari huruf abjad dan angka');</script>";
+        } else if ($password == strtolower($password)) {
+            echo "<script>alert('Password harus mengandung huruf kapital');</script>";
+        } else if ($password != $retypepassword) {
+            echo "<script>alert(''Password tidak match, silahkan cek kembali password anda');</script>";
+        } else {
+			$objUser->email = $_POST["email"];
+			$objUser->password = password_hash($password, PASSWORD_DEFAULT);
+			//$objUser->password = password_hash($password, PASSWORD_DEFAULT);		
+			$objUser->name = $_POST['name'];
+			$objUser->nohp = $_POST['nohp'];
+			date_default_timezone_set("Asia/Jakarta");
+			$token=hash('sha256', md5(date('Y-m-d').date("h")));
+			$objUser->token = $token;
+			$objUser->AddUser();
+
+			$subject = "Verifikasi Registrasi Email";
+			$message = '<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
+					Silakan klik tautan berikut untuk mengkonfirmasi email anda:
+					</span>
+					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
+						<a href="http://localhost/Proj_Tiket_Bioskop/activation.php?t='.$token.'">http://localhost/Proj_Tiket_Bioskop/activation.php?t='.$token.'</a>
+					</span>';
+
+			Mail::SendMail($objUser->email, $objUser->name, $subject, $message);
+			
+			echo "<script> alert('Registrasi berhasil, silahkan cek email anda'); </script>";
+			echo '<script> window.location="index.php?p=login"; </script>';
+		}
+	}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
