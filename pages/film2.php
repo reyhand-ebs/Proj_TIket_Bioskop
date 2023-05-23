@@ -21,12 +21,13 @@
             <div class="col-6">
                 <h1>Doctor Cha (2023)</h1>
                 <h6 class="mb-3">Komedi, Drama Keluarga - 8 episode</h6>
-                <div class="mb-4">
+                <div class="mb-2">
                     <span style="font-size: 25px; color: gold;">&#9733;</span>
                     <span style="font-size: 22px; color: white;">4.6</span>
                 </div>
-                <a href=""><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #FFFFFF; color: #113250; font-weight: 500; text-align: left;"><i class="fa-solid fa-plus fa-lg" style="color: #113250;"></i>Tambahkan ke</br>Wishlist Saya</button></a>
-                <a href=""><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #113250; color: #FFFFFF; font-weight: 500;"><i class="fa-solid fa-ticket" style="color: #ffffff;"></i>Beli Tiket</br>IDR 15.000</button></a>
+                <p class="mb-4" style="color: gold; font-weight: 600; font-size: 30px;">Rp 20.000</p>
+                <a href=""><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #FFFFFF; color: #113250; font-weight: 500; text-align: center; width: 130px;">+ Wishlist</button></a>
+                <a href=""><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #113250; color: #FFFFFF; font-weight: 500; text-align: center; width: 130px;">Beli Tiket</button></a>
             </div>
         </div>
         <div class="row">
