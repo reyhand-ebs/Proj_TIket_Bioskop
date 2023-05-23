@@ -8,7 +8,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 
 <body>
@@ -22,8 +22,8 @@
                 <h1>Doctor Cha (2023)</h1>
                 <h6 class="mb-3">Komedi, Drama Keluarga - 8 episode</h6>
                 <div class="mb-4">
-                    <img src="../img/star.png" width="20" style="float: left; margin: 3px;">
-                    <h4>4.6</h4>
+                    <span style="font-size: 25px; color: gold;">&#9733;</span>
+                    <span style="font-size: 22px; color: white;">4.6</span>
                 </div>
                 <a href=""><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #FFFFFF; color: #113250; font-weight: 500; text-align: left;"><i class="fa-solid fa-plus fa-lg" style="color: #113250;"></i>Tambahkan ke</br>Wishlist Saya</button></a>
                 <a href=""><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #113250; color: #FFFFFF; font-weight: 500;"><i class="fa-solid fa-ticket" style="color: #ffffff;"></i>Beli Tiket</br>IDR 15.000</button></a>
@@ -51,21 +51,25 @@
     <div class="container">
         <h2>Ulasan</h2>
         <hr style="color: #30689C; border-width: 4px; margin-top: 20px;">
+
         <div class="row">
-            <div class="rating">
-                <input type="radio" id="star5" name="rating" value="5">
-                <label for="star5"></label>
-                <input type="radio" id="star4" name="rating" value="4">
-                <label for="star4"></label>
-                <input type="radio" id="star3" name="rating" value="3">
-                <label for="star3"></label>
-                <input type="radio" id="star2" name="rating" value="2">
-                <label for="star2"></label>
-                <input type="radio" id="star1" name="rating" value="1">
-                <label for="star1"></label>
+            <div id="star-rating">
+                <span class="star" style="font-size: 25px; color: gray; cursor: pointer;" data-rating="1">&#9733;</span>
+                <span class="star" style="font-size: 25px; color: gray; cursor: pointer;" data-rating="2">&#9733;</span>
+                <span class="star" style="font-size: 25px; color: gray; cursor: pointer;" data-rating="3">&#9733;</span>
+                <span class="star" style="font-size: 25px; color: gray; cursor: pointer;" data-rating="4">&#9733;</span>
+                <span class="star" style="font-size: 25px; color: gray; cursor: pointer;" data-rating="5">&#9733;</span>
             </div>
+            <p id="selected-rating"></p>
+            <script src="../js/script.js"></script>
+            <style>
+                .star:hover, .star.active {
+                    color: gold !important;
+                }
+            </style>
         </div>
-        <div class="row">
+        
+        <div class="row mb-4">
             <div class="col">
                 <textarea rows="4" style="width: 100%; color: #1F1F1F; border-radius: 10px;" placeholder="Tulis ulasan..."></textarea>
                 <div class="mt-2 mb-4 text-right">
@@ -82,7 +86,8 @@
             </div>
             <div class="col-11">
                 <h5>Chiekal Mulia</h5>
-                <img src="../img/star.png" width="15" style="float: left; margin: 3px;"><p>5</p>
+                <span style="font-size: 20px; color: gold;">&#9733;</span>
+                <span style="font-size: 18px; color: white;">5</span>
                 <p class="mt-2">"Keren film nyee..."</p>
             </div>
         </div>
@@ -95,7 +100,8 @@
             </div>
             <div class="col">
                 <h5>Khaira Isyara</h5>
-                <img src="../img/star.png" width="15" style="float: left; margin: 3px;"><p>5</p>
+                <span style="font-size: 20px; color: gold;">&#9733;</span>
+                <span style="font-size: 18px; color: white;">5</span>
                 <p>"Keren film nyee..."</p>
             </div>
         </div>
@@ -108,7 +114,8 @@
             </div>
             <div class="col">
                 <h5>Khaira Isyara</h5>
-                <img src="../img/star.png" width="15" style="float: left; margin: 3px;"><p>5</p>
+                <span style="font-size: 20px; color: gold;">&#9733;</span>
+                <span style="font-size: 18px; color: white;">5</span>
                 <p>"Keren film nyee..."</p>
             </div>
         </div>
@@ -121,7 +128,8 @@
             </div>
             <div class="col">
                 <h5>Khaira Isyara</h5>
-                <img src="../img/star.png" width="15" style="float: left; margin: 3px;"><p>5</p>
+                <span style="font-size: 20px; color: gold;">&#9733;</span>
+                <span style="font-size: 18px; color: white;">5</span>
                 <p>"Keren film nyee..."</p>
             </div>
         </div>
