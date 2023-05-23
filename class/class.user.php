@@ -8,7 +8,7 @@ class User extends Connection {
 	private $nohp='';
 	private $token='';
 	private $aktif='';
-	private $idrole='';
+	private $roleid='';
 	private $role='';
 	private $hasil= false;
 	private $message ='';
@@ -71,7 +71,7 @@ class User extends Connection {
 				$this->name=$data->name;
 				$this->nohp=$data->nohp;
 				$this->token=$data->token;
-				$this->idrole=$data->roleid;
+				$this->roleid=$data->roleid;
 				$this->aktif = $data->aktif;
 			}
 		}
@@ -88,7 +88,7 @@ class User extends Connection {
 				$this->name=$data->name;
 				$this->nohp=$data->nohp;
 				$this->token=$data->token;
-				$this->idrole=$data->roleid;
+				$this->roleid=$data->roleid;
 				$this->aktif = $data->aktif;
 			}
 		}
@@ -125,12 +125,12 @@ class User extends Connection {
 				$this->password = $data->password;
 				$this->name = $data->name;
 				$this->nohp = $data->nohp;
-				$this->idrole = $data->idrole;
+				$this->roleid = $data->roleid;
 			}
 		}		
 	}
 	public function SelectAllUser(){
-		$sql = "SELECT u.*, r.role FROM user u, role r WHERE u.idrole=r.idrole ORDER BY userid";
+		$sql = "SELECT u.*, r.role FROM user u, role r WHERE u.roleid=r.roleid ORDER BY userid";
 		$result = $this->connection->query($sql);
 		
 		$arrResult = Array();
@@ -144,7 +144,7 @@ class User extends Connection {
 				$objUser->password = $data->password;
 				$objUser->name=$data->name;
 				$objUser->nohp=$data->nohp;
-				$objUser->idrole=$data->idrole;
+				$objUser->roleid=$data->roleid;
 				$objUser->role=$data->role;
 				$arrResult[$i] = $objUser;
 				$i++;
@@ -170,7 +170,7 @@ class User extends Connection {
 				$objUser->password = $data->password;
 				$objUser->name=$data->name;
 				$objUser->nohp=$data->nohp;
-				$objUser->idrole=$data->idrole;
+				$objUser->roleid=$data->roleid;
 				$arrResult[$cnt] = $objUser;
 				$cnt++;
 			}

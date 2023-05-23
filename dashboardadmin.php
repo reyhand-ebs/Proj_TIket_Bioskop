@@ -1,77 +1,82 @@
-<?php 
- 	require_once('pages/authorization_admin.php'); 		
-	require "inc.koneksi.php";			
+<?php
+require_once('pages/authorization_admin.php');
+require "inc.koneksi.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard Admin</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">		
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">  
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>		
-	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="./css/style.css">
 
 </head>
+
 <body>
-<div class="example3">
-  <nav class="navbar navbar-inverse navbar-static-top blue">
-    <div class="container">
-      <div id="navbar3" class="navbar-collapse collapse">
-	    <ul class="nav navbar-nav"> 				            			
-			<li><a href="dashboardadmin.php">Home</a></li>
-			<li><a href="dashboardadmin.php?p=filmlist">Film List</a></li>
-			<li><a href="dashboardadmin.php?p=bannerlist">Banner List</a></li>
-			<li><a href="dashboardadmin.php?p=userlist">User List</a></li>
-			<li><a href="dashboardadmin.php?p=projectlist">Project List</a></li>
-			<li><a href="dashboardadmin.php?p=logout">Logout</a></li>
-			            
-        </ul>
-      </div>      
-    </div>
-  </nav>
-</div>
-	<div class="container">		
-	<div style="margin-bottom:10px">
-	<?php
-	  echo "Welcome, <b>". $_SESSION["name"]."</b><br>";	
-	  echo "Anda login sebagai, <b>". $_SESSION["roleid"]."</b>";
-	?>
-	</div>
-		<?php
-				$pages_dir = 'pages';
-				if(!empty($_GET['p'])){
-					$pages = scandir($pages_dir, 0);
-					unset($pages[0], $pages[1]);
-					
-					$p = $_GET['p'];
-					if(in_array($p.'.php', $pages)){
-						include($pages_dir.'/'.$p.'.php');
-					} else {
-						echo 'Halaman tidak ditemukan! :(';
-					}
-				} else {
-					include($pages_dir.'/sidebar.php');
-				}
-		?>
-		
-		<footer class="page-footer blue center-on-small-only">       
-            <div class="footer-copyright text-center rgba-black-light">
-                <div class="container-fluid">
-                    © 2020 Copyright: <a href="https://www.esqbs.ac.id"> ESQ Business School </a>
-                </div>
+	<nav class="navbar navbar-expand-lg bg-dark sticky-top py-0 px-2">
+        <div class="container-fluid">
+            <a href="index.php?p=home" class="navbar-brand"><img src="./img/bioskop online.png" alt="logo bioskop"
+                    class="w-50"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav fs-6">
+                    <li class="nav-item"><a href="dashboardadmin.php?p=home" class="nav-link text-white">Beranda</a></li>
+					<li class="nav-item"><a href="dashboardadmin.php?p=filmlist" class="nav-link text-white">Film List</a></li>
+					<li class="nav-item"><a href="dashboardadmin.php?p=userlist" class="nav-link text-white">User List</a></li>
+                </ul>
             </div>
-        </footer>
-	</div>	
+            <form class="d-flex mx-5" role="search">
+                <input class="form-control me-2" type="search" placeholder="Cari Film atau Genre" aria-label="Search"
+                    id="searchInput">
+                <button class="btn btn-md btn-outline-success" type="submit">Cari</button>
+            </form>
+            <a href="index.php?p=register"><button class="btn btn-md btn-outline-primary ms-md-3 rounded-3">Daftar</button></a>
+        </div>
+    </nav>
+	<div class="container">
+		<div style="margin-bottom:10px">
+			<?php
+			echo "Welcome, <b>" . $_SESSION["name"] . "</b><br>";
+			echo "Anda login sebagai, <b>" . $_SESSION["roleid"] . "</b>";
+			?>
+		</div>
+		<?php
+		$pages_dir = 'pages';
+		if (!empty($_GET['p'])) {
+			$pages = scandir($pages_dir, 0);
+			unset($pages[0], $pages[1]);
+
+			$p = $_GET['p'];
+			if (in_array($p . '.php', $pages)) {
+				include($pages_dir . '/' . $p . '.php');
+			} else {
+				echo 'Halaman tidak ditemukan! :(';
+			}
+		} else {
+			include($pages_dir . '/sidebar.php');
+		}
+		?>
+
+		<footer class="page-footer blue center-on-small-only">
+			<div class="footer-copyright text-center rgba-black-light">
+				<div class="container-fluid">
+					© 2020 Copyright: <a href="https://www.esqbs.ac.id"> ESQ Business School </a>
+				</div>
+			</div>
+		</footer>
+	</div>
 	<script>
-	$(document).ready( function () {
-    	$('.table').DataTable();
-	});
+		$(document).ready(function () {
+			$('.table').DataTable();
+		});
 	</script>
 </body>
-</html>
 
+</html>

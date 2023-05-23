@@ -22,13 +22,13 @@ if (isset($_POST['btnLogin'])) {
 			$_SESSION["userid"] = $objUser->userid;
 			$_SESSION["email"] = $objUser->email;
 			$_SESSION["name"] = $objUser->name;
-			$_SESSION["idrole"] = $objUser->idrole;
+			$_SESSION["roleid"] = $objUser->roleid;
 
 			echo "<script>alert('Login sukses');</script>";
 
-			if ($objUser->idrole == 'role1') {
+			if ($objUser->roleid == 'role1') {
 				echo '<script>window.location = "dashboardadmin.php";</script>';
-			} else if ($objUser->idrole == 'role2') {
+			} else if ($objUser->roleid == 'role2') {
 				echo '<script>window.location = "dashboardmember.php";</script>';
 			}
 		} else {

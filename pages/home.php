@@ -1,17 +1,3 @@
-<?php
-include('./inc.koneksi.php');
-require_once('./class/class.film.php');
-
-if (isset($_POST['btnLogin'])) {
-    $kata_cari = $_POST['kata_cari'];
-
-    $objFilm = new Film();
-    $objFilm->SelectAllFilm($judul_film);
-
-    //if ($objFilm->)
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,12 +6,6 @@ if (isset($_POST['btnLogin'])) {
 </head>
 
 <body>
-    <!-- search -->
-    <form method="GET" action="index.php" style="text-align: center;">
-		<label>Search : </label>
-		<input type="text" name="kata_cari" value="<?php if(isset($_GET['kata_cari'])) { echo $_GET['kata_cari']; } ?>"  />
-		<button type="submit">Cari</button>
-	</form>
     <!-- carosel -->
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner" style='height: 410px;'>

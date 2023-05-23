@@ -1,7 +1,7 @@
 <?php 
 	class Role extends Connection 
 	{
-		private $id = 0;
+		private $roleid = 0;
 		private $role = '';
 		private $hasil = false;
 		private $message ='';
@@ -31,7 +31,7 @@
 		
 		public function UpdateRole() {
 			$sql = "UPDATE role SET role ='$this->role'
-					WHERE idRole = $this->idRole";
+					WHERE roleid = $this->roleid";
 
 			$this->hasil = mysqli_query($this->connection, $sql);
 			
@@ -42,7 +42,7 @@
 		}
 		
 		public function DeleteRole() {
-            $sql = "DELETE FROM role WHERE idRole=$this->idRole";
+            $sql = "DELETE FROM role WHERE roleid=$this->roleid";
 			$this->hasil = mysqli_query($this->connection, $sql);
 			
 			if($this->hasil)
@@ -61,7 +61,7 @@
 				while ($data = mysqli_fetch_array($result))
 				{
 					$objRole = new Role(); 
-					$objRole->idRole=$data['idRole'];
+					$objRole->roleid=$data['roleid'];
 					$objRole->role=$data['role'];
 					$arrResult[$cnt] = $objRole;
 					$cnt++;
@@ -71,7 +71,7 @@
 		}
 		
 		public function SelectOneRole() {
-            $sql = "SELECT * FROM role WHERE idRole='$this->idRole'";
+            $sql = "SELECT * FROM role WHERE roleid='$this->roleid'";
 			$resultOne = mysqli_query($this->connection, $sql);	
 			if(mysqli_num_rows($resultOne) == 1){
 				$this->hasil = true;

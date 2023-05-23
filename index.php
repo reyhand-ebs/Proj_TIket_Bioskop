@@ -9,6 +9,33 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="./css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function fetchData() {
+                var query = $("#searchInput").val();
+
+                if (query === '') {
+                    $('#searchResults').empty();
+                } else {
+                    $.post("search.php", { query: query }, function (data) {
+                        $('#searchResults').html(data);
+                    });
+                }
+            }
+
+            $("#searchInput").on('input', fetchData);
+
+            $('form').on('submit', function (e) {
+                e.preventDefault();
+                var query = $("#searchInput").val();
+                if (query !== '') {
+                    window.location.href = "index.php?p=search&query=" + query;
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -28,7 +55,8 @@
                 </ul>
             </div>
             <form class="d-flex mx-5" role="search">
-                <input class="form-control me-2" type="search" placeholder="Cari Film atau Genre" aria-label="Search">
+                <input class="form-control me-2" type="search" placeholder="Cari Film atau Genre" aria-label="Search"
+                    id="searchInput">
                 <button class="btn btn-md btn-outline-success" type="submit">Cari</button>
             </form>
             <a href="index.php?p=login"><button class="btn btn-md btn-primary ms-md-3 rounded-3">Masuk</button></a>
