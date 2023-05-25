@@ -22,7 +22,7 @@
                 <h1>Doctor Cha (2023)</h1>
                 <h6 class="mb-3">Komedi, Drama Keluarga - 8 episode</h6>
                 <div class="mb-2">
-                    <span style="font-size: 25px; color: gold;">&#9733;</span>
+                    <i class="bx bxs-star text-warning"></i>
                     <span style="font-size: 22px; color: white;">4.6</span>
                 </div>
                 <p class="mb-4" style="color: gold; font-weight: 600; font-size: 30px;">Rp 20.000</p>
@@ -87,7 +87,7 @@
             </div>
             <div class="col-11">
                 <h5>Chiekal Mulia</h5>
-                <span style="font-size: 20px; color: gold;">&#9733;</span>
+                <i class='bx bxs-star text-warning' ></i>
                 <span style="font-size: 18px; color: white;">5</span>
                 <p class="mt-2">"Keren film nyee..."</p>
             </div>
@@ -101,7 +101,7 @@
             </div>
             <div class="col">
                 <h5>Khaira Isyara</h5>
-                <span style="font-size: 20px; color: gold;">&#9733;</span>
+                <i class='bx bxs-star text-warning' ></i>
                 <span style="font-size: 18px; color: white;">5</span>
                 <p>"Keren film nyee..."</p>
             </div>
@@ -115,7 +115,7 @@
             </div>
             <div class="col">
                 <h5>Khaira Isyara</h5>
-                <span style="font-size: 20px; color: gold;">&#9733;</span>
+                <i class='bx bxs-star text-warning' ></i>
                 <span style="font-size: 18px; color: white;">5</span>
                 <p>"Keren film nyee..."</p>
             </div>
@@ -129,7 +129,7 @@
             </div>
             <div class="col">
                 <h5>Khaira Isyara</h5>
-                <span style="font-size: 20px; color: gold;">&#9733;</span>
+                <i class='bx bxs-star text-warning' ></i>
                 <span style="font-size: 18px; color: white;">5</span>
                 <p>"Keren film nyee..."</p>
             </div>

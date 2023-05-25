@@ -17,51 +17,51 @@
         <div class="row">
             <div class="col-2 mb-3" style="position: relative; display: inline-block;">
                 <img src="../img/avatar.jpg" class="card-img-top" style="border-radius: 10px;" alt="">
-                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"> <img src="../img/star.png" width="17"> 4</span>
+                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"> <i class='bx bxs-star text-warning' ></i> 4</span>
             </div>
             <div class="col-2 mb-3" style="position: relative; display: inline-block;">
                 <img src="../img/aquaman.jpg" class="card-img-top" style="border-radius: 10px;" alt="">
-                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><img src="../img/star.png" width="17"> 4.6</span>
+                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><i class='bx bxs-star text-warning' ></i> 4.6</span>
             </div>
             <div class="col-2 mb-3" style="position: relative; display: inline-block;">
                 <img src="../img/avengers.jpg" class="card-img-top" style="border-radius: 10px;" alt="">
-                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><img src="../img/star.png" width="17"> 4.6</span>
+                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><i class='bx bxs-star text-warning' ></i> 4.6</span>
             </div>
             <div class="col-2 mb-3" style="position: relative; display: inline-block;">
                 <img src="../img/titanic.jpg" class="card-img-top" style="border-radius: 10px;" alt="">
-                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><img src="../img/star.png" width="17"> 4.6</span>
+                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><i class='bx bxs-star text-warning' ></i> 4.6</span>
             </div>
             <div class="col-2 mb-3" style="position: relative; display: inline-block;">
                 <img src="../img/spiderman.jpg" class="card-img-top" style="border-radius: 10px;" alt="">
-                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><img src="../img/star.png" width="17"> 4.6</span>
+                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><i class='bx bxs-star text-warning' ></i> 4.6</span>
             </div>
             <div class="col-2 mb-3" style="position: relative; display: inline-block;">
                 <img src="../img/jurasic.jpg" class="card-img-top" style="border-radius: 10px;" alt="">
-                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><img src="../img/star.png" width="17"> 4.6</span>
+                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><i class='bx bxs-star text-warning' ></i> 4.6</span>
             </div>
             <div class="col-2 mb-3" style="position: relative; display: inline-block;">
                 <img src="../img/avatar.jpg" class="card-img-top" style="border-radius: 10px;" alt="">
-                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"> <img src="../img/star.png" width="17"> 4</span>
+                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"> <i class='bx bxs-star text-warning' ></i> 4</span>
             </div>
             <div class="col-2 mb-3" style="position: relative; display: inline-block;">
                 <img src="../img/aquaman.jpg" class="card-img-top" style="border-radius: 10px;" alt="">
-                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><img src="../img/star.png" width="17"> 4.6</span>
+                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><i class='bx bxs-star text-warning' ></i> 4.6</span>
             </div>
             <div class="col-2 mb-3" style="position: relative; display: inline-block;">
                 <img src="../img/avengers.jpg" class="card-img-top" style="border-radius: 10px;" alt="">
-                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><img src="../img/star.png" width="17"> 4.6</span>
+                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><i class='bx bxs-star text-warning' ></i> 4.6</span>
             </div>
             <div class="col-2 mb-3" style="position: relative; display: inline-block;">
                 <img src="../img/titanic.jpg" class="card-img-top" style="border-radius: 10px;" alt="">
-                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><img src="../img/star.png" width="17"> 4.6</span>
+                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><i class='bx bxs-star text-warning' ></i> 4.6</span>
             </div>
             <div class="col-2 mb-3" style="position: relative; display: inline-block;">
                 <img src="../img/spiderman.jpg" class="card-img-top" style="border-radius: 10px;" alt="">
-                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><img src="../img/star.png" width="17"> 4.6</span>
+                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><i class='bx bxs-star text-warning' ></i> 4.6</span>
             </div>
             <div class="col-2 mb-3" style="position: relative; display: inline-block;">
                 <img src="../img/jurasic.jpg" class="card-img-top" style="border-radius: 10px;" alt="">
-                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><img src="../img/star.png" width="17"> 4.6</span>
+                <span class="label" style="position: absolute; left: 12px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 10px; background-color : rgba(0,0,0,0.39);"><i class='bx bxs-star text-warning' ></i> 4.6</span>
             </div>
         </div>
     </div>
