@@ -32,7 +32,7 @@
     </div>
     <br></br>
     <div class="container">
-        <h2 class="text-white">Film Terlaris</h2>
+        <h2 class="text-white">Top 12</h2>
         <div class="row">
             <div class="col-2 mb-3">
                 <img src="img/1.jpg" class="card-img-top" style="border-radius: 15px;">
@@ -74,7 +74,91 @@
     </div>
     <br></br>
     <div class="container">
-        <h2 class="text-white">Film Terbaru</h2>
+        <h2 class="text-white">What's New</h2>
+        <div class="row">
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;"">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+        </div>
+    </div>
+    <br></br>
+    <div class="container">
+        <h2 class="text-white">Indonesia Movie</h2>
+        <div class="row">
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;"">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+            <div class="col-2 mb-3">
+                <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
+            </div>
+        </div>
+    </div>
+    <br></br>
+    <div class="container">
+        <h2 class="text-white">Animasi</h2>
         <div class="row">
             <div class="col-2 mb-3">
                 <img src="img/12.jpg" class="card-img-top" style="border-radius: 15px;">
