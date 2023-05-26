@@ -83,9 +83,36 @@ class Film extends Connection
 			}
 		}
 	}
+
 	public function SelectAllFilm()
 	{
 		$sql = "SELECT * FROM film ORDER BY judul_film";
+		$result = $this->connection->query($sql);
+
+		$arrResult = array();
+		$i = 0;
+		if ($result->rowCount() > 0) {
+			while ($data = $result->fetch(PDO::FETCH_OBJ)) {
+				$objFilm = new Film();
+				$objFilm->poster_film = $data->poster_film;
+				$objFilm->judul_film = $data->judul_film;
+				$objFilm->detail_film = $data->detail_film;
+				$objFilm->rilis_film = $data->rilis_film;
+				$objFilm->rating_film = $data->rating_film;
+				$objFilm->director_film = $data->director_film;
+				$objFilm->writer_film = $data->writer_film;
+				$objFilm->durasi_film = $data->durasi_film;
+				$objFilm->file_film = $data->file_film;
+				$arrResult[$i] = $objFilm;
+				$i++;
+			}
+		}
+		return $arrResult;
+	}
+
+	public function SelectAllFilmDescRating()
+	{
+		$sql = "SELECT * FROM film ORDER BY rating_film DESC";
 		$result = $this->connection->query($sql);
 
 		$arrResult = array();

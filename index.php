@@ -13,29 +13,38 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            function fetchData() {
-                var query = $("#searchInput").val();
+            // Menangani peristiwa klik pada tombol "Cari"
+            $("#searchButton").on('click', function () {
+                search();
+            });
 
-                if (query === '') {
-                    $('#searchResults').empty();
-                } else {
-                    $.post("search.php", { query: query }, function (data) {
-                        $('#searchResults').html(data);
-                    });
+            // Menangani peristiwa tekan tombol "Enter" di dalam input pencarian
+            $("#searchInput").on('keydown', function (event) {
+                if (event.keyCode === 13) { // 13 adalah kode tombol "Enter"
+                    search();
+                    return false;
                 }
-            }
+            });
 
-            $("#searchInput").on('input', fetchData);
-
-            $('form').on('submit', function (e) {
-                e.preventDefault();
+            // Fungsi pencarian
+            function search() {
                 var query = $("#searchInput").val();
                 if (query !== '') {
                     window.location.href = "index.php?p=search&query=" + query;
                 }
-            });
+            }
+            var limitWords = document.getElementsByClassName('limit-words');
+            for (var i = 0; i < limitWords.length; i++) {
+                var text = limitWords[i].textContent;
+                var words = text.split(' ');
+                if (words.length > 15) {
+                    var limitedText = words.slice(0, 15).join(' ');
+                    limitWords[i].textContent = limitedText + '...';
+                }
+            }
         });
     </script>
+
 </head>
 
 <body>
@@ -55,9 +64,8 @@
                 </ul>
             </div>
             <form class="d-flex mx-5" role="search">
-                <input class="form-control me-2" type="search" placeholder="Cari Film atau Genre" aria-label="Search"
-                    id="searchInput">
-                <button class="btn btn-md btn-outline-success" type="submit">Cari</button>
+                <input class="form-control me-2" type="search" placeholder="Cari Film atau Genre" aria-label="Search" id="searchInput">
+                <button class="btn btn-md btn-outline-success" type="button" onclick="search()" id="searchButton">Cari</button>
             </form>
             <a href="index.php?p=login"><button class="btn btn-md btn-primary ms-md-3 rounded-3">Masuk</button></a>
             <a href="index.php?p=register"><button
@@ -78,7 +86,7 @@
             echo 'Halaman tidak ditemukan! :(';
         }
     } else {
-        include($pages_dir . '/login.php');
+        include($pages_dir . '/home.php');
     }
     ?>
 

@@ -19,7 +19,7 @@ require "inc.koneksi.php";
 <body>
 	<nav class="navbar navbar-expand-lg bg-dark sticky-top py-0 px-2">
         <div class="container-fluid">
-            <a href="index.php?p=home" class="navbar-brand"><img src="./img/bioskop online.png" alt="logo bioskop"
+            <a href="dashboardadmin.php?p=home" class="navbar-brand"><img src="./img/bioskop online.png" alt="logo bioskop"
                     class="w-50"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

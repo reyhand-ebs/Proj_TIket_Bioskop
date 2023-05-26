@@ -24,18 +24,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         if (count($searchResults) > 0) {
             echo '<div class="container-fluid" id="searchResults">';
             $shownTitles = array();
-            foreach ($searchResults as $row) {
-                if (!in_array($row->judul_film, $shownTitles)) {
-                    echo "<div class='row'>";
-                    echo "<div class='col-2 mb-3'>";
-                    echo "<img src='" . $row->poster_film . "' class='card-img-top' alt='" . $row->judul_film . "'>";
-                    echo "<p>" . $row->judul_film . "</p>";
-                    echo "<p>" . $row->detail_film . "</p>";
-                    echo "<p>" . $row->rilis_film . "</p>";
-                    echo "<p>" . $row->nama_aktor . "</p>";
-                    echo "</div>";
-                    echo "</div>";
-                    $shownTitles[] = $row->judul_film;
+            $itemCount = 0; // Untuk menghitung jumlah item
+            echo "<div class='row'>";
+            foreach ($searchResults as $dataFilm) {
+                if (!in_array($dataFilm->judul_film, $shownTitles)) {
+                    if ($itemCount % 6 == 0 && $itemCount != 0) {
+                        echo "</div><div class='row py-3'>"; // Membuat baris baru setiap mencapai 6 item
+                    }
+                    echo '<div class="card px-0 mx-2" style="width: 12rem;">';
+                    echo '<img src="./img/' . $dataFilm->poster_film . '" class="card-img-top object-fit-fill" alt="'.$dataFilm->poster_film.'">';
+                    echo '<div class="card-body">';
+                    echo '<h5 class="card-title">' . $dataFilm->judul_film . '</h5>';
+                    echo '<p class="card-text limit-words">' . $dataFilm->detail_film . '</p>';
+                    echo '</div>';
+                    echo '<div class="card-footer align-items-center">';
+                    echo '<a href="#" class="btn btn-primary">Baca Selengkapnya</a>';
+                    echo '</div>';
+                    echo '</div>';
+                    $shownTitles[] = $dataFilm->judul_film;
+                    $itemCount++; // Menambah jumlah item
                 }
             }
             echo '</div>';
@@ -43,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             echo '<div id="searchResults">No results found</div>';
         }
         ?>
+
     </div>
 </body>
 
