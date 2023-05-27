@@ -1,7 +1,7 @@
 <?php
-	if (!isset($_SESSION)) {
-		session_start();
-	}
+if (!isset($_SESSION)) {
+    session_start();
+}
 include('inc.koneksi.php');
 ?>
 <!DOCTYPE html>
@@ -48,13 +48,28 @@ include('inc.koneksi.php');
                     limitWords[i].textContent = limitedText + '...';
                 }
             }
+
+            const spinnerWrapperEl = document.querySelector('.spinner-wrapper');
+            window.addEventListener('load', () => {
+                spinnerWrapperEl.style.opacity = 1;
+
+                setTimeout(() => {
+                    spinnerWrapperEl.style.display = 'none';
+                }, 500);
+            })
         });
     </script>
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark sticky-top py-0 px-2">
+    <div class="spinner-wrapper">
+        <div class="spinner-grow" style="width: 7rem; height: 7rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <nav class="nav navbar navbar-expand-lg bg-dark sticky-top py-0 px-2">
         <div class="container-fluid">
             <a href="index.php?p=home" class="navbar-brand"><img src="./img/bioskop online.png" alt="logo bioskop"
                     class="w-50"></a>
@@ -63,7 +78,7 @@ include('inc.koneksi.php');
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav fs-6">
+                <ul class="nav navbar-nav fs-6">
                     <li class="nav-item">
                         <a href="index.php?p=home" class="nav-link text-white">Beranda</a>
                     </li>
@@ -73,27 +88,40 @@ include('inc.koneksi.php');
                             Genre
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Adventure</a></li>
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Comedy</a></li>
-                            <li><a class="dropdown-item" href="#">Crime</a></li>
-                            <li><a class="dropdown-item" href="#">Drama</a></li>
-                            <li><a class="dropdown-item" href="#">Horror</a></li>
-                            <li><a class="dropdown-item" href="#">Thriller</a></li>
-                            <li><a class="dropdown-item" href="#">Romance</a></li>
+                            <div class="overflow-y-scroll" style="max-height: 200px;">
+                                <?php
+                                require_once('./class/class.genre.php');
+                                $objGenre = new Genre();
+                                $arrayResult = $objGenre->SelectAllGenre();
+
+                                if (count($arrayResult) == 0) {
+                                    echo '<tr><td colspan="6">Tidak ada data!</td></tr>';
+                                } else {
+                                    $no = 1;
+                                    foreach ($arrayResult as $dataGenre) {
+                                        echo '<li><a class="dropdown-item" href="#">' . $dataGenre->nama_genre . '</a></li>';
+                                        $no++;
+                                    }
+                                }
+                                ?>
+                            </div>
                         </ul>
                     </li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right sticky-end fs-6">
+                    <form class="d-flex mx-5" role="search" style="">
+                        <input class="form-control me-2" type="search" placeholder="Cari Film atau Genre"
+                            aria-label="Search" id="searchInput">
+                        <button class="btn btn-md btn-outline-success" type="button" onclick="search()"
+                            id="searchButton">Cari</button>
+                    </form>
+                    <a href="index.php?p=login"><button
+                            class="btn btn-md btn-primary ms-md-3 rounded-3">Masuk</button></a>
+                    <a href="index.php?p=register"><button
+                            class="btn btn-md btn-outline-primary ms-md-3 rounded-3">Daftar</button></a>
+                </ul>
             </div>
-            <form class="d-flex mx-5" role="search">
-                <input class="form-control me-2" type="search" placeholder="Cari Film atau Genre" aria-label="Search"
-                    id="searchInput">
-                <button class="btn btn-md btn-outline-success" type="button" onclick="search()"
-                    id="searchButton">Cari</button>
-            </form>
-            <a href="index.php?p=login"><button class="btn btn-md btn-primary ms-md-3 rounded-3">Masuk</button></a>
-            <a href="index.php?p=register"><button
-                    class="btn btn-md btn-outline-primary ms-md-3 rounded-3">Daftar</button></a>
+
         </div>
     </nav>
 
@@ -115,21 +143,21 @@ include('inc.koneksi.php');
     ?>
 
     <footer class="bg-dark text-white pt-5">
-        <div class="footer-top mt-20 container">
+        <div class="footer-top mt-20 container-fluid-px-5">
             <div class="row gy-4">
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-md-3">
                     <img class="logo w-75" src="./img/bioskop online.png" alt="">
                 </div>
-                <div class="col-lg-3">
-                    <h3 class="text-white fs-2">Brand</h3>
+                <div class="col-lg-3 col-md-3">
+                    <h3 class="text-white fs-2">Halaman</h3>
                     <ul class="list-unstyled">
                         <li><a href="?p=signup" style="color: #fff; text-decoration: none;">Beranda</a></li>
                         <li><a href="?p=login" style="color: #fff; text-decoration: none;">Login</a></li>
                         <li><a href="?p=signup" style="color: #fff; text-decoration: none;">Sign Up</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-5">
-                    <h3 class="text-white fs-2">Contact</h3>
+                <div class="col-lg-5 col-md-5">
+                    <h3 class="text-white fs-2">Kontak Kami</h3>
                     <ul class="list-unstyled">
                         <li>Address: Jl. TB Simatupang</li>
                         <li>Email: afifah.k.rusli@students.esqbs.ac.id</li>
@@ -146,10 +174,10 @@ include('inc.koneksi.php');
         <div class="footer-bottom py-3">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-lg-7 col-md-10">
                         <p class="mb-0">© 2022 copyright all right reserved | Designed with by Bioskop 165</p>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-lg-5 col-md-2">
                         <div class="social-icons">
                             <a href="#"><i class='bx bxl-facebook'></i></a>
                             <a href="#"><i class='bx bxl-twitter'></i></a>

@@ -3,6 +3,10 @@
     --secondary: #55BEAB;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 #inputlogin {
     width: 500px;
     height: auto;
@@ -12,7 +16,8 @@
     margin-top: 50px;
     margin-bottom: 50px;
 }
-#inputsignup{
+
+#inputsignup {
     width: 500px;
     height: auto;
     font-size: 16px;
@@ -31,3 +36,18 @@
 #posterfilm:hover {
     transform: scale(1.1);
 }
+
+.spinner-wrapper {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.7s;
+}
+

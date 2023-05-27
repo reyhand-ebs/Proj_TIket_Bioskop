@@ -1,7 +1,7 @@
 <html lang="en">
 
 <head>
-    <title>Bioskop 165 | Activation</title>
+    <title>Aktivasi | Bioskop 165</title>
 </head>
 
 <body>
