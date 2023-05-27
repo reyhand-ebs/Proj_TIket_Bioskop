@@ -1,6 +1,5 @@
 <?php 
 require_once "authorization_admin.php";
-//include('../inc.koneksi.php');
 require_once('./class/class.genre.php'); 	
 	
 

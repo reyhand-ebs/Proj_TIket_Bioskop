@@ -1,5 +1,4 @@
 <?php
-include('./inc.koneksi.php');
 require_once('./class/class.user.php');
 
 if (isset($_POST['btnLogin'])) {
@@ -18,12 +17,10 @@ if (isset($_POST['btnLogin'])) {
 			if (!isset($_SESSION)) {
 				session_start();
 			}
-
 			$_SESSION["userid"] = $objUser->userid;
 			$_SESSION["email"] = $objUser->email;
 			$_SESSION["name"] = $objUser->name;
 			$_SESSION["roleid"] = $objUser->roleid;
-
 			echo "<script>alert('Login sukses');</script>";
 
 			if ($objUser->roleid == 'role1') {

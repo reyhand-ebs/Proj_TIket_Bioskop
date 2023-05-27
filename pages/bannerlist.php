@@ -1,5 +1,4 @@
 <?php 
-//include('./inc.koneksi.php');
 require_once('./class/class.banner.php'); 		
 $objBanner = new Banner(); 
 

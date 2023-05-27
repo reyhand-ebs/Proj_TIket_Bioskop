@@ -1,3 +1,9 @@
+<?php
+	if (!isset($_SESSION)) {
+		session_start();
+	}
+include('inc.koneksi.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,11 +67,29 @@
                     <li class="nav-item">
                         <a href="index.php?p=home" class="nav-link text-white">Beranda</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Genre
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Adventure</a></li>
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Comedy</a></li>
+                            <li><a class="dropdown-item" href="#">Crime</a></li>
+                            <li><a class="dropdown-item" href="#">Drama</a></li>
+                            <li><a class="dropdown-item" href="#">Horror</a></li>
+                            <li><a class="dropdown-item" href="#">Thriller</a></li>
+                            <li><a class="dropdown-item" href="#">Romance</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <form class="d-flex mx-5" role="search">
-                <input class="form-control me-2" type="search" placeholder="Cari Film atau Genre" aria-label="Search" id="searchInput">
-                <button class="btn btn-md btn-outline-success" type="button" onclick="search()" id="searchButton">Cari</button>
+                <input class="form-control me-2" type="search" placeholder="Cari Film atau Genre" aria-label="Search"
+                    id="searchInput">
+                <button class="btn btn-md btn-outline-success" type="button" onclick="search()"
+                    id="searchButton">Cari</button>
             </form>
             <a href="index.php?p=login"><button class="btn btn-md btn-primary ms-md-3 rounded-3">Masuk</button></a>
             <a href="index.php?p=register"><button
@@ -99,6 +123,7 @@
                 <div class="col-lg-3">
                     <h3 class="text-white fs-2">Brand</h3>
                     <ul class="list-unstyled">
+                        <li><a href="?p=signup" style="color: #fff; text-decoration: none;">Beranda</a></li>
                         <li><a href="?p=login" style="color: #fff; text-decoration: none;">Login</a></li>
                         <li><a href="?p=signup" style="color: #fff; text-decoration: none;">Sign Up</a></li>
                     </ul>

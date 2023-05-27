@@ -1,6 +1,6 @@
 <?php
-require_once('pages/authorization_admin.php');
-require "inc.koneksi.php";
+include('./inc.koneksi.php');
+require_once('./pages/authorization_admin.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +37,7 @@ require "inc.koneksi.php";
                     id="searchInput">
                 <button class="btn btn-md btn-outline-success" type="submit">Cari</button>
             </form>
-            <a href="index.php?p=register"><button class="btn btn-md btn-outline-primary ms-md-3 rounded-3">Daftar</button></a>
+            <a href="dashboardadmin.php?p=logout"><button class="btn btn-md btn-primary ms-md-3 rounded-3">Keluar</button></a>
         </div>
     </nav>
 	<div class="container">
@@ -60,7 +60,7 @@ require "inc.koneksi.php";
 				echo 'Halaman tidak ditemukan! :(';
 			}
 		} else {
-			include($pages_dir . '/sidebar.php');
+			include($pages_dir . '/home.php');
 		}
 		?>
 
@@ -72,11 +72,6 @@ require "inc.koneksi.php";
 			</div>
 		</footer>
 	</div>
-	<script>
-		$(document).ready(function () {
-			$('.table').DataTable();
-		});
-	</script>
 </body>
 
 </html>
