@@ -31,7 +31,7 @@
                 </div>
             </div>
             
-            <div class="col-6 border rounded">
+            <div class="col-6 border rounded" style="height: 900px;">
                 <div class="m-3 mt-4">
                     <h5 class="mb-3">Rincian</h5>
 
@@ -65,34 +65,20 @@
                         </ul>
                     </div>
 
+                    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Pilih Menu
+      </button>
+      <ul class="dropdown-menu">
+                            <li><h6 class="dropdown-header">Pilih Metode Pembayaran</h6></li>
+                            <li><a class="dropdown-item" href="#">QRIS</a></li>
+                            <li><a class="dropdown-item" href="#">Bank Virtual Account</a></li>
+                        </ul>
+    </div>
                 </div>
                 
             </div>
         
-            
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Beli Tiket
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade-lg" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Beli Tiket</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary">Lanjut</button>
-            </div>
-            </div>
-        </div>
-        </div>
     </div>
     
 </body>
