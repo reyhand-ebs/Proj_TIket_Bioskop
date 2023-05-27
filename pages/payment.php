@@ -16,11 +16,11 @@
         <h3 class="mb-5">Beli Tiket</h3>
         <div class="row">
             <div class="col-2 mb-3">
-                <img src="../img/dr_cha.jpg" class="card-img-top" style="border-radius: 10px;" alt="">
+                <img src="../img/avatar.jpg" class="card-img-top" style="border-radius: 10px;" alt="">
             </div>
             <div class="col-4">
-                <h5 class="mb-3">Doctor Cha (2023)</h5>
-                <p>Komedi, Drama Keluarga - 8 episode</p>
+                <h5 class="mb-3">Avatar (2009)</h5>
+                <p>Fiksi Ilmiah, Laga - 162m</p>
                 <hr>
                 <p style="color: #D9D9D9;">Keterangan</p>
                 <p>Durasi sewa akan dimulai dari waktu rilis film hingga 72 jam setelahnya & bisa ditonton berkali-kali selama durasi sewa berjalan.</p>
@@ -69,6 +69,30 @@
                 
             </div>
         
+            
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Beli Tiket
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade-lg" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Beli Tiket</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary">Lanjut</button>
+            </div>
+            </div>
+        </div>
+        </div>
     </div>
     
 </body>
