@@ -71,6 +71,7 @@ class Film extends Connection
 
 		if ($result->rowCount() == 1) {
 			while ($data = $result->fetch(PDO::FETCH_OBJ)) {
+				$this->filmid = $data->filmid;
 				$this->poster_film = $data->poster_film;
 				$this->judul_film = $data->judul_film;
 				$this->detail_film = $data->detail_film;
@@ -94,6 +95,7 @@ class Film extends Connection
 		if ($result->rowCount() > 0) {
 			while ($data = $result->fetch(PDO::FETCH_OBJ)) {
 				$objFilm = new Film();
+				$objFilm->filmid = $data->filmid;
 				$objFilm->poster_film = $data->poster_film;
 				$objFilm->judul_film = $data->judul_film;
 				$objFilm->detail_film = $data->detail_film;
@@ -120,6 +122,7 @@ class Film extends Connection
 		if ($result->rowCount() > 0) {
 			while ($data = $result->fetch(PDO::FETCH_OBJ)) {
 				$objFilm = new Film();
+				$objFilm->filmid = $data->filmid;
 				$objFilm->poster_film = $data->poster_film;
 				$objFilm->judul_film = $data->judul_film;
 				$objFilm->detail_film = $data->detail_film;
@@ -147,6 +150,7 @@ class Film extends Connection
 		if ($result->rowCount() > 0) {
 			while ($data = $result->fetch(PDO::FETCH_OBJ)) {
 				$objFilm = new Film();
+				$objFilm->filmid = $data->filmid;
 				$objFilm->poster_film = $data->poster_film;
 				$objFilm->judul_film = $data->judul_film;
 				$objFilm->detail_film = $data->detail_film;
@@ -175,6 +179,7 @@ class Film extends Connection
 		if ($result->rowCount() > 0) {
 			while ($data = $result->fetch(PDO::FETCH_OBJ)) {
 				$objFilm = new Film();
+				$objFilm->filmid = $data->filmid;
 				$objFilm->poster_film = $data->poster_film;
 				$objFilm->judul_film = $data->judul_film;
 				$objFilm->detail_film = $data->detail_film;
