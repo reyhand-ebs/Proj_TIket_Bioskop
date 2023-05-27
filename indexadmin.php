@@ -24,16 +24,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Daftar Film</a>
+            <a class="nav-link active" aria-current="page" href="indexadmin.php">Daftar Film</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Daftar Genre</a>
+            <a class="nav-link active" aria-current="page" href="pages/listgenre.php">Daftar Genre</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Daftar Aktor</a>
+            <a class="nav-link active" aria-current="page" href="pages/listaktor.php">Daftar Aktor</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Daftar User</a>
+            <a class="nav-link active" aria-current="page" href="pages/listuser.php">Daftar User</a>
             </li>
         </ul>
         <form class="d-flex mr-2" role="search">

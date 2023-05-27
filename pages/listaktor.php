@@ -14,7 +14,7 @@
 <body>
     <div class="container mt-5 mb-5">
         <h3 class="mb-4">Daftar Aktor</h3>
-        <a href=""><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #FFFFFF; color: #113250; font-weight: 500; text-align: center; width: 130px;">+ Tambah</button></a>
+        <a href="editaktor.php"><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #FFFFFF; color: #113250; font-weight: 500; text-align: center; width: 130px;">+ Tambah</button></a>
 
         <div class="mt-4">
             <table class="table table-bordered text-center" style="vertical-align: middle;">
