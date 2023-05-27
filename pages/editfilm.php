@@ -13,81 +13,87 @@
 
 <body>
     <div class="container mt-5 mb-5">
-        <h3 class="mb-4">Tambah/Ubah Film</h3>
+        <h3 class="mb-5">Tambah/Ubah Film</h3>
 
-        <form class="mb-4">
+        <form class="mb-5">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group mb-2">
-                        <label for="nama">ID Film</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="filmid">ID Film</label>
+                        <input type="number" class="form-control" id="filmid">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-2">
-                        <label for="nama">Poster</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="poster_film">Poster</label></br>
+                        <form action="proses_upload.php" method="post" enctype="multipart/form-data">
+                            <input type="file" id="poster_film" name="poster_film">
+                            <!--<input class="btn btn-dark btn-lg rounded-pill" type="submit" value="Unggah" style="background-color: #FFFFFF; color: #113250; font-weight: 400; font-size: 15px; text-align: center; width: 100px;">-->
+                        </form>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-2">
-                        <label for="nama">Judul</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="judul_film">Judul</label>
+                        <input type="text" class="form-control" id="judul_film">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-2">
-                        <label for="nama">Rilis</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="rilis_film">Tanggal Rilis</label>
+                        <input type="date" class="form-control" id="rilis_film">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-2">
-                        <label for="nama">Durasi</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="durasi_film">Durasi</label>
+                        <input type="text" class="form-control" id="durasi_film">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-2">
-                        <label for="nama">Rating</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="rating_film">Rating</label>
+                        <input type="text" class="form-control" id="rating_film">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-2">
-                        <label for="nama">Sutradara</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="sutradara_film">Sutradara</label>
+                        <input type="text" class="form-control" id="sutradara_film">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-2">
-                        <label for="nama">Penulis</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="penulis_film">Penulis</label>
+                        <input type="text" class="form-control" id="penulis_film">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-2">
-                        <label for="nama">Aktor</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="aktor_film">Aktor</label>
+                        <input type="text" class="form-control" id="aktor_film">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-2">
-                        <label for="nama">Tanggal Upload</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="tanggal_upload">Tanggal Upload</label>
+                        <input type="date" class="form-control" id="tanggal_upload">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-2">
-                        <label for="nama">Sinopsis</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="detail_film">Sinopsis</label>
+                        <textarea type="text" class="form-control" id="detail_film"></textarea>
                     </div>
                 </div>
             </div>
 
         </form>
 
-        <a href=""><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #FFFFFF; color: #113250; font-weight: 500; text-align: center; width: 130px;">Simpan</button></a>
+        <div class="text-right">
+            <a href=""><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #E50913; font-weight: 500; text-align: center; width: 130px;">Batal</button></a>
+            <a href=""><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #113250; font-weight: 500; text-align: center; width: 130px;">Simpan</button></a>
+        </div>
     
     </div>
         
