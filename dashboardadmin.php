@@ -29,8 +29,9 @@ require_once('./pages/authorization_admin.php');
                 <ul class="navbar-nav fs-6">
                     <li class="nav-item"><a href="dashboardadmin.php?p=home" class="nav-link text-white">Beranda</a></li>
 					<li class="nav-item"><a href="dashboardadmin.php?p=filmlist" class="nav-link text-white">Film List</a></li>
+					<li class="nav-item"><a href="dashboardadmin.php?p=genrelist" class="nav-link text-white">Genre List</a></li>
 					<li class="nav-item"><a href="dashboardadmin.php?p=userlist" class="nav-link text-white">User List</a></li>
-                </ul>
+				</ul>
             </div>
             <form class="d-flex mx-5" role="search">
                 <input class="form-control me-2" type="search" placeholder="Cari Film atau Genre" aria-label="Search"
