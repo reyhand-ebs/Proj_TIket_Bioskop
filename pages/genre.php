@@ -1,62 +1,41 @@
-<?php 
-require_once "authorization_admin.php";
-require_once('./class/class.genre.php'); 	
-	
+<!DOCTYPE html>
+<html lang="en">
 
-$objgenre = new Genre(); 
+<head>
+    <?php
+    require_once('./class/class.film.php');
+    $objFilm = new Film();
+    $selectgenre = $_GET['nama_genre'];
+    $arrayResult = $objFilm->SelectAllFilmByGenre($selectgenre);
+    echo '<title>Pilihan Genre '.$selectgenre.' | Bioskop 165</title>';
+    ?>
+</head>
 
-if(isset($_POST['btnSubmit'])){	
-	$objgenre->nama_genre = $_POST['nama_genre'];	
-    $objgenre->deskripsi = $_POST['deskripsi'];
-	
-	if(isset($_GET['genreid'])){		
-		$objgenre->genreid = $_GET['genreid'];
-		$objgenre->UpdateGenre();
-	}
-	else{	
-		$objgenre->AddGenre();
-	}			
-	
-	if($objgenre->hasil){
-		echo "<script> alert('".$objgenre->message."'); </script>";
-		echo '<script> window.location = "dashboardadmin.php?p=genrelist";</script>'; 				
-	}
-	else{
-		echo "<script> alert('Proses gagal. Silakan ulangi'); </script>";	
-	}			
-}
-else if(isset($_GET['genreid'])){	
-	$objgenre->genreid = $_GET['genreid'];	
-	$objgenre->SelectOneGenre();
-}
-?>
-<div class="container">  
-<div class="span7">			
-  <h4 class="title"><span class="text"><strong>Genre</strong></span></h4>
-    <form action="" method="post">
-	<table class="table" border="0">
-	<tr>
-	<td>nama</td>
-	<td>:</td>
-	<td><input type="text" class="form-control" id="nama" name="nama_genre" value="<?php echo $objgenre->nama_genre; ?>"></td>
-	</tr>	
-	<tr>
-	<td>Deskripsi</td>
-	<td>:</td>
-	<td>
-	<textarea style="width:55%" name="deskripsi" rows="3" cols="19"><?php echo $objgenre->deskripsi; ?></textarea></td>
-	</tr>	
-	<tr>
-	<td></td>
-	<td></td>
-	<td><input type="submit" class="btn btn-primary" value="Save" name="btnSubmit">
-	   <!-- <a href="index.php?p=categorylist" class="btn btn-primary">Cancel</a></td> -->
-	</tr>	
-	</table>    
-</form>	
-</div>  
-</div>
+<body>
+    <div class="container-fluid">
+        <div class="Rekomendasi mb-3 p-5">
+            <h2 class="fs-1 fw-bolder mb-4"><?php echo $selectgenre?></h2>
+            <?php
 
+            if (count($arrayResult) == 0) {
+                echo '<tr><td colspan="6">Tidak ada data!</td></tr>';
+            } else {
+                $no = 0;
+                echo '<div class="row">';
+                foreach ($arrayResult as $dataFilm) {
+                    echo '<div class="col-lg-2 col-md-4 pb-4 mb-2 px-3" style="position: relative;" style="padding-bottom: 100px;" id="posterfilm">';
+                    echo '<a href="detail_film.php?judul_film=' . $dataFilm->judul_film . '">';
+                    echo '<img src="./img/' . $dataFilm->poster_film . '" class="card-img-top rounded-3 posterfilm" alt="' . $dataFilm->judul_film . '">';
+                    echo '<span class="label text-white fs-6 fw-3" style="position: absolute; left: 16px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 8px; background-color: rgba(0,0,0,0.39);"><i class="bx bxs-star text-warning ps-1 px-1"></i>' . $dataFilm->rating_film . '</span>';
+                    echo '</a>';
+                    echo '</div>';
+                    $no++;
+                }
+                echo '</div>';
+            }
+            ?>
+        </div>
+    </div>
+</body>
 
-
-
+</html>
