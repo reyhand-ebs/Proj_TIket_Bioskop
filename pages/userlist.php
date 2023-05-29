@@ -4,7 +4,7 @@
 <div class="container">  
 <div>			
   <h4 class="title"><span class="text"><strong>User List</strong></span></h4>
-  <a class="btn btn-primary" href="dashboardadmin.php?p=User">Add</a>
+  <a class="btn btn-primary" href="dashboardadmin.php?p=user">Add User</a>
   <br>
   <br>
 <table class="table table-bordered">
@@ -35,7 +35,7 @@
 					echo '<td>'.$datauser->name.' </td>';
 					echo '<td>'.$datauser->nohp.'</td>';
 					echo '<td>'.$datauser->aktif.'</td>';
-					echo '<td width="10%"><a class="btn btn-warning btn-sm"  href="dashboardadmin.php?p=film&id_film='.$datauser->userid.'"><span class="glyphicon glyphicon-edit"></span></a>
+					echo '<td><a class="btn btn-warning btn-sm"  href="dashboardadmin.php?p=film&id_film='.$datauser->userid.'"><span class="glyphicon glyphicon-edit"></span></a>
    					          <a class="btn btn-danger btn-sm"  href="dashboardadmin.php?p=deletefilm&id_film='.$datauser->userid.'" 
 							  onclick="return confirm(\'Apakah anda yakin ingin menghapus?\')"> <span class="glyphicon glyphicon-remove"></span></a>
 							  </td>';	
