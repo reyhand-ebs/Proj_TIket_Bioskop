@@ -4,7 +4,7 @@
 <div class="container">  
 <div>			
   <h4 class="title"><span class="text"><strong>film List</strong></span></h4>
-  <a class="btn btn-primary" href="dashboardadmin.php?p=film">Add</a>
+  <a class="btn btn-primary" href="dashboardadmin.php?p=addfilm">Add</a>
   <br>
   <br>
 <table class="table table-bordered">
