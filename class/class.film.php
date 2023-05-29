@@ -141,7 +141,7 @@ class Film extends Connection
 
 	public function SelectAllFilmByGenre($selectgenre) {
 		$sql = 'SELECT f.*, g.nama_genre FROM film f JOIN film_genre fg ON f.filmid = fg.film_id JOIN genre g ON fg.genre_id = g.genreid
-		WHERE g.nama_genre LIKE "%'.$selectgenre.'%";';
+		WHERE g.nama_genre LIKE "%'.$selectgenre.'%" ORDER BY f.judul_film ASC;';
 		$result = $this->connection->query($sql);
 
 		$arrResult = array();
@@ -160,6 +160,7 @@ class Film extends Connection
 				$objFilm->writer_film = $data->writer_film;
 				$objFilm->durasi_film = $data->durasi_film;
 				$objFilm->file_film = $data->file_film;
+				$objFilm->nama_genre = $data->nama_genre;
 				$arrResult[$i] = $objFilm;
 				$i++;
 			}

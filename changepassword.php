@@ -55,7 +55,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav fs-6">
                     <li class="nav-item">
-                        <a href="index.php?p=home" class="nav-link disabled text-white">Home</a>
+                        <a href="index.php?p=beranda" class="nav-link disabled text-white">Home</a>
                     </li>
                 </ul>
             </div>
