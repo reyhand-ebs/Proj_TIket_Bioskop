@@ -8,7 +8,7 @@ if (isset($_POST['btnLogin'])) {
 
 	$objUser = new User();
 	$objUser->ValidateEmail($email);
-
+	
 	if ($objUser->hasil) {
 
 		$ismatch = password_verify($password, $objUser->password);
@@ -21,6 +21,7 @@ if (isset($_POST['btnLogin'])) {
 			$_SESSION["email"] = $objUser->email;
 			$_SESSION["name"] = $objUser->name;
 			$_SESSION["roleid"] = $objUser->roleid;
+			$_SESSION["nama_role"] = $objUser->nama_role;
 			echo "<script>alert('Login sukses');</script>";
 
 			if ($objUser->roleid == 'role1') {

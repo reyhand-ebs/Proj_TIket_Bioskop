@@ -2,7 +2,7 @@
 	class Role extends Connection 
 	{
 		private $roleid = 0;
-		private $role = '';
+		private $nama_role = '';
 		private $hasil = false;
 		private $message ='';
 
@@ -19,8 +19,8 @@
 		}
 				
 		public function AddRole()   {
-			$sql = "INSERT INTO role(role) 
-		            values ('$this->role')";
+			$sql = "INSERT INTO role(nama_role) 
+		            values ('$this->nama_role')";
 			$this->hasil = mysqli_query($this->connection, $sql);
 			
 			if($this->hasil)
@@ -30,7 +30,7 @@
 		}
 		
 		public function UpdateRole() {
-			$sql = "UPDATE role SET role ='$this->role'
+			$sql = "UPDATE nama_role SET nama_role ='$this->nama_role'
 					WHERE roleid = $this->roleid";
 
 			$this->hasil = mysqli_query($this->connection, $sql);
@@ -53,18 +53,18 @@
 		
 		public function SelectAllRole() {
             $sql = "SELECT * FROM role";
-				
-			$result = mysqli_query($this->connection, $sql);	
+			$result = $this->connection->query($sql);
+		
 			$arrResult = Array();
-			$cnt=0;
-			if(mysqli_num_rows($result) > 0){				
-				while ($data = mysqli_fetch_array($result))
+			$i=0;
+			if($result->rowCount() > 0){
+				while($data= $result->fetch(PDO::FETCH_OBJ))
 				{
-					$objRole = new Role(); 
-					$objRole->roleid=$data['roleid'];
-					$objRole->role=$data['role'];
-					$arrResult[$cnt] = $objRole;
-					$cnt++;
+					$objRole = new Role();
+					$objRole->roleid = $data->roleid;
+					$objRole->nama_role = $data->nama_role;
+					$arrResult[$i] = $objRole;
+					$i++;
 				}
 			}
 			return $arrResult;
@@ -72,11 +72,14 @@
 		
 		public function SelectOneRole() {
             $sql = "SELECT * FROM role WHERE roleid='$this->roleid'";
-			$resultOne = mysqli_query($this->connection, $sql);	
-			if(mysqli_num_rows($resultOne) == 1){
-				$this->hasil = true;
-				$data = mysqli_fetch_assoc($resultOne);
-				$this->role = $data['role'];				
+			$result = $this->connection->query($sql);
+
+			if($result->rowCount() == 1){
+				while ($data = $result->fetch(PDO::FETCH_OBJ))
+				{
+					$this->roleid = $data->roleid;
+					$this->nama_role = $data->nama_role;
+				}
 			}				
 		}
  	}	 

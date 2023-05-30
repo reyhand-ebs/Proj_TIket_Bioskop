@@ -11,8 +11,8 @@ class Film extends Connection
 	private $writer_film = '';
 	private $durasi_film = '';
 	private $file_film = '';
-	private $nama_aktor = '';
 	private $nama_genre = '';
+	private $nama_aktor = '';
 	private $hasil = false;
 	private $message = '';
 
@@ -66,7 +66,14 @@ class Film extends Connection
 
 	public function SelectOneFilm()
 	{
-		$sql = "SELECT * FROM film WHERE filmid = '$this->filmid'";
+		$sql = 'SELECT f.*, GROUP_CONCAT(DISTINCT g.nama_genre SEPARATOR ", ") AS nama_genre, 
+		GROUP_CONCAT(DISTINCT a.nama_aktor SEPARATOR ", ") AS nama_aktor
+		FROM film f
+		JOIN film_genre fg ON f.filmid = fg.film_id
+		JOIN genre g ON fg.genre_id = g.genreid
+		JOIN film_aktor fa ON f.filmid = fa.film_id
+		JOIN aktor a ON fa.aktor_id = a.aktorid
+		WHERE f.filmid = ' . $this->filmid . ' GROUP BY f.filmid;'; 
 		$result = $this->connection->query($sql);
 
 		if ($result->rowCount() == 1) {
@@ -81,13 +88,15 @@ class Film extends Connection
 				$this->writer_film = $data->writer_film;
 				$this->durasi_film = $data->durasi_film;
 				$this->file_film = $data->file_film;
+				$this->nama_aktor = $data->nama_aktor;
+				$this->nama_genre = $data->nama_genre;
 			}
 		}
 	}
 
 	public function SelectAllFilm()
 	{
-		$sql = "SELECT * FROM film ORDER BY judul_film";
+		$sql = "SELECT * FROM film ORDER BY filmid";
 		$result = $this->connection->query($sql);
 
 		$arrResult = array();
@@ -139,9 +148,10 @@ class Film extends Connection
 		return $arrResult;
 	}
 
-	public function SelectAllFilmByGenre($selectgenre) {
+	public function SelectAllFilmByGenre($selectgenre)
+	{
 		$sql = 'SELECT f.*, g.nama_genre FROM film f JOIN film_genre fg ON f.filmid = fg.film_id JOIN genre g ON fg.genre_id = g.genreid
-		WHERE g.nama_genre LIKE "%'.$selectgenre.'%" ORDER BY f.judul_film ASC;';
+		WHERE g.nama_genre LIKE "%' . $selectgenre . '%" ORDER BY f.judul_film ASC;';
 		$result = $this->connection->query($sql);
 
 		$arrResult = array();
@@ -160,6 +170,41 @@ class Film extends Connection
 				$objFilm->writer_film = $data->writer_film;
 				$objFilm->durasi_film = $data->durasi_film;
 				$objFilm->file_film = $data->file_film;
+				$objFilm->nama_genre = $data->nama_genre;
+				$arrResult[$i] = $objFilm;
+				$i++;
+			}
+		}
+		return $arrResult;
+	}
+
+	public function SelectAllFilmAktorGenre()
+	{
+		$sql = 'SELECT f.*, GROUP_CONCAT(DISTINCT g.nama_genre SEPARATOR ", ") AS nama_genre, 
+		GROUP_CONCAT(DISTINCT a.nama_aktor SEPARATOR ", ") AS nama_aktor FROM film f 
+		JOIN film_genre fg ON f.filmid = fg.film_id 
+		JOIN genre g ON fg.genre_id = g.genreid 
+		JOIN film_aktor fa ON f.filmid = fa.film_id 
+		JOIN aktor a ON fa.aktor_id = a.aktorid GROUP BY f.filmid;';
+		$result = $this->connection->query($sql);
+
+		$arrResult = array();
+
+		$i = 0;
+		if ($result->rowCount() > 0) {
+			while ($data = $result->fetch(PDO::FETCH_OBJ)) {
+				$objFilm = new Film();
+				$objFilm->filmid = $data->filmid;
+				$objFilm->poster_film = $data->poster_film;
+				$objFilm->judul_film = $data->judul_film;
+				$objFilm->detail_film = $data->detail_film;
+				$objFilm->rilis_film = $data->rilis_film;
+				$objFilm->rating_film = $data->rating_film;
+				$objFilm->director_film = $data->director_film;
+				$objFilm->writer_film = $data->writer_film;
+				$objFilm->durasi_film = $data->durasi_film;
+				$objFilm->file_film = $data->file_film;
+				$objFilm->nama_aktor = $data->nama_aktor;
 				$objFilm->nama_genre = $data->nama_genre;
 				$arrResult[$i] = $objFilm;
 				$i++;

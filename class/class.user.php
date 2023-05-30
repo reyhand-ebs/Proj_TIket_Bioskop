@@ -4,12 +4,13 @@ class User extends Connection {
 	private $userid='';
 	private $email='';
 	private $password='';
+	private $passwordsecr='';
 	private $name='';
 	private $nohp='';
 	private $token='';
 	private $aktif='';
 	private $roleid='';
-	private $role='';
+	private $nama_role='';
 	private $hasil= false;
 	private $message ='';
 	public function __get($atribute) {
@@ -23,8 +24,8 @@ class User extends Connection {
 		}
 	}
 	public function AddUser(){
-		$sql = "INSERT INTO user(email, password, name, nohp, token, aktif, roleid)
-				VALUES ('$this->email', '$this->password', '$this->name', '$this->nohp', '$this->token', '0','role2')";
+		$sql = "INSERT INTO user(userid, email, password, name, nohp, token, aktif, roleid, passwordsecr)
+				VALUES ('$this->userid', '$this->email', '$this->password', '$this->name', '$this->nohp', '$this->token', '0','role2', '$this->passwordsecr')";
 		$this->hasil = $this->connection->exec($sql);
 				
 		if($this->hasil)
@@ -33,7 +34,7 @@ class User extends Connection {
 			$this->message ='Data gagal ditambahkan!';	
 	}
 	public function UpdateUser(){
-		$sql = "UPDATE user SET email = '$this->email', password='$this->password', name='$this->name', nohp='$this->nohp' WHERE userid = '$this->userid'";
+		$sql = "UPDATE user SET email = '$this->email', password='$this->password', name='$this->name', nohp='$this->nohp', passwordsecr='$this->passwordsecr' WHERE userid = '$this->userid'";
 		$this->hasil = $this->connection->exec($sql);
 			
 		if($this->hasil)
@@ -59,6 +60,19 @@ class User extends Connection {
 		else
 			$this->message ='Data gagal dihapus!';
 	}
+	public function getMaxUserID() {
+        // Kode untuk mengambil UserID terbesar dari tabel pengguna (user)
+        $sql = 'SELECT MAX(userid) AS max_userid FROM user'; // Ganti "pengguna" dengan nama tabel yang sesuai
+		$result = $this->connection->query($sql);
+
+		if ($result && $result->rowCount() == 1) {
+			$row = $result->fetch(PDO::FETCH_ASSOC);
+			$maxUserID = $row['max_userid'];
+			return $maxUserID;
+		} else {
+			return 0; // Jika tidak ada hasil atau terdapat lebih dari 1 baris, kembalikan 0 atau nilai yang sesuai
+		}
+    }
 	public function ValidateToken($token) {
 		$sql = "SELECT * FROM user WHERE token= '$token' AND aktif='0'";
 		$resultOne = $this->connection->query($sql);
@@ -68,6 +82,7 @@ class User extends Connection {
 				$this->userid = $data->userid;
 				$this->email = $data->email;
 				$this->password=$data->password;
+				$this->passwordsecr=$data->passwordsecr;
 				$this->name=$data->name;
 				$this->nohp=$data->nohp;
 				$this->token=$data->token;
@@ -85,6 +100,7 @@ class User extends Connection {
 				$this->userid = $data->userid;
 				$this->email = $data->email;
 				$this->password=$data->password;
+				$this->passwordsecr=$data->passwordsecr;
 				$this->name=$data->name;
 				$this->nohp=$data->nohp;
 				$this->token=$data->token;
@@ -107,6 +123,7 @@ class User extends Connection {
 				$this->userid = $data->userid;
 				$this->email = $data->email;
 				$this->password=$data->password;
+				$this->passwordsecr=$data->passwordsecr;
 				$this->name=$data->name;
 				$this->nohp=$data->nohp;
 				$this->roleid=$data->roleid;
@@ -123,14 +140,15 @@ class User extends Connection {
 				$this->userid = $data->userid;
 				$this->email = $data->email;
 				$this->password = $data->password;
+				$this->passwordsecr=$data->passwordsecr;
 				$this->name = $data->name;
 				$this->nohp = $data->nohp;
 				$this->roleid = $data->roleid;
 			}
-		}		
+		}
 	}
 	public function SelectAllUser(){
-		$sql = "SELECT u.*, r.role FROM user u, role r WHERE u.roleid=r.roleid ORDER BY userid";
+		$sql = "SELECT u.*, r.nama_role FROM user u, role r WHERE u.roleid=r.roleid ORDER BY userid";
 		$result = $this->connection->query($sql);
 		
 		$arrResult = Array();
@@ -142,10 +160,11 @@ class User extends Connection {
 				$objUser->userid = $data->userid;
 				$objUser->email = $data->email;
 				$objUser->password = $data->password;
+				$objUser->passwordsecr = $data->passwordsecr;
 				$objUser->name=$data->name;
 				$objUser->nohp=$data->nohp;
 				$objUser->roleid=$data->roleid;
-				$objUser->role=$data->role;
+				$objUser->nama_role=$data->nama_role;
 				$arrResult[$i] = $objUser;
 				$i++;
 			}
@@ -168,6 +187,7 @@ class User extends Connection {
 				$objUser->userid = $data->userid;
 				$objUser->email = $data->email;
 				$objUser->password = $data->password;
+				$objUser->passwordsecr = $data->passwordsecr;
 				$objUser->name=$data->name;
 				$objUser->nohp=$data->nohp;
 				$objUser->roleid=$data->roleid;

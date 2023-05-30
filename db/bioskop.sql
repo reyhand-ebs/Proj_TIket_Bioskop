@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 29, 2023 at 02:33 AM
+-- Generation Time: May 30, 2023 at 02:21 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS `aktor`;
 CREATE TABLE IF NOT EXISTS `aktor` (
   `aktorid` int NOT NULL AUTO_INCREMENT,
   `nama_aktor` varchar(40) COLLATE utf8mb4_general_ci NOT NULL,
-  `foto_aktor` int DEFAULT NULL,
+  `foto_aktor` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`aktorid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -40,12 +40,12 @@ CREATE TABLE IF NOT EXISTS `aktor` (
 --
 
 INSERT INTO `aktor` (`aktorid`, `nama_aktor`, `foto_aktor`) VALUES
-(1, 'Chriss Pratt', NULL),
-(2, 'Karen Gillan', NULL),
-(3, 'Will Poulter', NULL),
-(4, 'Vin Diesel', NULL),
-(5, 'Michelle Rodriguez', NULL),
-(6, 'Aghniny Haque', NULL),
+(1, 'Chriss Pratt', 'Chriss Pratt.jpg'),
+(2, 'Karen Gillan', 'Karen Gillan.jpg'),
+(3, 'Will Poulter', 'Will Poulter.jpg'),
+(4, 'Vin Diesel', 'Vin Diesel.jpg'),
+(5, 'Michelle Rodriguez', 'Michelle Rodriguez.jpg'),
+(6, 'Aghniny Haque', 'Aghniny Haque.jpg'),
 (7, 'Angga Yunanda', NULL),
 (8, 'Ari Irham', NULL),
 (9, 'Shenina Cinnamon', NULL),
@@ -150,7 +150,7 @@ INSERT INTO `film` (`filmid`, `poster_film`, `judul_film`, `detail_film`, `rilis
 (20, 'Togo.jpg', 'Togo', 'Film berdurarsi 114 menit ini mengisahkan tentang seekor anjing bernama Togo yang menjadi pahlawan saat wabah difteri yang merebak pada tahun 1925 di Nome, Alaska. Kisahnya bermula ketika seorang musher bernama Leonhard Seppala ditugaskan untuk memba', '2019-12-20', '7.9', 'Ericson Core', 'Tom Flynn', '113', ''),
 (21, 'John Wick 4.jpg', 'John Wick 4', 'John Wick 4 akan berkisah tentang John Wick (Keanu Reeves) yang menghadapi musuhnya yang dinilai paling mematikan dalam seri keempat ini', '2023-03-22', '8.1', 'Chad Stahelski', 'Shay Hatten, Michael Finch, Derek Kolsta', '250', ''),
 (22, 'Mile 22.jpg', 'Mile 22', 'Sebuah tim kecil perwira intelijen Amerika elit, bagian dari unit komando taktis rahasia, mencoba menyelundupkan seorang perwira polisi misterius dengan informasi sensitif keluar dari Indonesia.', '2018-08-10', '6.1', 'Peter Berg', 'Graham Roland, Lea Carpenter', '135', ''),
-(23, 'You See Me.jpg', 'You See Me', 'Empat Penunggang Kuda muncul kembali, dan secara paksa direkrut oleh seorang jenius teknologi untuk melakukan perampokan yang paling mustahil.', '2016-06-09', '6.4', 'Jon M. Chu', 'Ed Solomon, Peter Chiarelli, Boaz Yakin', '210', ''),
+(23, 'Now You See Me.jpg', 'Now You See Me', 'Empat Penunggang Kuda muncul kembali, dan secara paksa direkrut oleh seorang jenius teknologi untuk melakukan perampokan yang paling mustahil.', '2016-06-09', '6.4', 'Jon M. Chu', 'Ed Solomon, Peter Chiarelli, Boaz Yakin', '210', ''),
 (24, 'Plane (2023).jpg', 'Plane (2023)', 'Seorang pilot menemukan dirinya terjebak di zona perang setelah dia terpaksa mendaratkan pesawat komersialnya selama badai yang mengerikan.', '2023-01-13', '6.9', 'Jean-François Richet', 'Charles Cumming, J.P. Davis', '150', ''),
 (25, 'The Big 4.jpg', 'The Big 4', 'Seorang detektif yang dikenal lurus menyelidiki kematian ayahnya dan mengikuti jejak hingga ke sebuah pulau tropis. Di sana, ia menemukan jati diri sesungguhnya sang ayah sebagai pemimpin kelompok pembunuh bayaran. Kini, ia dikejar musuh ayahnya, seh', '2023-12-05', '6', 'Timo Tjahjanto', 'Timo Tjahjanto, Johanna Wattimena', '141', ''),
 (26, 'Mechamato Movies.jpg', 'Mechamato Movies', 'Seorang anak laki-laki bernama Amato menemukan robot MechaBot yang kuat setelah sebuah pesawat ruang angkasa misterius mendarat di Bumi. Amato kini dapat memanfaatkan kemampuan khusus MechaBot untuk Mekanisasi objek biasa menjadi perangkat berteknolo', '2023-03-01', '8', 'Nizam Razak', 'Nizam razak, Anas Abdul Malik', '122', ''),
@@ -295,7 +295,32 @@ INSERT INTO `film_genre` (`film_id`, `genre_id`) VALUES
 (19, 20),
 (20, 2),
 (20, 5),
-(20, 9);
+(20, 9),
+(21, 1),
+(22, 1),
+(22, 2),
+(22, 7),
+(23, 1),
+(23, 6),
+(23, 20),
+(24, 1),
+(24, 20);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `film_user`
+--
+
+DROP TABLE IF EXISTS `film_user`;
+CREATE TABLE IF NOT EXISTS `film_user` (
+  `film_id` int NOT NULL,
+  `rating_user` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `komen_user` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `user_id` int NOT NULL,
+  KEY `filmid_fkfu` (`film_id`),
+  KEY `userid_fkfu` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -346,7 +371,7 @@ INSERT INTO `genre` (`genreid`, `nama_genre`) VALUES
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE IF NOT EXISTS `role` (
   `roleid` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `role` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nama_role` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`roleid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -354,7 +379,7 @@ CREATE TABLE IF NOT EXISTS `role` (
 -- Dumping data for table `role`
 --
 
-INSERT INTO `role` (`roleid`, `role`) VALUES
+INSERT INTO `role` (`roleid`, `nama_role`) VALUES
 ('role1', 'admin'),
 ('role2', 'member');
 
@@ -374,6 +399,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `aktif` enum('1','0') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `roleid` varchar(6) COLLATE utf8mb4_general_ci NOT NULL,
+  `passwordsecr` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`userid`),
   KEY `user_fkr_1` (`roleid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -382,11 +408,11 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`userid`, `email`, `password`, `name`, `nohp`, `token`, `aktif`, `roleid`) VALUES
-(1, 'mohamad.reyhand.f@students.esqbs.ac.id', '$2y$10$PlNvNr./No6XUirnTm80xeb97mxtdobbL8zhsUeqT3C//UVYN1XzK', 'Reyhand', '082246680795', '7969be91b85c90c3c94b5dadfb050007a7d12f9bf44dd8c486c6de41af95b212', '1', 'role1'),
-(19, 'refido.arjunal.a@students.esqbs.ac.id', '$2y$10$.mjtXPMvQOoLniOd9M6YwOnO8BxOVlYQtB.4BrBQA4VB2qvXTey56', 'Sensei ji', '03124324341', '74942d81fc2154f2abf73d8b1bd8e9973e5f322e4cf81ff5796aebd5b5fa4fcc', '1', 'role1'),
-(20, 'damar.adji.s@students.esqbs.ac.id', '$2y$10$O5DxPz/VhAP7ftZvSD3ihO8S94n5Ka1jtRD33aAoljxe3XvVUliKW', 'Damar', '23232323', '0ff24d051c96cfb0492b0f9765b1d70e0ed037ceaa989aeb828fd6efa2424107', '1', 'role2'),
-(21, 'afifah.k.rusli@students.esqbs.ac.id', '$2y$10$TW8cNpUyyoSXIY0CqwuQvO3FKLktRwUftICfjK/bmt3sjZQgoAcOu', 'Afifah', '023232323', 'ca5d7b4dacc0a88b9e2c0df29955349400374c946554a5d07820207c17741aea', '1', 'role2');
+INSERT INTO `user` (`userid`, `email`, `password`, `name`, `nohp`, `token`, `aktif`, `roleid`, `passwordsecr`) VALUES
+(1, 'mohamad.reyhand.f@students.esqbs.ac.id', '$2y$10$WaUU3TtRgp8KBRZ48uTOoO2skKnrxMPt8xO4fOZZQ32IZHro3DhSO', 'Reyhand', '082246680795', '7969be91b85c90c3c94b5dadfb050007a7d12f9bf44dd8c486c6de41af95b212', '1', 'role1', 'Reyhand123'),
+(2, 'refido.arjunal.a@students.esqbs.ac.id', '$2y$10$.mjtXPMvQOoLniOd9M6YwOnO8BxOVlYQtB.4BrBQA4VB2qvXTey56', 'Sensei ji', '03124324341', '74942d81fc2154f2abf73d8b1bd8e9973e5f322e4cf81ff5796aebd5b5fa4fcc', '1', 'role1', NULL),
+(3, 'damar.adji.s@students.esqbs.ac.id', '$2y$10$O5DxPz/VhAP7ftZvSD3ihO8S94n5Ka1jtRD33aAoljxe3XvVUliKW', 'Damar', '23232323', '0ff24d051c96cfb0492b0f9765b1d70e0ed037ceaa989aeb828fd6efa2424107', '1', 'role2', NULL),
+(4, 'afifah.k.rusli@students.esqbs.ac.id', '$2y$10$TW8cNpUyyoSXIY0CqwuQvO3FKLktRwUftICfjK/bmt3sjZQgoAcOu', 'Afifah', '023232323', 'ca5d7b4dacc0a88b9e2c0df29955349400374c946554a5d07820207c17741aea', '1', 'role2', NULL);
 
 --
 -- Constraints for dumped tables
@@ -405,6 +431,13 @@ ALTER TABLE `film_aktor`
 ALTER TABLE `film_genre`
   ADD CONSTRAINT `filmid_fkfg` FOREIGN KEY (`film_id`) REFERENCES `film` (`filmid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `genreid_fkfg` FOREIGN KEY (`genre_id`) REFERENCES `genre` (`genreid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `film_user`
+--
+ALTER TABLE `film_user`
+  ADD CONSTRAINT `filmid_fkfu` FOREIGN KEY (`film_id`) REFERENCES `film` (`filmid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `userid_fkfu` FOREIGN KEY (`user_id`) REFERENCES `user` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user`

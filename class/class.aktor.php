@@ -1,9 +1,10 @@
 <?php
 
-class Genre extends Connection
+class Aktor extends Connection
 {
-	private $genreid = '';
-	private $nama_genre = '';
+	private $aktorid = '';
+	private $nama_aktor = '';
+    private $foto_aktor = '';
 	private $hasil = false;
 	private $message = '';
 
@@ -20,9 +21,9 @@ class Genre extends Connection
 			$this->$atribut = $value;
 		}
 	}
-	public function AddGenre()
+	public function AddAktor()
 	{
-		$sql = "INSERT INTO genre(genreid, nama_genre) VALUES ('$this->genreid', '$this->nama_genre')";
+		$sql = "INSERT INTO aktor(aktorid, nama_aktor, foto_aktor) VALUES ('$this->aktorid', '$this->nama_aktor', '$this->foto_aktor')";
 		$this->hasil = $this->connection->exec($sql);
 
 		if ($this->hasil)
@@ -31,9 +32,9 @@ class Genre extends Connection
 			$this->message = 'Data gagal ditambahkan!';
 	}
 
-	public function UpdateGenre()
+	public function UpdateAktor()
 	{
-		$sql = "UPDATE genre SET nama_genre ='$this->nama_genre' WHERE genreid = $this->genreid";
+		$sql = "UPDATE aktor SET nama_aktor ='$this->nama_aktor', foto_aktor ='$this->foto_aktor' WHERE aktorid = $this->aktorid";
 		$this->hasil = $this->connection->exec($sql);
 
 		if ($this->hasil)
@@ -41,10 +42,9 @@ class Genre extends Connection
 		else
 			$this->message = 'Data gagal diubah!';
 	}
-
-	public function DeleteGenre()
+	public function DeleteAktor()
 	{
-		$sql = "DELETE FROM genre WHERE genreid = $this->genreid";
+		$sql = "DELETE FROM aktor WHERE aktorid = $this->aktorid";
 		$this->hasil = $this->connection->exec($sql);
 
 		if ($this->hasil)
@@ -52,62 +52,63 @@ class Genre extends Connection
 		else
 			$this->message = 'Data gagal dihapus!';
 	}
-	public function getMaxGenreID() {
+	public function getMaxAktorID() {
         // Kode untuk mengambil UserID terbesar dari tabel pengguna (user)
-        $sql = 'SELECT MAX(genreid) AS max_genreid FROM genre'; // Ganti "pengguna" dengan nama tabel yang sesuai
+        $sql = 'SELECT MAX(aktorid) AS max_aktorid FROM aktor'; // Ganti "pengguna" dengan nama tabel yang sesuai
 		$result = $this->connection->query($sql);
 
 		if ($result && $result->rowCount() == 1) {
 			$row = $result->fetch(PDO::FETCH_ASSOC);
-			$maxGenreID = $row['max_genreid'];
-			return $maxGenreID;
+			$maxAktorID = $row['max_aktorid'];
+			return $maxAktorID;
 		} else {
 			return 0; // Jika tidak ada hasil atau terdapat lebih dari 1 baris, kembalikan 0 atau nilai yang sesuai
 		}
     }
-	public function SelectOneGenre()
+	public function SelectOneAktor()
 	{
-		$sql = "SELECT * FROM genre WHERE genreid = $this->genreid";
+		$sql = "SELECT * FROM aktor WHERE aktorid = $this->aktorid";
 		$result = $this->connection->query($sql);
 
 		if ($result->rowCount() == 1) {
 			while ($data = $result->fetch(PDO::FETCH_OBJ)) {
-				$this->genreid = $data->genreid;
-				$this->nama_genre = $data->nama_genre;
+				$this->aktorid = $data->aktorid;
+				$this->nama_aktor = $data->nama_aktor;
+                $this->foto_aktor = $data->foto_aktor;
 			}
 		}
 	}
-
-	public function SelectOneGenrebyGenreid($selectgenre)
+	public function SelectOneAktorbyAktorid($selectaktor)
 	{
-		if ($selectgenre == NULL)
-			$sql = "SELECT * FROM genre WHERE genreid IS NULL";
+		if ($selectaktor == NULL)
+			$sql = "SELECT * FROM aktor WHERE aktorid IS NULL";
 		else
-			$sql = "SELECT * FROM genre WHERE genreid = $selectgenre";
+			$sql = "SELECT * FROM aktor WHERE aktorid = $selectaktor";
 		$result = $this->connection->query($sql);
 
 		if ($result->rowCount() == 1) {
 			while ($data = $result->fetch(PDO::FETCH_OBJ)) {
-				$objGenre = new Genre();
-				$objGenre->genreid = $data->genreid;
-				$objGenre->nama_genre = $data->nama_genre;
+				$objAktor = new Aktor();
+				$objAktor->aktorid = $data->aktorid;
+				$objAktor->nama_aktor = $data->nama_aktor;
+                $objAktor->foto_aktor = $data->foto_aktor;
 			}
 		}
 	}
-
-	public function SelectAllGenre()
+	public function SelectAllAktor()
 	{
-		$sql = "SELECT * FROM genre ORDER BY nama_genre ASC";
+		$sql = "SELECT * FROM aktor ORDER BY aktorid ASC";
 		$result = $this->connection->query($sql);
 
 		$arrResult = array();
 		$i = 0;
 		if ($result->rowCount() > 0) {
 			while ($data = $result->fetch(PDO::FETCH_OBJ)) {
-				$objGenre = new Genre();
-				$objGenre->genreid = $data->genreid;
-				$objGenre->nama_genre = $data->nama_genre;
-				$arrResult[$i] = $objGenre;
+				$objAktor = new Aktor();
+				$objAktor->aktorid = $data->aktorid;
+				$objAktor->nama_aktor = $data->nama_aktor;
+                $objAktor->foto_aktor = $data->foto_aktor;
+				$arrResult[$i] = $objAktor;
 				$i++;
 			}
 		}
