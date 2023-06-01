@@ -50,6 +50,28 @@
     </div>
     </nav>
 
+    <div class="container mt-5 mb-5">
+        <h3 class="mb-4">Trailer</h3>
+        <hr>
+        <div class="row">
+            <div class="col-3 mb-3">
+                <iframe style="border-radius: 10px;" width="100%" height="200" src="https://www.youtube.com/embed/d9MyW72ELq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="col-3 mb-3">
+                <iframe style="border-radius: 10px;" width="100%" height="200" src="https://www.youtube.com/embed/1d0Zf9sXlHk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="col-3 mb-3">
+                <iframe style="border-radius: 10px;" width="100%" height="200" src="https://www.youtube.com/embed/l3kB8Yty6_A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="col-3 mb-3">
+                <iframe style="border-radius: 10px;" width="100%" height="200" src="https://www.youtube.com/embed/aOb15GVFZxU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="col-3 mb-3">
+                <iframe style="border-radius: 10px;" width="100%" height="200" src="https://www.youtube.com/embed/1d0Zf9sXlHk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
     
 
     <footer class="text-white pt-5" style="background-color: rgb(29, 34, 40)">
