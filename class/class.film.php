@@ -242,5 +242,96 @@ class Film extends Connection
 		}
 		return $arrResult;
 	}
+	# Fungsi New film hanya 12 film
+	public function SelectNewestFilms($limit = 12)
+	{
+		$sql = 'SELECT * FROM film ORDER BY rilis_film DESC LIMIT :limit';
+		
+		$stmt = $this->connection->prepare($sql);
+		$stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+		$stmt->execute();
+		
+		$arrResult = array();
+		
+		while ($data = $stmt->fetch(PDO::FETCH_OBJ)) {
+			$objFilm = new Film();
+			$objFilm->filmid = $data->filmid;
+			$objFilm->poster_film = $data->poster_film;
+			$objFilm->judul_film = $data->judul_film;
+			$objFilm->detail_film = $data->detail_film;
+			$objFilm->rilis_film = $data->rilis_film;
+			$objFilm->rating_film = $data->rating_film;
+			$objFilm->director_film = $data->director_film;
+			$objFilm->writer_film = $data->writer_film;
+			$objFilm->durasi_film = $data->durasi_film;
+			$objFilm->file_film = $data->file_film;
+			$arrResult[] = $objFilm;
+		}
+		
+		return $arrResult;
+	}
+	# Fungsi rating film hanya 12 film
+	public function SelectAllFilmByRating($limit = 12)
+	{
+		$sql = "SELECT * FROM film ORDER BY rating_film DESC LIMIT :limit";
+		
+		$stmt = $this->connection->prepare($sql);
+		$stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+		$stmt->execute();
+		
+		$arrResult = array();
+		
+		while ($data = $stmt->fetch(PDO::FETCH_OBJ)) {
+			$objFilm = new Film();
+			$objFilm->filmid = $data->filmid;
+			$objFilm->poster_film = $data->poster_film;
+			$objFilm->judul_film = $data->judul_film;
+			$objFilm->detail_film = $data->detail_film;
+			$objFilm->rilis_film = $data->rilis_film;
+			$objFilm->rating_film = $data->rating_film;
+			$objFilm->director_film = $data->director_film;
+			$objFilm->writer_film = $data->writer_film;
+			$objFilm->durasi_film = $data->durasi_film;
+			$objFilm->file_film = $data->file_film;
+			$arrResult[] = $objFilm;
+		}
+		
+		return $arrResult;
+	}
+	# Fungsi genre film hanya 12 film
+	public function SelectAllFilmRatingByGenre($genre, $limit = 12)
+	{
+		$sql = "SELECT f.*
+				FROM film f
+				JOIN film_genre fg ON f.filmid = fg.film_id
+				JOIN genre g ON fg.genre_id = g.genreid
+				WHERE g.nama_genre = :genre
+				ORDER BY f.rating_film DESC
+				LIMIT :limit";
+		
+		$stmt = $this->connection->prepare($sql);
+		$stmt->bindValue(':genre', $genre, PDO::PARAM_STR);
+		$stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+		$stmt->execute();
+		
+		$arrResult = array();
+		
+		while ($data = $stmt->fetch(PDO::FETCH_OBJ)) {
+			$objFilm = new Film();
+			$objFilm->filmid = $data->filmid;
+			$objFilm->poster_film = $data->poster_film;
+			$objFilm->judul_film = $data->judul_film;
+			$objFilm->detail_film = $data->detail_film;
+			$objFilm->rilis_film = $data->rilis_film;
+			$objFilm->rating_film = $data->rating_film;
+			$objFilm->director_film = $data->director_film;
+			$objFilm->writer_film = $data->writer_film;
+			$objFilm->durasi_film = $data->durasi_film;
+			$objFilm->file_film = $data->file_film;
+			$arrResult[] = $objFilm;
+		}
+		
+		return $arrResult;
+	}
 }
 ?>
