@@ -27,7 +27,7 @@
                 </div>
                 <p class="mb-4" style="color: gold; font-weight: 600; font-size: 30px;">Rp 20.000</p>
                 <a href=""><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #FFFFFF; color: #113250; font-weight: 500; text-align: center; width: 130px;">+ Wishlist</button></a>
-                <a href=""><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #113250; color: #FFFFFF; font-weight: 500; text-align: center; width: 130px;">Beli Tiket</button></a>
+                <a href="payment.php"><button class="btn btn-dark btn-lg rounded-pill" style="background-color: #113250; color: #FFFFFF; font-weight: 500; text-align: center; width: 130px;">Beli Tiket</button></a>
             </div>
         </div>
         <div class="row">
