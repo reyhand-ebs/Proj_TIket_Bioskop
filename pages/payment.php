@@ -51,7 +51,8 @@
                 
                 <div class="mt-3">
                     <input type="text" class="form-control rounded-5" style="width: 310px; float: left;" placeholder="Masukkan Kode Promo">
-                    <button class="btn btn-dark ms-md-2 rounded-5" style="width: 90px; background-color: #113250;">Klaim</button>
+                    <br><br>
+                    <button class="btn btn-dark ms-md rounded-5" style="width: 90px; background-color: #113250;">Klaim</button>
                 </div>
             </div>
             
