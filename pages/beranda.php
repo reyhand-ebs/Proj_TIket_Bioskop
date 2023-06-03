@@ -9,6 +9,7 @@
     <div class="container-fluid">
         <div class="terlaris p-5">
             <h2 class="fs-1 fw-bolder mb-4">Film Terbaru</h2>
+            <hr>
             <?php
             require_once('./class/class.film.php');
             $objFilm = new Film();
@@ -30,9 +31,9 @@
             }
             ?>
         </div>
-        <hr class="hr" /> <!--Pemisah atau devider-->
         <div class="Rekomendasi mb-3 p-5">
             <h2 class="fs-1 fw-bolder mb-4">Film Populer</h2>
+            <hr>
             <?php
             $objFilm = new Film();
             $arrayResult = $objFilm->SelectAllFilmByRating();
@@ -53,9 +54,9 @@
             }
             ?>
         </div>
-        <hr class="hr" /> <!--Pemisah atau devider-->
         <div class="terlaris p-5">
             <h2 class="fs-1 fw-bolder mb-4">Film Action</h2>
+            <hr>
             <?php
             $objFilm = new Film();
             $genre = "Action"; // spesifik buat genrenya
@@ -77,9 +78,9 @@
             }
             ?>
         </div>
-        <hr class="hr" />
         <div class="terlaris p-5">
             <h2 class="fs-1 fw-bolder mb-4">Film Horror</h2>
+            <hr>
             <?php
             $objFilm = new Film();
             $genre = "Horror"; // spesifik buat genrenya
@@ -101,8 +102,42 @@
             }
             ?>
         </div>
-        <hr class="hr" /> <!--Pemisah atau devider-->
-
+        <div class="mb-5 p-5">
+            <h2 class="mb-4 fs-1 fw-bolder mb-4">Trailer</h2>
+            <hr>
+            <div class="row">
+                <div class="col-3 mb-3">
+                    <iframe style="border-radius: 10px;" width="100%" height="200"
+                        src="https://www.youtube.com/embed/d9MyW72ELq0" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="col-3 mb-3">
+                    <iframe style="border-radius: 10px;" width="100%" height="200"
+                        src="https://www.youtube.com/embed/1d0Zf9sXlHk" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="col-3 mb-3">
+                    <iframe style="border-radius: 10px;" width="100%" height="200"
+                        src="https://www.youtube.com/embed/l3kB8Yty6_A" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="col-3 mb-3">
+                    <iframe style="border-radius: 10px;" width="100%" height="200"
+                        src="https://www.youtube.com/embed/aOb15GVFZxU" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="col-3 mb-3">
+                    <iframe style="border-radius: 10px;" width="100%" height="200"
+                        src="https://www.youtube.com/embed/1d0Zf9sXlHk" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
