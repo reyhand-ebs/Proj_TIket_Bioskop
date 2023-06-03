@@ -1,59 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 :root {
-    --primary: #D3EBCD;
-    --secondary: #113250;
-    --dark: #1F1F1F;
-    --body: #1F1F1F;
-    --white: #ffffff;
+    --primary: #E8B39C;
+    --secondary: #55BEAB;
 }
 
-*{  
-    font-family: 'Inter', sans-serif;
-    font-weight: lighter;
-    color: #ffffff;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #1F1F1F;
+    font-family: 'Poppins', sans-serif;
 }
 
-.btn {
-    font-weight: 500;
+#inputlogin {
+    width: 500px;
+    height: auto;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
-.modal {
-    display: none;
+#inputsignup {
+    width: 500px;
+    height: auto;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.posterfilm:hover {
+    background-color: black;
+    opacity: 0.6;
+    transition: opacity .7s;
+}
+
+#posterfilm:hover {
+    transform: scale(1.1);
+}
+
+.spinner-wrapper {
+    background-color: black;
     position: fixed;
-    z-index: 1;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.7s;
 }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}

@@ -1,31 +1,31 @@
-<?php
-include('./inc.koneksi.php');
-require_once('./class/class.user.php');
+<html lang="en">
 
-if (isset($_POST['btnSubmit'])) {
-    $password = $_POST["newpass"];
-    $repassword = $_POST["renewpass"];
+<head>
+    <title>Aktivasi | Bioskop 165</title>
+</head>
 
-    $objUser = new User();
-    $objUser->ValidateTokenNew($_GET['t']);
-    if ($objUser->hasil) {
-        if (strlen($password) < 8) {
-            echo "<script>alert('Password harus terdiri dari minimal 8 karakter');</script>";
-        } else if (!preg_match("/^[a-zA-Z0-9]+$/", $password)) {
-            echo "<script>alert('Password hanya boleh terdiri dari huruf abjad dan angka');</script>";
-        } else if ($password == strtolower($password)) {
-            echo "<script>alert('Password harus mengandung huruf kapital');</script>";
-        } else if ($password != $repassword) {
-            echo "<script>alert('Kata sandi tidak sama');</script>";
+<body>
+    <div class="container" align="center">
+        <br>
+        <?php
+        include('./inc.koneksi.php');
+        require_once('./class/class.user.php');
+        //$token=$_GET['t'];
+        date_default_timezone_set("Asia/Jakarta");
+        $token=hash('sha256', md5(date('Y-m-d').date("h")));
+
+        $objUser = new User();
+	    $objUser->ValidateToken($token);
+
+    	if ($objUser->hasil) {
+            $objUser->UpdateAktif();
+            echo '<div class="alert alert-success">Akun anda sudah aktif, silahkan <a href="index.php?p=login">Login</a></div>';
         } else {
-            $objUser->password = password_hash($password, PASSWORD_DEFAULT);
-            $objUser->UpdateUser();
-            echo "<script> alert('Password berhasil diubah, silahkan masuk kembali ke akun anda'); </script>";
-            echo '<script> window.location="index.php?p=login"; </script>';
+            //data tidak di temukan
+            echo '<div class="alert alert-warning">Invalid Token!</div>';
         }
-    } else {
-        //data tidak ditemukan
-        echo '<div class="alert alert-warning">Invalid Token!</div>';
-    }
-} 
-?>
+        ?>
+    </div>
+</body>
+
+</html>
