@@ -20,6 +20,7 @@ class Genre extends Connection
 			$this->$atribut = $value;
 		}
 	}
+
 	public function AddGenre()
 	{
 		$sql = "INSERT INTO genre(genreid, nama_genre) VALUES ('$this->genreid', '$this->nama_genre')";
@@ -52,6 +53,7 @@ class Genre extends Connection
 		else
 			$this->message = 'Data gagal dihapus!';
 	}
+	
 	public function getMaxGenreID() {
         // Kode untuk mengambil UserID terbesar dari tabel pengguna (user)
         $sql = 'SELECT MAX(genreid) AS max_genreid FROM genre'; // Ganti "pengguna" dengan nama tabel yang sesuai
@@ -65,6 +67,7 @@ class Genre extends Connection
 			return 0; // Jika tidak ada hasil atau terdapat lebih dari 1 baris, kembalikan 0 atau nilai yang sesuai
 		}
     }
+	
 	public function SelectOneGenre()
 	{
 		$sql = "SELECT * FROM genre WHERE genreid = $this->genreid";

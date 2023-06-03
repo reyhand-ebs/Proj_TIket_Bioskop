@@ -9,7 +9,7 @@ if (isset($_POST['btnSimpan'])) {
     $nama_genre = $_POST['nama_genre'];
     $objGenre->nama_genre = $nama_genre;
     $objGenre->UpdateGenre();
-    echo '<script>if(confirm("Apakah Anda yakin ingin menyimpan?")) { alert("Nama genre ' .$nama_genre. ' berhasil diubah."); window.location.href = "?p=genrelist"; }</script>';
+    echo '<script>if(confirm("Apakah Anda yakin ingin menyimpan?")) { alert("Data genre ' .$nama_genre. ' berhasil diubah."); window.location.href = "?p=genrelist"; }</script>';
 }
 
 if (isset($_POST['btnBatal'])) {

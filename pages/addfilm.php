@@ -1,160 +1,121 @@
-<?php 
+<?php
 require_once "authorization_admin.php";
-//include('./inc.koneksi.php');
-//require_once "authorization_admin.php";
-require_once('./class/class.film.php'); 		
-$objfilm = new Film(); 
-//$managerList = $objEmployee->SelectAllManager();
-//$deptList = $objEmployee->SelectDepartment();
-
-if(isset($_POST['btnSubmit'])){	
-   // $objfilm->id_film = $_POST['id_film']
-    $objfilm->judul_film = $_POST['judul_film'];	 
-	$objfilm->rilis = $_POST['rilis'];	
-	$objfilm->genre = $_POST['genre'];	
-	$objfilm->detail_film = $_POST['detail_film'];	
-	$objfilm->durasi = $_POST['durasi'];	
-    $objfilm->produser = $_POST['produser'];
-	$objfilm->penulis = $_POST['penulis'];
-	$objfilm->sutradara = $_POST['sutradara'];
-	$objfilm->produksi = $_POST['produksi'];
-	$objfilm->aktor = $_POST['aktor'];
-		 
-	
-	if(isset($_GET['id_film'])){		
-		$objfilm->id_film = $_GET['id_film'];
-		$objfilm->UpdateFilm();
-	}
-	else{	
-		$objfilm->AddFilm();
-	}			
-	
-	echo "<script> alert('$objfilm->message'); </script>";
-	if($objfilm->hasil){
-		echo '<script> window.location = "dashboardadmin.php?p=filmlist";</script>';
-	}
-				
-}
-else if(isset($_GET['id_film'])){	
-	$objfilm->id_film = $_GET['id_film'];	
-	$objfilm->SelectOneFilm();
-}	
+require_once "addfilmproses.php";
 ?>
-<div class="container">  
-<h4 class="title"><span class="text"><strong>Film</strong></span></h4>  
-    <form action="" method="post">
-	<div class="row">
-	<div class="col-md-8">	
-     <!--   	
-	<?php
-		//if($objEmployee->photo != null)
-		//	echo '<img class="img-rounded img-responsive" src="upload/'.$objEmployee->photo.'">';	
-		//else
-		//	echo '<img class="img-rounded img-responsive" src="upload/default.png">';	
-		?>
-		<input type="hidden" name="photo" value="<?php ///echo $objEmployee->photo; ?>">
-	</div>
--->
-	<div class="col-md-5">		
-	<table class="table" border="0">
-	<tr>
-	<td>Judul</td>
-	<td>:</td>
-	<td><input type="text" class="form-control" name="judul_film" value="<?php echo $objfilm->judul_film; ?>"></td>
-	</tr>	
-	<tr>
-	<td>Rilis</td>
-	<td>:</td>
-	<td><input type="text" class="form-control" name="rilis" value="<?php echo $objfilm->rilis; ?>"></td>
-	</tr>	
-	<tr>
-	<tr>
-	<td>Genre</td>
-	<td>:</td>
-	<td><input type="text" class="form-control" name="genre" value="<?php echo $objfilm->genre; ?>"></td>
-	</tr>	
-	<tr>
-	<td>Durasi</td>
-	<td>:</td>
-	<td><input type="text" class="form-control" name="durasi" value="<?php echo $objfilm->durasi; ?>"></td>
-	</tr>
-	<tr>
-	<td>Detail</td>
-	<td>:</td>
-	<td><input type="text" class="form-control" name="detail_film" value="<?php echo $objfilm->detail_film; ?>"></td>
-	</tr>	
-	</table>
-	</div>
-	<div class="col-md-5">			
-	<table class="table" border="0">
-	<tr>
-	<tr>
-	<td>Produser</td>
-	<td>:</td>
-	<td><input type="text" class="form-control" name="produser" value="<?php echo $objfilm->produser; ?>"></td>
-	</tr>	
-	<tr>
-	<td>Penulis</td>
-	<td>:</td>
-	<td><input type="text" class="form-control" name="penulis" value="<?php echo $objfilm->penulis; ?>"></td>
-	</tr>	
-	<tr>
-	<td>Sutradara</td>
-	<td>:</td>
-	<td><input type="text" class="form-control" name="sutradara" value="<?php echo $objfilm->sutradara; ?>"></td>
-	</tr>
-	<tr>
-	<tr>
-	<td>produksi</td>
-	<td>:</td>
-	<td><input type="text" class="form-control" name="produksi" value="<?php echo $objfilm->produksi; ?>"></td>
-    <!--    
-	 <select name="super_ssn" class="form-control">
-	 <option value="">--Please select supervisor--</option>
-		<?php		
-			//foreach ($managerList as $emp){ 								
-			//	if($objEmployee->super_ssn == $emp->super_ssn)				
-			//		echo '<option selected="true" value='.$emp->super_ssn.'>'.$emp->super_name.'</option>';
-			//	else
-			//		echo '<option value='.$emp->super_ssn.'>'.$emp->super_name.'</option>';
-		//	} 
-		?>
-        	
-	</select>	
-            -->
-	</tr>
-	<tr>
-	<td>Aktor</td>
-	<td>:</td>
-	<td><input type="text" class="form-control" name="aktor" value="<?php echo $objfilm->aktor; ?>">
-    <!--    
-	<select name="dno" class="form-control">
-	 <option value="">--Please select department--</option>
-		<?php		
-			//foreach ($deptList as $dept){ 								
-			//	if($objEmployee->dno == $dept->dno)				
-			//		echo '<option selected="true" value='.$dept->dno.'>'.$dept->dname.'</option>';
-			//	else
-			//		echo '<option value='.$dept->dno.'>'.$dept->dname.'</option>';
-		//	} 
-		?>	
-		</select>
-        -->    
-	</td>
-	</tr>
-	</table>    
-	</div>
-	<input type="submit" class="btn btn-success" value="Save" name="btnSubmit">
-	<a href="dashboardadmin.php?p=employeelist" class="btn btn-warning">Cancel</a></td>
-</form>	  
-</div>
-<br>
-<!--
-	<?php 
-	 // if(isset($_GET['ssn'])){	
-		// include('dependentlist.php'); 		
-	 // }
-	?>
--->
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+	<title>Tambah Film | Admin Bioskop 165</title>
+</head>
 
+<body>
+	<div class="mt-5 mb-5 px-5">
+		<h3 class="mb-5">Tambah Film</h3>
+		<form class="mb-5" action="?p=addfilmproses" method="POST" enctype="multipart/form-data">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group mb-2">
+						<label for="filmid">ID Film
+							<hr>
+						</label>
+						<?php
+						list($maxFilmID, $maxFilmName) = $objfilm->getMaxFilmID();
+						$nextFilmID = $maxFilmID + 1;
+						echo '<input name="filmid" type="text" class="form-control" id="filmid" value="' . $nextFilmID . '"
+						readonly>';
+						?>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group mb-2">
+						<label for="judul_film">Judul
+							<hr>
+						</label>
+						<input type="text" class="form-control" id="judul_film" name="judul_film">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group mb-2">
+						<label for="rilis_film">Tanggal Rilis
+							<hr>
+						</label>
+						<input type="date" class="form-control" id="rilis_film" name="rilis_film">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group mb-2">
+						<label for="tanggal_upload">Tanggal Upload
+							<hr>
+						</label>
+						<?php date_default_timezone_set("Asia/Jakarta");
+						echo '<input type="text" class="form-control" id="tanggal_upload" name="tanggal_upload" value="'.date("d/m/Y").'" readonly>';
+						?>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group mb-2">
+						<label for="durasi_film">Durasi
+							<hr>
+						</label>
+						<input type="text" class="form-control" id="durasi_film" name="durasi_film">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group mb-2">
+						<label for="rating_film">Rating
+							<hr>
+						</label>
+						<input type="text" class="form-control" id="rating_film" name="rating_film">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group mb-2">
+						<label for="sutradara_film">Sutradara
+							<hr>
+						</label>
+						<input type="text" class="form-control" id="director_film" name="director_film">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group mb-2">
+						<label for="penulis_film">Penulis
+							<hr>
+						</label>
+						<input type="text" class="form-control" id="writer_film" name="writer_film">
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group mb-2">
+						<label for="detail_film">Sinopsis
+							<hr>
+						</label>
+						<textarea type="text" class="form-control" id="detail_film" name="detail_film"></textarea>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group mb-2">
+						<label for="poster_film">Poster
+							<hr>
+						</label></br>
+						<input type="file" id="poster_film" name="poster_film">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group mb-2">
+						<label for="file_film">File Film
+							<hr>
+						</label></br>
+						<input type="file" id="file_film" name="file_film">
+					</div>
+				</div>
+			</div>
+			<div class="text-right pt-3">
+				<button class="btn btn-lg rounded-pill btn-primary fw-semibold" style="width: 130px;" name="btnTambah"
+					type="submit">Tambah</button>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>

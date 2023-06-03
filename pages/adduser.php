@@ -34,16 +34,16 @@ if (isset($_POST['btnTambah'])) {
 <body>
 	<div class="mt-5 mb-5 px-5">
 		<h3 class="mb-5">Tambah Pengguna</h3>
-		<form class="mb-5" method="POST">
+		<form class="mb-5" method="POST" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-md-8">
 					<div class="form-group mb-2">
 						<label for="userid">ID Pengguna</label>
 						<?php
-						$maxUserID = $objuser->getMaxUserID(); // Mengambil UserID terbesar dari tabel pengguna (user)
-						$nextUserID = $maxUserID + 1; // Mendapatkan UserID selanjutnya
+						$maxUserID = $objuser->getMaxUserID();
+						$nextUserID = $maxUserID + 1;
 						echo '<input name="userid" type="text" class="form-control" id="userid" value="' . $nextUserID . '"
-						disabled>';
+						readonly>';
 						?>
 					</div>
 				</div>
@@ -88,7 +88,7 @@ if (isset($_POST['btnTambah'])) {
 						date_default_timezone_set("Asia/Jakarta");
 						$token = hash('sha256', md5(date('Y-m-d') . date("h")));
 						echo '<input name="token" type="text" class="form-control" id="token"
-                            value="' . $token . '" disabled>';
+                            value="' . $token . '" readonly>';
 						?>
 					</div>
 				</div>
@@ -97,7 +97,7 @@ if (isset($_POST['btnTambah'])) {
 				<div class="col-md-8">
 					<div class="form-group mb-2">
 						<label for="roleid">Role</label>
-						<input name="roleid" type="text" class="form-control" id="roleid" value="role2" disabled>
+						<input name="roleid" type="text" class="form-control" id="roleid" value="role2" readonly>
 					</div>
 				</div>
 			</div>

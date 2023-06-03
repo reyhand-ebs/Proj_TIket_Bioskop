@@ -32,10 +32,10 @@ if (isset($_POST['btnTambah'])) {
 					<div class="form-group mb-2">
 						<label for="genreid">ID Genre</label>
 						<?php
-						$maxGenreID = $objgenre->getMaxGenreID(); // Mengambil UserID terbesar dari tabel pengguna (user)
-						$nextGenreID = $maxGenreID + 1; // Mendapatkan UserID selanjutnya
+						$maxGenreID = $objgenre->getMaxGenreID();
+						$nextGenreID = $maxGenreID + 1;
 						echo '<input name="genreid" type="text" class="form-control" id="genreid" value="' . $nextGenreID . '"
-						disabled>';
+						readonly>';
 						?>
 					</div>
 				</div>

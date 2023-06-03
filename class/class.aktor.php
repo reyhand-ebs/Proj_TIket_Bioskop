@@ -14,22 +14,30 @@ class Aktor extends Connection
 			return $this->$atribute;
 		}
 	}
-
+	
 	public function __set($atribut, $value)
 	{
 		if (property_exists($this, $atribut)) {
 			$this->$atribut = $value;
 		}
 	}
+
 	public function AddAktor()
 	{
-		$sql = "INSERT INTO aktor(aktorid, nama_aktor, foto_aktor) VALUES ('$this->aktorid', '$this->nama_aktor', '$this->foto_aktor')";
-		$this->hasil = $this->connection->exec($sql);
-
-		if ($this->hasil)
+		$sql = "INSERT INTO aktor(aktorid, nama_aktor, foto_aktor) VALUES (:aktorid, :nama_aktor, :foto_aktor)";
+	
+		$stmt = $this->connection->prepare($sql);
+		$stmt->bindParam(':aktorid', $this->aktorid);
+		$stmt->bindParam(':nama_aktor', $this->nama_aktor);
+		$stmt->bindParam(':foto_aktor', $this->foto_aktor);
+	
+		if ($stmt->execute()) {
+			$this->hasil = true;
 			$this->message = 'Data berhasil ditambahkan!';
-		else
+		} else {
+			$this->hasil = false;
 			$this->message = 'Data gagal ditambahkan!';
+		}
 	}
 
 	public function UpdateAktor()
@@ -42,6 +50,7 @@ class Aktor extends Connection
 		else
 			$this->message = 'Data gagal diubah!';
 	}
+
 	public function DeleteAktor()
 	{
 		$sql = "DELETE FROM aktor WHERE aktorid = $this->aktorid";
@@ -52,6 +61,7 @@ class Aktor extends Connection
 		else
 			$this->message = 'Data gagal dihapus!';
 	}
+
 	public function getMaxAktorID() {
         // Kode untuk mengambil UserID terbesar dari tabel pengguna (user)
         $sql = 'SELECT MAX(aktorid) AS max_aktorid FROM aktor'; // Ganti "pengguna" dengan nama tabel yang sesuai
@@ -65,6 +75,7 @@ class Aktor extends Connection
 			return 0; // Jika tidak ada hasil atau terdapat lebih dari 1 baris, kembalikan 0 atau nilai yang sesuai
 		}
     }
+
 	public function SelectOneAktor()
 	{
 		$sql = "SELECT * FROM aktor WHERE aktorid = $this->aktorid";
@@ -78,6 +89,7 @@ class Aktor extends Connection
 			}
 		}
 	}
+
 	public function SelectOneAktorbyAktorid($selectaktor)
 	{
 		if ($selectaktor == NULL)
@@ -95,6 +107,7 @@ class Aktor extends Connection
 			}
 		}
 	}
+	
 	public function SelectAllAktor()
 	{
 		$sql = "SELECT * FROM aktor ORDER BY aktorid ASC";

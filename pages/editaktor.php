@@ -11,11 +11,11 @@ if (isset($_POST['btnSimpan'])) {
     $objAktor->nama_aktor = $nama_aktor;
     $objAktor->foto_aktor = $foto_aktor;
     $objAktor->UpdateAktor();
-    echo '<script>if(confirm("Apakah Anda yakin ingin menyimpan?")) { alert("Nama genre ' . $nama_aktor . ' berhasil diubah."); window.location.href = "?p=genrelist"; }</script>';
+    echo '<script>if(confirm("Apakah Anda yakin ingin menyimpan?")) { alert("Data aktor ' . $nama_aktor . ' berhasil diubah."); window.location.href = "?p=aktorlist"; }</script>';
 }
 
 if (isset($_POST['btnBatal'])) {
-    echo '<script>if(confirm("Apakah Anda yakin ingin membatalkan?")) { window.location.href = "?p=genrelist"; }</script>';
+    echo '<script>if(confirm("Apakah Anda yakin ingin membatalkan?")) { window.location.href = "?p=aktorlist"; }</script>';
 }
 
 ?>

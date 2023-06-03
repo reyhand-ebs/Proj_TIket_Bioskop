@@ -11,8 +11,12 @@ class Film extends Connection
 	private $writer_film = '';
 	private $durasi_film = '';
 	private $file_film = '';
+	private $tanggal_upload = '';
 	private $nama_genre = '';
 	private $nama_aktor = '';
+	private $film_id = '';
+	private $aktor_id = '';
+	private $genre_id = '';
 	private $hasil = false;
 	private $message = '';
 
@@ -30,27 +34,99 @@ class Film extends Connection
 	}
 	public function AddFilm()
 	{
-		$sql = "INSERT INTO film(poster_film, judul_film, detail_film, rilis_film, rating_film, director_film, writer_film, durasi_film, file_film) 
-		VALUES ('$this->poster_film', '$this->judul_film', '$this->detail_film', '$this->rilis_film', '$this->rating_film, '$this->director_film', 
-		'$this->writer_film', '$this->durasi_film', '$this->file_film')";
-		$this->hasil = $this->connection->exec($sql);
+		$sql = "INSERT INTO film(filmid, poster_film, judul_film, detail_film, rilis_film, rating_film, director_film, writer_film, durasi_film, file_film, tanggal_upload) 
+				VALUES (:filmid, :poster_film, :judul_film, :detail_film, :rilis_film, :rating_film, :director_film, :writer_film, :durasi_film, :file_film, :tanggal_upload)";
 
-		if ($this->hasil)
+		$stmt = $this->connection->prepare($sql);
+		$stmt->bindParam(':filmid', $this->filmid);
+		$stmt->bindParam(':poster_film', $this->poster_film);
+		$stmt->bindParam(':judul_film', $this->judul_film);
+		$stmt->bindParam(':detail_film', $this->detail_film);
+		$stmt->bindParam(':rilis_film', $this->rilis_film);
+		$stmt->bindParam(':rating_film', $this->rating_film);
+		$stmt->bindParam(':director_film', $this->director_film);
+		$stmt->bindParam(':writer_film', $this->writer_film);
+		$stmt->bindParam(':durasi_film', $this->durasi_film);
+		$stmt->bindParam(':file_film', $this->file_film);
+		$stmt->bindParam(':tanggal_upload', $this->tanggal_upload);
+
+		if ($stmt->execute()) {
+			$this->hasil = true;
 			$this->message = 'Data berhasil ditambahkan!';
-		else
+		} else {
+			$this->hasil = false;
 			$this->message = 'Data gagal ditambahkan!';
+		}
+	}
+	public function AddFilmAktor()
+	{
+		$filmID = $this->film_id;
+		$aktorIDs = $this->aktor_id;
+
+		$insertSql = "INSERT INTO film_aktor (film_id, aktor_id) VALUES (:film_id, :aktor_id)";
+		$insertStmt = $this->connection->prepare($insertSql);
+
+		foreach ($aktorIDs as $aktorID) {
+			$insertStmt->bindValue(':film_id', $filmID);
+			$insertStmt->bindValue(':aktor_id', $aktorID);
+			$result = $insertStmt->execute();
+			if (!$result) {
+				$this->hasil = false;
+				return;
+			}
+		}
+
+		$this->hasil = true;
+		$this->message = 'Data berhasil ditambahkan!';
+	}
+
+	public function AddFilmGenre()
+	{
+		$filmID = $this->film_id;
+		$genreIDs = $this->genre_id;
+
+		$insertSql = "INSERT INTO film_genre (film_id, genre_id) VALUES (:film_id, :genre_id)";
+		$insertStmt = $this->connection->prepare($insertSql);
+
+		foreach ($genreIDs as $genreID) {
+			$insertStmt->bindValue(':film_id', $filmID);
+			$insertStmt->bindValue(':genre_id', $genreID);
+			$result = $insertStmt->execute();
+			if (!$result) {
+				$this->hasil = false;
+				return;
+			}
+		}
+
+		$this->hasil = true;
+		$this->message = 'Data berhasil ditambahkan!';
 	}
 	public function UpdateFilm()
 	{
-		$sql = "UPDATE film SET poster_film = '$this->poster_film', judul_film = '$this->judul_film', detail_film = '$this->detail_film', 
-		rilis_film = '$this->rilis_film', rating_film = '$this->rating_film', director_film = '$this->director_film', writer_film = '$this->writer_film', 
-		durasi_film = '$this->durasi_film, file_film = '$this->file_film'";
-		$this->hasil = $this->connection->exec($sql);
+		$sql = "UPDATE film SET poster_film = :poster_film, judul_film = :judul_film, detail_film = :detail_film, rilis_film = :rilis_film, 
+				rating_film = :rating_film, director_film = :director_film, writer_film = :writer_film, durasi_film = :durasi_film, 
+				file_film = :file_film, tanggal_upload = :tanggal_upload WHERE filmid = :filmid";
 
-		if ($this->hasil)
+		$stmt = $this->connection->prepare($sql);
+		$stmt->bindParam(':poster_film', $this->poster_film);
+		$stmt->bindParam(':judul_film', $this->judul_film);
+		$stmt->bindParam(':detail_film', $this->detail_film);
+		$stmt->bindParam(':rilis_film', $this->rilis_film);
+		$stmt->bindParam(':rating_film', $this->rating_film);
+		$stmt->bindParam(':director_film', $this->director_film);
+		$stmt->bindParam(':writer_film', $this->writer_film);
+		$stmt->bindParam(':durasi_film', $this->durasi_film);
+		$stmt->bindParam(':file_film', $this->file_film);
+		$stmt->bindParam(':tanggal_upload', $this->tanggal_upload);
+		$stmt->bindParam(':filmid', $this->filmid);
+
+		if ($stmt->execute()) {
+			$this->hasil = true;
 			$this->message = 'Data berhasil diubah!';
-		else
+		} else {
+			$this->hasil = false;
 			$this->message = 'Data gagal diubah!';
+		}
 	}
 
 	public function DeleteFilm()
@@ -63,17 +139,30 @@ class Film extends Connection
 		else
 			$this->message = 'Data gagal dihapus!';
 	}
+	public function getMaxFilmID()
+	{
+		$sql = 'SELECT MAX(filmid) AS max_filmid, MAX(judul_film) AS max_judulfilm FROM film';
+		$result = $this->connection->query($sql);
 
+		if ($result && $result->rowCount() == 1) {
+			$row = $result->fetch(PDO::FETCH_ASSOC);
+			$maxFilmID = $row['max_filmid'];
+			$maxFilmName = $row['max_judulfilm'];
+			return array($maxFilmID, $maxFilmName);
+		} else {
+			return array(0, '');
+		}
+	}
 	public function SelectOneFilm()
 	{
-		$sql = 'SELECT f.*, GROUP_CONCAT(DISTINCT g.nama_genre SEPARATOR ", ") AS nama_genre, 
-		GROUP_CONCAT(DISTINCT a.nama_aktor SEPARATOR ", ") AS nama_aktor
-		FROM film f
-		JOIN film_genre fg ON f.filmid = fg.film_id
-		JOIN genre g ON fg.genre_id = g.genreid
-		JOIN film_aktor fa ON f.filmid = fa.film_id
-		JOIN aktor a ON fa.aktor_id = a.aktorid
-		WHERE f.filmid = ' . $this->filmid . ' GROUP BY f.filmid;'; 
+		$sql = 'SELECT f.*, GROUP_CONCAT(DISTINCT g.nama_genre) AS nama_genre, 
+        GROUP_CONCAT(DISTINCT a.nama_aktor) AS nama_aktor
+        FROM film f
+        JOIN film_genre fg ON f.filmid = fg.film_id
+        JOIN genre g ON fg.genre_id = g.genreid
+        JOIN film_aktor fa ON f.filmid = fa.film_id
+        JOIN aktor a ON fa.aktor_id = a.aktorid
+        WHERE f.filmid = ' . $this->filmid . ' GROUP BY f.filmid;';
 		$result = $this->connection->query($sql);
 
 		if ($result->rowCount() == 1) {
@@ -88,8 +177,21 @@ class Film extends Connection
 				$this->writer_film = $data->writer_film;
 				$this->durasi_film = $data->durasi_film;
 				$this->file_film = $data->file_film;
-				$this->nama_aktor = $data->nama_aktor;
-				$this->nama_genre = $data->nama_genre;
+				$this->tanggal_upload = $data->tanggal_upload;
+				$this->nama_aktor = explode(',', $data->nama_aktor);
+				$this->nama_genre = explode(',', $data->nama_genre);
+			}
+		}
+	}
+	public function SelectOneFilmByFilmId($selectfilmid)
+	{
+		$sql = 'SELECT * FROM film WHERE filmid=' . $selectfilmid . '';
+		$result = $this->connection->query($sql);
+
+		if ($result->rowCount() == 1) {
+			while ($data = $result->fetch(PDO::FETCH_OBJ)) {
+				$this->filmid = $data->filmid;
+				$this->judul_film = $data->judul_film;
 			}
 		}
 	}
@@ -114,6 +216,7 @@ class Film extends Connection
 				$objFilm->writer_film = $data->writer_film;
 				$objFilm->durasi_film = $data->durasi_film;
 				$objFilm->file_film = $data->file_film;
+				$objFilm->tanggal_upload = $data->tanggal_upload;
 				$arrResult[$i] = $objFilm;
 				$i++;
 			}
@@ -141,6 +244,7 @@ class Film extends Connection
 				$objFilm->writer_film = $data->writer_film;
 				$objFilm->durasi_film = $data->durasi_film;
 				$objFilm->file_film = $data->file_film;
+				$objFilm->tanggal_upload = $data->tanggal_upload;
 				$arrResult[$i] = $objFilm;
 				$i++;
 			}
@@ -170,6 +274,7 @@ class Film extends Connection
 				$objFilm->writer_film = $data->writer_film;
 				$objFilm->durasi_film = $data->durasi_film;
 				$objFilm->file_film = $data->file_film;
+				$objFilm->tanggal_upload = $data->tanggal_upload;
 				$objFilm->nama_genre = $data->nama_genre;
 				$arrResult[$i] = $objFilm;
 				$i++;
@@ -204,6 +309,7 @@ class Film extends Connection
 				$objFilm->writer_film = $data->writer_film;
 				$objFilm->durasi_film = $data->durasi_film;
 				$objFilm->file_film = $data->file_film;
+				$objFilm->tanggal_upload = $data->tanggal_upload;
 				$objFilm->nama_aktor = $data->nama_aktor;
 				$objFilm->nama_genre = $data->nama_genre;
 				$arrResult[$i] = $objFilm;
@@ -235,6 +341,7 @@ class Film extends Connection
 				$objFilm->writer_film = $data->writer_film;
 				$objFilm->durasi_film = $data->durasi_film;
 				$objFilm->file_film = $data->file_film;
+				$objFilm->tanggal_upload = $data->tanggal_upload;
 				$objFilm->nama_aktor = $data->nama_aktor;
 				$arrResult[$i] = $objFilm;
 				$i++;
