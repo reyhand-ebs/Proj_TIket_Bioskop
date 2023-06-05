@@ -2,35 +2,115 @@
 <html lang="en">
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+    <title>Voucher Saya</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body class="movie bg-dark" style="background-color: #1F1F1F;">
+<body>
 <br></br>
-    <div class="container">
-        <div class="row">
-            <h2 class="text-white">voucher saya</h2>
-            <div class="card col-3 mb-3 me-5" style="width: 10rem;">
-                <img src="../img/v1.jpg" class="card-img-top" alt="...">
+    <div class="container mt-5 mb-5">
+            <h2 class="mb-4">Voucher Saya</h2>
+            <!--
+            <div class="row">
+                <div class="card col-2 mb-3 me-3">
+                    <img src="../img/promo4.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="card-text text-center"><b>CHA2K4L</b></p>
+                        <h5 class="card-title">Promo Cashback 30%!</h5>
+                        <p class="card-title">Kode Promo: CEES20</p>
+                        <a href="#" class="btn btn-primary">Pakai</a>
                     </div>
                 </div>
-            <div class="card col-2 mb-3" style="width: 10rem;">
-                <img src="../img/v1.jpg" class="card-img-top" alt="...">
+                <div class="card col-2 mb-3 me-3">
+                    <img src="../img/promo4.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="card-text text-center"><b>CHA2K4L</b></p>
+                        <h5 class="card-title">Promo Cashback 30%!</h5>
+                        <p class="card-title">Kode Promo: CEES20</p>
+                        <a href="#" class="btn btn-primary">Pakai</a>
                     </div>
+                </div>
+                <div class="card col-2 mb-3 me-3">
+                    <img src="../img/promo4.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Promo Cashback 30%!</h5>
+                        <p class="card-title">Kode Promo: CEES20</p>
+                        <a href="#" class="btn btn-primary">Pakai</a>
+                    </div>
+                </div>
+                <div class="card col-2 mb-3 me-3">
+                    <img src="../img/promo4.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Promo Cashback 30%!</h5>
+                        <p class="card-title">Kode Promo: CEES20</p>
+                        <a href="#" class="btn btn-primary">Pakai</a>
+                    </div>
+                </div>
+                <div class="card col-2 mb-3 me-3">
+                    <img src="../img/promo4.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Promo Cashback 30%!</h5>
+                        <p class="card-title">Kode Promo: CEES20</p>
+                        <a href="#" class="btn btn-primary">Pakai</a>
+                    </div>
+                </div>
+            </div>-->
+
+            <div class="row">
+                <div class="col-3">
+                    <div class="card mb-3 me-3">
+                        <img src="../img/promo4.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Promo Cashback 30%!</h5>
+                            <p class="card-title">Kode Promo: CEES20</p>
+                            <a href="#" class="btn btn-primary">Pakai</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card mb-3 me-3">
+                        <img src="../img/promo4.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Promo Cashback 30%!</h5>
+                            <p class="card-title">Kode Promo: CEES20</p>
+                            <a href="#" class="btn btn-primary">Pakai</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card mb-3 me-3">
+                        <img src="../img/promo4.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Promo Cashback 30%!</h5>
+                            <p class="card-title">Kode Promo: CEES20</p>
+                            <a href="#" class="btn btn-primary">Pakai</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card mb-3 me-3">
+                        <img src="../img/promo4.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Promo Cashback 30%!</h5>
+                            <p class="card-title">Kode Promo: CEES20</p>
+                            <a href="#" class="btn btn-primary">Pakai</a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="card col-4" style="width: 15rem;">
+                <img src="../img/promo4.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Promo Cashback 30%!</h5>
+                    <p class="card-title">Kode Promo: CEES20</p>
+                    <a href="#" class="btn btn-primary">Pakai</a>
                 </div>
             </div>
+            
         </div>
     </div>
 </body>
