@@ -2,84 +2,66 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Edit Profile</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="author" content="">
-
-  <!-- Font Awesome if you need it
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-  -->
-  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/> 
-  <!--Replace with your tailwind.css once created-->
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registeration Form</title>
+    <!-- Tailwind css CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover" style="background-image:url('../img/bg.jpg');">
-
-
-
-  <div class="max-w-3xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
-    
-	<!--Main Col-->
-	<div id="profile" class="w-full lg:w-5/5 rounded-lg lg:rounded-l-lg lg:rounded-r-lg shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
-	
-
-		<div class="p-4 md:p-20 text-center lg:text-left ">		
-			<h1 class="text-3xl font-bold pt-8 lg:pt-0">Edit profil</h1>
-			<div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-blue-500 opacity-25"></div>
-            <br></br>
-	<form>
-    <!--Name input-->
-    <div class="relative mb-6" data-te-input-wrapper-init>
-      <input
-        type="text"
-        class="peer block min-h-[auto] w-full rounded border-2 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-3"
-        id="exampleInput7"
-        placeholder="Name" /><label
-        for="exampleInput7"
-        class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-        ></label>
+<body>
+    <div class="flex justify-center items-center h-screen bg-cover" style="background-image:url('../img/bg.jpg');">
+        <div id="form" class="block bg-slate-50 p-6 rounded-xl shodow-md shadow-slate-300 w-90">
+            <form class="space-y-2" action="">
+                <h2 class="text-black-700 text-3xl font-semibold my-4">Edit Profile</h2>
+                <!-- full name -->
+                <div id="fullName" class="flex flex-row">
+                    <!-- first name -->
+                    <div id="firstName" class="w-1/2 mr-1">
+                        <label for="fname" class="text-sm">First Name</label><br>
+                        <input type="text" name="" id="fname"
+                            class="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm">
+                    </div>
+                    <!-- last name -->
+                    <div id="lastName" class="w-1/2 mr-1">
+                        <label for="lname" class="text-sm">Last Name</label><br>
+                        <input type="text" name="" id="lname"
+                            class="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm">
+                    </div>
+                </div>
+                <div>
+                <!-- email -->
+                <label for="email" class="text-sm">Email</label><br>
+                <input type="emial" name="" id="email"
+                    class="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm">
+                </div>
+                <div>
+                    <!-- no. handphone -->
+                <label for="no.hp" class="text-sm">No. handphone</label><br>
+                <input type="nohp" name="" id="nohp"
+                    class="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm">
+                </div>
+                <div>
+                    <!-- password -->
+                <label for="password" class="text-sm">Password</label><br>
+                <input type="password" name="" id="password"
+                    class="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm">
+                </div>
+                <div>
+                    <!-- confirm password -->
+                <label for="confirmPassword" class="text-sm">Confirm Password</label><br>
+                <input type="password" name="" id="confirmPassword"
+                    class="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm"><br>
+                </div>
+                <div>
+                    <!-- Sign up / submit button -->
+                <button class="rounded-full bg-sky-700 px-6 pb-2 pt-2.5 text-white">Save</button>
+                <button class="rounded-full bg-rose-700 px-6 pb-2 pt-2.5 text-white">Cancel</button>
+                </div>
+              </form>
+        </div>
     </div>
-
-    <!--Email input-->
-    <div class="relative mb-6" data-te-input-wrapper-init>
-      <input
-        type="email"
-        class="peer block min-h-[auto] w-full rounded border-2 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-        id="exampleInput8"
-        placeholder="Email address" />
-      <label
-        for="exampleInput8"
-        class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-        ></label>
-    </div>
-
-    <!--Password input-->
-    <div class="relative mb-6" data-te-input-wrapper-init>
-      <input
-        type="password"
-        class="peer block min-h-[auto] w-full rounded border-2 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-        id="exampleInputPassword1"
-        placeholder="Password" />
-      <label
-        for="exampleInputPassword1"
-        class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"></label>
-    </div>
-
-    <!--Submit button-->
-  			<div class="pt-12 pb-8">
-              <button class="bg-blue-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">Simpan</button> 
-              <button class="bg-red-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">Batal</button> 
-			</div>
-            </form>
-		</div>
-
-	</div>
-</div>
 </body>
 
 </html>
