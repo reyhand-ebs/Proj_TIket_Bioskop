@@ -32,7 +32,7 @@ require_once('./pages/authorization_admin.php');
 			function search() {
 				var query = $("#searchInput").val();
 				if (query !== '') {
-					window.location.href = "index.php?p=search&query=" + query;
+					window.location.href = "?p=search&query=" + query;
 				}
 			}
 			var limitWords = document.getElementsByClassName('limit-words');

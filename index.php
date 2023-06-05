@@ -16,7 +16,9 @@ include('inc.koneksi.php');
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -58,6 +60,26 @@ include('inc.koneksi.php');
                     spinnerWrapperEl.style.display = 'none';
                 }, 1000);
             })
+
+            var stars = document.getElementsByClassName('star');
+            var selectedRating = document.getElementById('selected-rating');
+
+            for (var i = 0; i < stars.length; i++) {
+                stars[i].addEventListener('click', function () {
+                    var rating = this.getAttribute('data-rating');
+                    selectedRating.innerHTML = 'Anda memberi rating: ' + rating + ' bintang';
+
+                    // Menghapus class 'active' dari semua bintang
+                    for (var j = 0; j < stars.length; j++) {
+                        stars[j].classList.remove('active');
+                    }
+
+                    // Menambahkan class 'active' ke bintang yang dipilih
+                    for (var k = 0; k < rating; k++) {
+                        stars[k].classList.add('active');
+                    }
+                });
+            }
         });
     </script>
 </head>
@@ -69,7 +91,7 @@ include('inc.koneksi.php');
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
-   
+
     <!-- INI SPINNER LOADING END -->
 
     <!-- NAVIGASI START -->
@@ -103,7 +125,7 @@ include('inc.koneksi.php');
                                 } else {
                                     $no = 1;
                                     foreach ($arrayResult as $dataGenre) {
-                                        echo '<li><a class="dropdown-item" href="?p=genre&nama_genre='.$dataGenre->nama_genre.'">' . $dataGenre->nama_genre . '</a></li>';
+                                        echo '<li><a class="dropdown-item" href="?p=genre&nama_genre=' . $dataGenre->nama_genre . '">' . $dataGenre->nama_genre . '</a></li>';
                                         $no++;
                                     }
                                 }
@@ -165,8 +187,9 @@ include('inc.koneksi.php');
                 <div class="col-lg-5 col-md-5">
                     <h3 class="text-white fs-2">Kontak Kami</h3>
                     <ul class="list-unstyled">
-                        <li>Address: Menara 165, Jl. Tahi Bonar Simatupang, RT.3/RW.3, Cilandak Tim., Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12560</li>
-                        <br/>
+                        <li>Address: Menara 165, Jl. Tahi Bonar Simatupang, RT.3/RW.3, Cilandak Tim., Ps. Minggu, Kota
+                            Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12560</li>
+                        <br />
                         <li>Email: damar.adji.s@students.esqbs.ac.id</li>
                         <li>Email: refido.arjunal.a@students.esqbs.ac.id</li>
                         <li>Email: mohamad.reyhand.f@students.esqbs.ac.id</li>

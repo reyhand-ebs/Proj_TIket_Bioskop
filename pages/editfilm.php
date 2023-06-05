@@ -44,9 +44,7 @@ if (isset($_POST['btnBatal'])) {
                             <hr>
                         </label>
                         <?php
-                        list($maxFilmID, $maxFilmName) = $objFilm->getMaxFilmID();
-                        $nextFilmID = $maxFilmID + 1;
-                        echo '<input name="filmid" type="text" class="form-control" id="filmid" value="' . $nextFilmID . '"
+                        echo '<input name="filmid" type="text" class="form-control" id="filmid" value="' . $objFilm->filmid . '"
 						disabled>';
                         ?>
                     </div>

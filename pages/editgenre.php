@@ -1,6 +1,6 @@
 <?php
 require_once "authorization_admin.php";
-require_once('./class/class.user.php');
+require_once('./class/class.genre.php');
 $objGenre = new Genre();
 $objGenre->genreid = $_GET['genreid'];
 $objGenre->SelectOneGenre();

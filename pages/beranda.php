@@ -8,7 +8,7 @@
 <body>
     <div class="container-fluid">
         <div class="terlaris p-5">
-            <h2 class="fs-1 fw-bolder mb-4">Film Terbaru</h2>
+            <h2 class="fs-1 fw-bolder mb-3">Film Terbaru</h2>
             <hr>
             <?php
             require_once('./class/class.film.php');
@@ -21,7 +21,7 @@
                 echo '<div class="row">';
                 foreach ($arrayResult as $dataFilm) {
                     echo '<div class="col-lg-2 col-md-4 pb-4 mb-2 px-3" style="position: relative;" id="posterfilm">';
-                    echo '<a href="detail_film.php?judul_film=' . $dataFilm->judul_film . '">';
+                    echo '<a href="?p=detailfilm&filmid=' . $dataFilm->filmid . '">';
                     echo '<img src="./img/' . $dataFilm->poster_film . '" class="card-img-top rounded-3 posterfilm" alt="' . $dataFilm->judul_film . '">';
                     echo '<span class="label text-white fs-6 fw-3" style="position: absolute; left: 16px; top: 0px; width: 55px; height: 25px; border-top-left-radius: 8px; background-color: rgba(0,0,0,0.39);"><i class="bx bxs-star text-warning ps-1 px-1"></i>' . $dataFilm->rating_film . '</span>';
                     echo '</a>';
@@ -32,7 +32,7 @@
             ?>
         </div>
         <div class="Rekomendasi mb-3 p-5">
-            <h2 class="fs-1 fw-bolder mb-4">Film Populer</h2>
+            <h2 class="fs-1 fw-bolder mb-3">Film Populer</h2>
             <hr>
             <?php
             $objFilm = new Film();

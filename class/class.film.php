@@ -10,6 +10,7 @@ class Film extends Connection
 	private $director_film = '';
 	private $writer_film = '';
 	private $durasi_film = '';
+	private $trailer_film = '';
 	private $file_film = '';
 	private $tanggal_upload = '';
 	private $nama_genre = '';
@@ -34,8 +35,8 @@ class Film extends Connection
 	}
 	public function AddFilm()
 	{
-		$sql = "INSERT INTO film(filmid, poster_film, judul_film, detail_film, rilis_film, rating_film, director_film, writer_film, durasi_film, file_film, tanggal_upload) 
-				VALUES (:filmid, :poster_film, :judul_film, :detail_film, :rilis_film, :rating_film, :director_film, :writer_film, :durasi_film, :file_film, :tanggal_upload)";
+		$sql = "INSERT INTO film(filmid, poster_film, judul_film, detail_film, rilis_film, rating_film, director_film, writer_film, durasi_film, trailer_film, file_film, tanggal_upload) 
+				VALUES (:filmid, :poster_film, :judul_film, :detail_film, :rilis_film, :rating_film, :director_film, :writer_film, :durasi_film, :trailer_film, :file_film, :tanggal_upload)";
 
 		$stmt = $this->connection->prepare($sql);
 		$stmt->bindParam(':filmid', $this->filmid);
@@ -47,6 +48,7 @@ class Film extends Connection
 		$stmt->bindParam(':director_film', $this->director_film);
 		$stmt->bindParam(':writer_film', $this->writer_film);
 		$stmt->bindParam(':durasi_film', $this->durasi_film);
+		$stmt->bindParam(':trailer_film', $this->trailer_film);
 		$stmt->bindParam(':file_film', $this->file_film);
 		$stmt->bindParam(':tanggal_upload', $this->tanggal_upload);
 
@@ -104,7 +106,7 @@ class Film extends Connection
 	public function UpdateFilm()
 	{
 		$sql = "UPDATE film SET poster_film = :poster_film, judul_film = :judul_film, detail_film = :detail_film, rilis_film = :rilis_film, 
-				rating_film = :rating_film, director_film = :director_film, writer_film = :writer_film, durasi_film = :durasi_film, 
+				rating_film = :rating_film, director_film = :director_film, writer_film = :writer_film, durasi_film = :durasi_film, trailer_film = :trailer_film, 
 				file_film = :file_film, tanggal_upload = :tanggal_upload WHERE filmid = :filmid";
 
 		$stmt = $this->connection->prepare($sql);
@@ -116,6 +118,7 @@ class Film extends Connection
 		$stmt->bindParam(':director_film', $this->director_film);
 		$stmt->bindParam(':writer_film', $this->writer_film);
 		$stmt->bindParam(':durasi_film', $this->durasi_film);
+		$stmt->bindParam(':trailer_film', $this->trailer_film);
 		$stmt->bindParam(':file_film', $this->file_film);
 		$stmt->bindParam(':tanggal_upload', $this->tanggal_upload);
 		$stmt->bindParam(':filmid', $this->filmid);
@@ -176,6 +179,7 @@ class Film extends Connection
 				$this->director_film = $data->director_film;
 				$this->writer_film = $data->writer_film;
 				$this->durasi_film = $data->durasi_film;
+				$this->trailer_film = $data->trailer_film;
 				$this->file_film = $data->file_film;
 				$this->tanggal_upload = $data->tanggal_upload;
 				$this->nama_aktor = explode(',', $data->nama_aktor);
@@ -215,6 +219,7 @@ class Film extends Connection
 				$objFilm->director_film = $data->director_film;
 				$objFilm->writer_film = $data->writer_film;
 				$objFilm->durasi_film = $data->durasi_film;
+				$objFilm->trailer_film = $data->trailer_film;
 				$objFilm->file_film = $data->file_film;
 				$objFilm->tanggal_upload = $data->tanggal_upload;
 				$arrResult[$i] = $objFilm;
@@ -243,6 +248,7 @@ class Film extends Connection
 				$objFilm->director_film = $data->director_film;
 				$objFilm->writer_film = $data->writer_film;
 				$objFilm->durasi_film = $data->durasi_film;
+				$objFilm->trailer_film = $data->trailer_film;
 				$objFilm->file_film = $data->file_film;
 				$objFilm->tanggal_upload = $data->tanggal_upload;
 				$arrResult[$i] = $objFilm;
@@ -273,6 +279,7 @@ class Film extends Connection
 				$objFilm->director_film = $data->director_film;
 				$objFilm->writer_film = $data->writer_film;
 				$objFilm->durasi_film = $data->durasi_film;
+				$objFilm->trailer_film = $data->trailer_film;
 				$objFilm->file_film = $data->file_film;
 				$objFilm->tanggal_upload = $data->tanggal_upload;
 				$objFilm->nama_genre = $data->nama_genre;
@@ -308,6 +315,7 @@ class Film extends Connection
 				$objFilm->director_film = $data->director_film;
 				$objFilm->writer_film = $data->writer_film;
 				$objFilm->durasi_film = $data->durasi_film;
+				$objFilm->trailer_film = $data->trailer_film;
 				$objFilm->file_film = $data->file_film;
 				$objFilm->tanggal_upload = $data->tanggal_upload;
 				$objFilm->nama_aktor = $data->nama_aktor;
@@ -340,6 +348,7 @@ class Film extends Connection
 				$objFilm->director_film = $data->director_film;
 				$objFilm->writer_film = $data->writer_film;
 				$objFilm->durasi_film = $data->durasi_film;
+				$objFilm->trailer_film = $data->trailer_film;
 				$objFilm->file_film = $data->file_film;
 				$objFilm->tanggal_upload = $data->tanggal_upload;
 				$objFilm->nama_aktor = $data->nama_aktor;
@@ -371,6 +380,7 @@ class Film extends Connection
 			$objFilm->director_film = $data->director_film;
 			$objFilm->writer_film = $data->writer_film;
 			$objFilm->durasi_film = $data->durasi_film;
+			$objFilm->trailer_film = $data->trailer_film;
 			$objFilm->file_film = $data->file_film;
 			$arrResult[] = $objFilm;
 		}
@@ -399,6 +409,7 @@ class Film extends Connection
 			$objFilm->director_film = $data->director_film;
 			$objFilm->writer_film = $data->writer_film;
 			$objFilm->durasi_film = $data->durasi_film;
+			$objFilm->trailer_film = $data->trailer_film;
 			$objFilm->file_film = $data->file_film;
 			$arrResult[] = $objFilm;
 		}
@@ -434,6 +445,7 @@ class Film extends Connection
 			$objFilm->director_film = $data->director_film;
 			$objFilm->writer_film = $data->writer_film;
 			$objFilm->durasi_film = $data->durasi_film;
+			$objFilm->trailer_film = $data->trailer_film;
 			$objFilm->file_film = $data->file_film;
 			$arrResult[] = $objFilm;
 		}

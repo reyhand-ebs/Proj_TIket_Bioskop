@@ -28,7 +28,7 @@ if (isset($_POST['btnTambah'])) {
 <html lang="en">
 
 <head>
-	<title>Tamabh Pengguna | Admin Bioskop 165</title>
+	<title>Tambah Pengguna | Admin Bioskop 165</title>
 </head>
 
 <body>

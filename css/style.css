@@ -1,5 +1,5 @@
 :root {
-    --primary: #E8B39C;
+    --primary: #113250;
     --secondary: #55BEAB;
 }
 
@@ -55,3 +55,6 @@ body {
     transition: all 0.7s;
 }
 
+.star:hover, .star.active {
+    color: gold !important;
+}

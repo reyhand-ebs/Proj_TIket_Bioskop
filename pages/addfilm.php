@@ -112,7 +112,7 @@ require_once "addfilmproses.php";
 			</div>
 			<div class="text-right pt-3">
 				<button class="btn btn-lg rounded-pill btn-primary fw-semibold" style="width: 130px;" name="btnTambah"
-					type="submit">Tambah</button>
+					type="submit">Next</button>
 			</div>
 		</form>
 	</div>

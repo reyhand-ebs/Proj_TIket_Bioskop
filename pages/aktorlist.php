@@ -5,7 +5,7 @@ require_once "authorization_admin.php";
 <html lang="en">
 
 <head>
-	<title>Aktor List | Admin Bioskop 165</title>
+	<title>Daftar Aktor | Admin Bioskop 165</title>
 </head>
 
 <body>
