@@ -14,27 +14,22 @@
 </head>
 
 <body class="movie bg-dark" style="background-color: #1F1F1F;">
-<div class="container">
-        <h2 class="text-white">What's New</h2>
+<br></br>
+    <div class="container">
         <div class="row">
-            <div class="col-2 mb-3">
-                <img src="https://media.21cineplex.com/webcontent/gallery/pictures/168498920013335_240x360.jpg" class="card-img-top" style="border-radius: 15px;">
-                <p class="card-text text-white">Some quick.</p>
-            </div>
-            <div class="col-2 mb-3">
-                <img src="https://media.21cineplex.com/webcontent/gallery/pictures/1685530484885_240x360.jpg" class="card-img-top" style="border-radius: 15px;">
-            </div>
-            <div class="col-2 mb-3">
-                <img src="https://media.21cineplex.com/webcontent/gallery/pictures/168448069635119_240x360.jpg" class="card-img-top" style="border-radius: 15px;">
-            </div>
-            <div class="col-2 mb-3">
-                <img src="https://media.21cineplex.com/webcontent/gallery/pictures/167352378417407_240x360.jpg" class="card-img-top" style="border-radius: 15px;">
-            </div>
-            <div class="col-2 mb-3">
-                <img src="https://media.21cineplex.com/webcontent/gallery/pictures/167352378417407_240x360.jpg" class="card-img-top" style="border-radius: 15px;">
-            </div>
-            <div class="col-2 mb-3">
-                <img src="https://media.21cineplex.com/webcontent/gallery/pictures/167404472740509_208x311.jpg" class="card-img-top" style="border-radius: 15px;">
+            <h2 class="text-white">voucher saya</h2>
+            <div class="card col-3 mb-3 me-5" style="width: 10rem;">
+                <img src="../img/v1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text text-center"><b>CHA2K4L</b></p>
+                    </div>
+                </div>
+            <div class="card col-2 mb-3" style="width: 10rem;">
+                <img src="../img/v1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text text-center"><b>CHA2K4L</b></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
