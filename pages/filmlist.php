@@ -42,10 +42,6 @@ require_once "authorization_admin.php";
 						$no = 1;
 						foreach ($arrayResult as $dataFilm) {
 							echo '<tr>';
-							//if($dataEmp->photo != null)
-							//echo '<td><img class="img-responsive" src="upload/'.$dataEmployee->photo.'" width="20" height="30"></td>';
-							//else
-							//echo '<td><img class="img-responsive" src="upload/default.png" width="20" height="30"></td>';
 							echo '<td>' . $dataFilm->filmid . '</td>';
 							echo '<td><img src="./img/' . $dataFilm->poster_film . '" alt="' . $dataFilm->poster_film . '" style="width:50px;"></td>';
 							echo '<td>' . $dataFilm->judul_film . '</td>';

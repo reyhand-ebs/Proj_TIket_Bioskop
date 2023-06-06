@@ -8,14 +8,36 @@ $objFilm->SelectOneFilm();
 if (isset($_POST['btnSimpan'])) {
     $judul_film = $_POST['judul_film'];
     $objFilm->judul_film = $judul_film;
-    $objFilm->poster_film = $_POST['poster_film'];
+    $nama_file_poster_lama = $objFilm->poster_film;
+    $nama_file_poster_baru = $_FILES['poster_film']['name'];
+    if (empty($nama_file_poster_baru)) {
+        $objFilm->poster_film = $nama_file_poster_lama;
+    } else {
+        $target_dir = "./img/";
+        $target_file = $target_dir . basename($_FILES["poster_film"]["name"]);
+        move_uploaded_file($_FILES["poster_film"]["tmp_name"], $target_file);
+
+        $objFilm->poster_film = $_FILES['poster_film']['name'];
+    }
     $objFilm->detail_film = $_POST['detail_film'];
     $objFilm->rilis_film = $_POST['rilis_film'];
     $objFilm->rating_film = $_POST['rating_film'];
     $objFilm->director_film = $_POST['director_film'];
     $objFilm->writer_film = $_POST['writer_film'];
     $objFilm->durasi_film = $_POST['durasi_film'];
-    $objFilm->file_film = $_POST['file_film'];
+    $nama_file_film_lama = $objFilm->file_film;
+    $nama_file_film_baru = $_FILES['file_film']['name'];
+    if (empty($nama_file_film_baru)) {
+        $objFilm->file_film = $nama_file_film_lama;
+    } else {
+        $target_dir = "./videos/";
+        $target_file = $target_dir . basename($_FILES["file_film"]["name"]);
+        move_uploaded_file($_FILES["file_film"]["tmp_name"], $target_file);
+
+        $objFilm->file_film = $_FILES['file_film']['name'];
+    }
+    $objFilm->trailer_film = $_POST['trailer_film'];
+    $objFilm->harga_film = $_POST['harga_film'];
     $objFilm->tanggal_upload = $_POST['tanggal_upload'];
     $objFilm->UpdateFilm();
     echo '<script>if(confirm("Apakah Anda yakin ingin menyimpan?")) { alert("Data film ' . $judul_film . ' berhasil diubah."); window.location.href = "?p=filmlist"; }</script>';
@@ -36,7 +58,7 @@ if (isset($_POST['btnBatal'])) {
     <div class="mt-5 mb-5 px-5">
         <h3 class="mb-5">Ubah Film</h3>
 
-        <form class="mb-5" method="POST">
+        <form class="mb-5" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group mb-2">
@@ -129,6 +151,24 @@ if (isset($_POST['btnBatal'])) {
                         </label>
                         <input type="text" class="form-control" id="nama_genre" name="nama_genre"
                             value="<?php echo implode(', ', $objFilm->nama_genre); ?>" disabled>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-2">
+                        <label for="trailer_film">Trailer Film
+                            <hr>
+                        </label>
+                        <input type="text" class="form-control" id="trailer_film" name="trailer_film"
+                            value="<?php echo $objFilm->trailer_film; ?>">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-2">
+                        <label for="harga_film">Harga Film
+                            <hr>
+                        </label>
+                        <input type="text" class="form-control" id="harga_film" name="harga_film"
+                            value="<?php echo $objFilm->harga_film; ?>">
                     </div>
                 </div>
                 <div class="col-md-12">

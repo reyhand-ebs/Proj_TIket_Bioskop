@@ -27,7 +27,7 @@ $objFilm->SelectOneFilm();
                     <i class="bx bxs-star text-warning fs-4"></i>
                     <span class="fs-4"><?php echo $objFilm->rating_film; ?></span>
                 </div>
-                <p class="mb-4" style="color: gold; font-weight: 600; font-size: 30px;">Rp 20.000</p>
+                <p class="mb-4" style="color: gold; font-weight: 600; font-size: 30px;">Rp. <?php echo number_format($objFilm->harga_film, 2, ',', '.'); ?></p>
                 <a href=""><button class="btn btn-lg rounded-pill text-dark" style="border-color: #113250;">+
                         Wishlist</button></a>
                 <a href="payment.php"><button class="btn btn-lg rounded-pill text-white"
