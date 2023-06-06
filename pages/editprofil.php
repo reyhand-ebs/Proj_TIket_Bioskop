@@ -1,58 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registeration Form</title>
-    <!-- Tailwind css CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>edit profil</title>
 </head>
-
 <body>
-    <div class="flex justify-center items-center h-screen bg-cover" style="background-image:url('../img/bg.jpg');">
-        <div id="form" class="block bg-slate-50 p-6 rounded-xl shodow-md shadow-slate-300 w-90">
-            <form class="space-y-2" action="">
-                <h2 class="text-black-700 text-3xl font-semibold my-4">Edit Profile</h2>
-                    <!-- name -->
-                    <div>
-                        <label for="fname" class="text-sm">Name</label><br>
-                        <input type="text" name="" id="fname"
-                            class="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm">
-                    </div>
-                <div>
-                <!-- email -->
-                <label for="email" class="text-sm">Email</label><br>
-                <input type="emial" name="" disabled value="" id="email" 
-                    class="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm">
-                </div>
-                <div>
-                    <!-- no. handphone -->
-                <label for="no.hp" class="text-sm">No. handphone</label><br>
-                <input type="nohp" name="" id="nohp"
-                    class="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm">
-                </div>
-                <div>
-                    <!-- password -->
-                <label for="password" class="text-sm">Password</label><br>
-                <input type="password" name="" disabled value="" id="password"
-                    class="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm">
-                </div>
-                <div>
-                    <!-- confirm password -->
-                <label for="confirmPassword" class="text-sm">Confirm Password</label><br>
-                <input type="password" name="" disabled value="" id="confirmPassword"
-                    class="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm"><br>
-                </div>
-                <div>
-                    <!-- Sign up / submit button -->
-                <button class="rounded-full bg-sky-700 px-6 pb-2 pt-2.5 text-white">Save</button>
-                <button class="rounded-full bg-rose-700 px-6 pb-2 pt-2.5 text-white">Cancel</button>
-                </div>
-              </form>
-        </div>
-    </div>
-</body>
+<section class="vh-100" style="background-image: url('../img/bg.jpg'); background-size: cover;">
+  <div class="container py-2 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-6 w-50">
+        <div class="card justify-content-center" style="border-radius: 1rem; background-color: #1F1F1F; width: 546px; height: 636px;">
+          <div class="row g-0">
+            <div class="col-md-12 col-lg-12 d-flex align-items-center">
+              <div class="card-body p-2 p-lg-5 text-black">
 
+                <form class="justify-content-center">
+
+                <h1 class="text-center mb-3">Edit Profil</h1>
+                <div class="form-outline mb-4">
+                    <label class="" for="nama">Name</label>
+                    <input type="nama" id="form2Example17" class="form-control form-control-lg" placeholder="Name" />
+                  </div>
+                  <div class="form-outline mb-3">
+                    <label class="" for="email">No. Handphone</label>
+                    <input type="nohp" id="form2Example17" class="form-control form-control-lg" placeholder="No. Handphone" />
+                  </div>
+                  <div class="form-outline mb-3">
+                    <label class="" for="email">Email</label>
+                    <input type="email" id="form2Example17" class="form-control form-control-lg" disabled value="" placeholder="Email Address" />
+                  </div>
+
+                  <div class="form-outline mb-3">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="form2Example27" class="form-control form-control-lg" disabled value="" placeholder="Password" />
+                  </div>
+
+                  <a class="" href="#!" style="color: #70AFE9">Lupa password?</a></br></br>
+
+                  <div class="pt-1 mb-4 text-center">
+                    <button class="btn btn-dark btn-lg rounded-pill" type="button" style="background-color: #113250; width: 170px; height: 50px;">Masuk</button>
+                  </div>
+
+                  <div class="text-center">
+                    <p class="mb-5 pb-lg-2" style="color: #ffffff;">Belum punya akun? <a href="register.php"
+                      style="color: #70AFE9;">Daftar disini</a></p>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
 </html>
