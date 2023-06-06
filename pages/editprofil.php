@@ -44,15 +44,9 @@
                     <input type="password" id="form2Example27" class="form-control form-control-lg" disabled value="" placeholder="Password" />
                   </div>
 
-                  <a class="" href="#!" style="color: #70AFE9">Lupa password?</a></br></br>
-
                   <div class="pt-1 mb-4 text-center">
-                    <button class="btn btn-dark btn-lg rounded-pill" type="button" style="background-color: #113250; width: 170px; height: 50px;">Masuk</button>
-                  </div>
-
-                  <div class="text-center">
-                    <p class="mb-5 pb-lg-2" style="color: #ffffff;">Belum punya akun? <a href="register.php"
-                      style="color: #70AFE9;">Daftar disini</a></p>
+                    <button class="btn btn-dark btn-lg rounded-pill" type="button" style="background-color: #113250; width: 170px; height: 50px;">Save</button>
+                    <button class="btn btn-dark btn-lg rounded-pill" type="button" style="background-color: #AC2222; width: 170px; height: 50px;">Cancel</button>
                   </div>
                 </form>
 
