@@ -15,25 +15,16 @@
         <div id="form" class="block bg-slate-50 p-6 rounded-xl shodow-md shadow-slate-300 w-90">
             <form class="space-y-2" action="">
                 <h2 class="text-black-700 text-3xl font-semibold my-4">Edit Profile</h2>
-                <!-- full name -->
-                <div id="fullName" class="flex flex-row">
-                    <!-- first name -->
-                    <div id="firstName" class="w-1/2 mr-1">
-                        <label for="fname" class="text-sm">First Name</label><br>
+                    <!-- name -->
+                    <div>
+                        <label for="fname" class="text-sm">Name</label><br>
                         <input type="text" name="" id="fname"
                             class="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm">
                     </div>
-                    <!-- last name -->
-                    <div id="lastName" class="w-1/2 mr-1">
-                        <label for="lname" class="text-sm">Last Name</label><br>
-                        <input type="text" name="" id="lname"
-                            class="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm">
-                    </div>
-                </div>
                 <div>
                 <!-- email -->
                 <label for="email" class="text-sm">Email</label><br>
-                <input type="emial" name="" id="email"
+                <input type="emial" name="" disabled value="" id="email" 
                     class="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm">
                 </div>
                 <div>
@@ -45,13 +36,13 @@
                 <div>
                     <!-- password -->
                 <label for="password" class="text-sm">Password</label><br>
-                <input type="password" name="" id="password"
+                <input type="password" name="" disabled value="" id="password"
                     class="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm">
                 </div>
                 <div>
                     <!-- confirm password -->
                 <label for="confirmPassword" class="text-sm">Confirm Password</label><br>
-                <input type="password" name="" id="confirmPassword"
+                <input type="password" name="" disabled value="" id="confirmPassword"
                     class="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm"><br>
                 </div>
                 <div>

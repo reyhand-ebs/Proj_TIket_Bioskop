@@ -57,12 +57,12 @@
                 </div>
             </div>
             <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
                         <strong>Bagaimana cara memperbarui nomor telepon saya ?</strong>
                     </button>
                 </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionWorks">
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionWorks">
                     <div class="accordion-body">
                     Anda dapat mengubah/memperbarui no. handphone yang terdaftar di akun Shopee Anda melalui aplikasi atau situs Shopee.
                     <p>pilih Profil Saya > pilih edit profil > masukkan no. handphone baru* > pilih simpan</p>
@@ -70,12 +70,12 @@
                 </div>
             </div>
             <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
                         <strong>Apa saja metode pembayaran yang didukung oleh bioskop online ?</strong>
                     </button>
                 </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionWorks">
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionWorks">
                     <div class="accordion-body">
                     Bioskop Online mendukung total 4 pilihan pembayaran, yaitu ShopeePay, GoPay, OVO, Transfer Bank (Dicek Otomatis)/Virtual Account.
                     </div>
