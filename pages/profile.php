@@ -32,7 +32,7 @@
 			<!--Img Col-->
 			<div class="inline-block w-full lg:w-1/3 "> 
 				<!-- Big profile image for side bar (desktop) -->
-				<img src="../img/lion.jpg" class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
+				<img src="../img/user.jpg" class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
 				<!-- Image from: http://unsplash.com/photos/MP0IUfwrn0A -->	
 			</div>
 			
@@ -67,7 +67,7 @@
 							<p>Do you really want to log out?</p>
 						</div>
 						<div class="mt-3 flex justify-end space-x-3">
-							<button class="px-3 py-1 rounded hover:bg-red-300 hover:bg-opacity-50 hover:text-red-900">Yes</button>
+							<a href="index.php?p=home"><button class="px-3 py-1 rounded hover:bg-red-300 hover:bg-opacity-50 hover:text-red-900">Yes</button></a> 
 							<button class="px-3 py-1 bg-red-800 text-gray-200 hover:bg-red-600 rounded">No</button>
 						</div>
 					</div>

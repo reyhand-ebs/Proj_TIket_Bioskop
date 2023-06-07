@@ -14,7 +14,7 @@
     <title>Register</title>
 </head>
 <body>
-<section class="vh-100" style="background-image: url('../img/bg.jpg'); background-size: cover;">
+<section class="vh-200" style="background-image: url('img/bg.jpg'); background-size: cover;">
   <div class="container py-2 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-6 w-50">
@@ -57,7 +57,7 @@
                   </div>
 
                   <div class="text-center">
-                    <p class="mb-5 pb-lg-2" style="color: #ffffff;">Sudah punya akun? <a href="login.php"
+                    <p class="mb-5 pb-lg-2" style="color: #ffffff;">Sudah punya akun? <a href="index.php?p=login"
                       style="color: #70AFE9;">Masuk</a></p>
                   </div>
                 </form>

@@ -8,9 +8,7 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -24,75 +22,74 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+            <a class="nav-link active" aria-current="page" href="index.php?p=home">Beranda</a>
             </li>
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Genre
             </a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Adventure</a></li>
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Comedy</a></li>
-                <li><a class="dropdown-item" href="#">Crime</a></li>
-                <li><a class="dropdown-item" href="#">Drama</a></li>
-                <li><a class="dropdown-item" href="#">Horror</a></li>
-                <li><a class="dropdown-item" href="#">Thriller</a></li>
-                <li><a class="dropdown-item" href="#">Romance</a></li>
+                <li><a class="dropdown-item" href="index.php?p=genrepage">Adventure</a></li>
+                <li><a class="dropdown-item" href="index.php?p=genrepage">Action</a></li>
+                <li><a class="dropdown-item" href="index.php?p=genrepage">Comedy</a></li>
+                <li><a class="dropdown-item" href="index.php?p=genrepage">Crime</a></li>
+                <li><a class="dropdown-item" href="index.php?p=genrepage">Drama</a></li>
+                <li><a class="dropdown-item" href="index.php?p=genrepage">Horror</a></li>
+                <li><a class="dropdown-item" href="index.php?p=genrepage">Thriller</a></li>
+                <li><a class="dropdown-item" href="index.php?p=genrepage">Romance</a></li>
             </ul>
         </ul>
         <form class="d-flex" role="search">
             <input class="form-control me-2 rounded-5" type="search" placeholder="Cari film atau orang.." aria-label="Search">
-            <button class="btn btn-outline-success rounded-5" type="submit">Cari</button>
+            <a href="index.php?p=searchpage"><button class="btn btn-outline-success rounded-5" type="submit">Cari</button></a> 
         </form>
         </div>
-        <a href="pages/login.php"><button class="btn btn-dark ms-md-3 rounded-5" style="background-color: #113250;">Masuk</button></a>
+        <a href="index.php?p=login"><button class="btn btn-dark ms-md-3 rounded-5" style="background-color: #AC2222;">Login</button></a>
+        <a href="index.php?p=register"><button class="btn btn-dark ms-md-3 rounded-5" style="background-color: #113250;">Register</button></a>
     </div>
     </nav>
 
-    <div class="container mt-5 mb-5">
-        <h3 class="mb-4">Trailer</h3>
-        <hr>
-        <div class="row">
-            <div class="col-3 mb-3">
-                <iframe style="border-radius: 10px;" width="100%" height="200" src="https://www.youtube.com/embed/d9MyW72ELq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <div class="col-3 mb-3">
-                <iframe style="border-radius: 10px;" width="100%" height="200" src="https://www.youtube.com/embed/1d0Zf9sXlHk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <div class="col-3 mb-3">
-                <iframe style="border-radius: 10px;" width="100%" height="200" src="https://www.youtube.com/embed/l3kB8Yty6_A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <div class="col-3 mb-3">
-                <iframe style="border-radius: 10px;" width="100%" height="200" src="https://www.youtube.com/embed/aOb15GVFZxU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <div class="col-3 mb-3">
-                <iframe style="border-radius: 10px;" width="100%" height="200" src="https://www.youtube.com/embed/1d0Zf9sXlHk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
+    <?php
+    $pages_dir = 'pages';
+    if (!empty($_GET['p'])) {
+        $pages = scandir($pages_dir, 0);
+        unset($pages[0], $pages[1]);
 
-    
+        $p = $_GET['p'];
+        if (in_array($p . '.php', $pages)) {
+            include($pages_dir . '/' . $p . '.php');
+        } else {
+            echo 'Halaman tidak ditemukan! :(';
+        }
+    } else {
+        include($pages_dir . '/home.php');
+    }
+    ?>
 
-    <footer class="text-white pt-5" style="background-color: rgb(29, 34, 40)">
+<footer class="bg-black text-white pt-5">
         <div class="footer-top mt-20 container">
             <div class="row gy-4">
-                <div class="col-lg-3">
-                    <img class="logo w-50" src="img/bisokop online.png" alt="">
+                <div class="col-lg-4">
+                    <img class="logo w-75" src="./img/bioskop online.png" alt="">
                 </div>
-                <div class="col-lg-2">
-                    <h3 class="text-white">Brand</h3>
+                <div class="col-lg-3">
+                    <h3 class="text-white fs-2">Brand</h3>
                     <ul class="list-unstyled">
-                        <li><a href="?p=home" style="color: #fff; text-decoration: none;">Home</a></li>
-                        <li><a href="?p=explore" style="color: #fff; text-decoration: none;">Explore</a></li>
-                        <li><a href="?p=contact" style="color: #fff; text-decoration: none;">Contact</a></li>
+                        <li><a href="?p=login" style="color: #fff; text-decoration: none;">Login</a></li>
+                        <li><a href="?p=signup" style="color: #fff; text-decoration: none;">Sign Up</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4">
-                    <h3 class="text-white">Contact</h3>
+                <div class="col-lg-5">
+                    <h3 class="text-white fs-2">Contact</h3>
                     <ul class="list-unstyled">
                         <li>Address: Jl. TB Simatupang</li>
-                        <li>Email: @students.esqbs.ac.id</li>
+                        <li>Email: afifah.k.rusli@students.esqbs.ac.id</li>
+                        <li>Email: muhammad.aldy.f@students.esqbs.ac.id</li>
+                        <li>Email: khaira.isyara@students.esqbs.ac.id</li>
+                        <li>Email: chikal.mulia@students.esqbs.ac.id</li>
+                        <li>Email: damar.adji.s@students.esqbs.ac.id</li>
+                        <li>Email: refido.arjunal.a@students.esqbs.ac.id</li>
+                        <li>Email: mohamad.reyhand.f@students.esqbs.ac.id</li>
                     </ul>
                 </div>
             </div>
@@ -101,7 +98,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <p class="mb-0">© 2022 </p>
+                        <p class="mb-0">© 2022 copyright all right reserved | Designed with by Bioskop 165</p>
                     </div>
                     <div class="col-md-6">
                         <div class="social-icons">
