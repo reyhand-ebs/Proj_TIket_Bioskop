@@ -31,13 +31,8 @@ if (isset($_POST['btnBayar'])) {
     } else {
         echo "<script> alert('Proses gagal 1. Silakan ulangi'); </script>";
     }
-
-} else {
-    echo "<script> alert('Proses gagal 2. Silakan ulangi'); </script>";
-}
+} 
 ?>
-Please make sure to adjust the code according to your specific requirements and include any missing parts that are necessary for the functionality you're implementing.
-
 
 
 

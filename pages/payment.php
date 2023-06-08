@@ -1,6 +1,6 @@
 <?php
 #require_once "authorization_member.php";
-#require_once "addpaymentproses.php";
+require_once "addpaymentproses.php";
 require_once('./class/class.film.php');
 require_once('./class/class.genre.php');
 
@@ -121,7 +121,7 @@ $objfilm->SelectOneFilm();
 
                     <a href=""><button class="btn btn-dark btn-lg rounded-pill mt-3"
                             style="background-color: #113250; color: #FFFFFF; font-weight: 500; text-align: center; width: 100%;"
-                            name="btnBayar">Bayar</button></a>
+                            name="btnBayar" type="submit">Bayar</button></a>
                 </div>
             </div>
         </div>
