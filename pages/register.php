@@ -3,6 +3,7 @@ require_once('./class/class.user.php');
 require_once('./class/class.mail.php');
 
 if (isset($_POST['btnRegister'])) {
+
 	$inputemail = $_POST["email"];
 	$password = $_POST["password"];
 	$retypepassword = $_POST["retypepassword"];
@@ -21,11 +22,15 @@ if (isset($_POST['btnRegister'])) {
         } else if ($password != $retypepassword) {
             echo "<script>alert(''Password tidak match, silahkan cek kembali password anda');</script>";
         } else {
+			$maxUserID = $objUser->getMaxUserID();
+			$nextUserID = $maxUserID + 1;
+			$objUser->userid = $nextUserID;
 			$objUser->email = $_POST["email"];
 			$objUser->password = password_hash($password, PASSWORD_DEFAULT);
 			//$objUser->password = password_hash($password, PASSWORD_DEFAULT);		
 			$objUser->name = $_POST['name'];
 			$objUser->nohp = $_POST['nohp'];
+			$objUser->passwordsecr = $_POST['password'];
 			date_default_timezone_set("Asia/Jakarta");
 			$token=hash('sha256', md5(date('Y-m-d').date("h")));
 			$objUser->token = $token;

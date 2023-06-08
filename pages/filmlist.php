@@ -26,7 +26,7 @@ require_once "authorization_admin.php";
 						<th scope="col" class="col-1">Tanggal Upload</th>
 						<th scope="col" class="col-2">Aktor</th>
 						<th scope="col" class="col-2">Genre</th>
-						<th scope="col" class="col-1">Action</th>
+						<th scope="col" class="col-2">Action</th>
 					</tr>
 				</thead>
 				<tbody>

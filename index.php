@@ -86,11 +86,11 @@ include('inc.koneksi.php');
 
 <body class="container-0">
     <!-- INI SPINNER LOADING START -->
-    <div class="spinner-wrapper">
+    <!-- <div class="spinner-wrapper">
         <div class="spinner-grow text-primary" style="width: 7rem; height: 7rem;" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
-    </div>
+    </div> -->
 
     <!-- INI SPINNER LOADING END -->
 

@@ -19,6 +19,7 @@ class Film extends Connection
 	private $film_id = '';
 	private $aktor_id = '';
 	private $genre_id = '';
+	private $user_id = '';
 	private $hasil = false;
 	private $message = '';
 
@@ -463,6 +464,27 @@ class Film extends Connection
 		}
 		
 		return $arrResult;
+	}
+	public function AddFilmWishlist()
+	{
+		$filmID = $this->film_id;
+		$genreIDs = $this->genre_id;
+
+		$insertSql = "INSERT INTO film_wishlist (film_id, user_id) VALUES (:film_id, :user_id)";
+		$insertStmt = $this->connection->prepare($insertSql);
+
+		foreach ($genreIDs as $genreID) {
+			$insertStmt->bindValue(':film_id', $filmID);
+			$insertStmt->bindValue(':genre_id', $genreID);
+			$result = $insertStmt->execute();
+			if (!$result) {
+				$this->hasil = false;
+				return;
+			}
+		}
+
+		$this->hasil = true;
+		$this->message = 'Data berhasil ditambahkan!';
 	}
 }
 ?>

@@ -20,7 +20,6 @@ require_once('./class/class.user.php');
                     <tr>
                         <th scope="col" class="col-1">User ID</th>
                         <th scope="col" class="col-3">Email</th>
-                        <th scope="col" class="col-1">Password</th>
                         <th scope="col" class="col-2">Nama</th>
                         <th scope="col" class="col-2">Nomor Telepon</th>
                         <th scope="col" class="col-1">Role</th>
@@ -39,7 +38,6 @@ require_once('./class/class.user.php');
                             echo '<tr>';
                             echo '<td>' . $datauser->userid . '</td>';
                             echo '<td>' . $datauser->email . '</td>';
-                            echo '<td>' . $datauser->passwordsecr . '</td>';
                             echo '<td>' . $datauser->name . ' </td>';
                             echo '<td>' . $datauser->nohp . '</td>';
                             echo '<td>' . $datauser->roleid . '</td>';

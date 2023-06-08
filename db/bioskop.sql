@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 06, 2023 at 05:24 PM
+-- Generation Time: Jun 08, 2023 at 03:15 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -508,6 +508,23 @@ INSERT INTO `role` (`roleid`, `nama_role`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `transaksi`
+--
+
+DROP TABLE IF EXISTS `transaksi`;
+CREATE TABLE IF NOT EXISTS `transaksi` (
+  `no_pesanan` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` enum('1','0') COLLATE utf8mb4_general_ci NOT NULL,
+  `film_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`no_pesanan`),
+  KEY `filmid_fkw_1` (`film_id`),
+  KEY `userid_fkw_2` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -524,7 +541,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `passwordsecr` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`userid`),
   KEY `user_fkr_1` (`roleid`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
@@ -532,25 +549,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`userid`, `email`, `password`, `name`, `nohp`, `token`, `aktif`, `roleid`, `passwordsecr`) VALUES
 (1, 'mohamad.reyhand.f@students.esqbs.ac.id', '$2y$10$WaUU3TtRgp8KBRZ48uTOoO2skKnrxMPt8xO4fOZZQ32IZHro3DhSO', 'Reyhand', '082246680795', '7969be91b85c90c3c94b5dadfb050007a7d12f9bf44dd8c486c6de41af95b212', '1', 'role1', 'Reyhand123'),
-(2, 'refido.arjunal.a@students.esqbs.ac.id', '$2y$10$.mjtXPMvQOoLniOd9M6YwOnO8BxOVlYQtB.4BrBQA4VB2qvXTey56', 'Sensei ji', '03124324341', '74942d81fc2154f2abf73d8b1bd8e9973e5f322e4cf81ff5796aebd5b5fa4fcc', '1', 'role1', NULL),
-(3, 'damar.adji.s@students.esqbs.ac.id', '$2y$10$O5DxPz/VhAP7ftZvSD3ihO8S94n5Ka1jtRD33aAoljxe3XvVUliKW', 'Damar', '23232323', '0ff24d051c96cfb0492b0f9765b1d70e0ed037ceaa989aeb828fd6efa2424107', '1', 'role2', NULL),
-(4, 'afifah.k.rusli@students.esqbs.ac.id', '$2y$10$TW8cNpUyyoSXIY0CqwuQvO3FKLktRwUftICfjK/bmt3sjZQgoAcOu', 'Afifah', '023232323', 'ca5d7b4dacc0a88b9e2c0df29955349400374c946554a5d07820207c17741aea', '1', 'role2', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `voucher`
---
-
-DROP TABLE IF EXISTS `voucher`;
-CREATE TABLE IF NOT EXISTS `voucher` (
-  `voucherid` int NOT NULL AUTO_INCREMENT,
-  `poster_voucher` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tittle_voucher` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `detail_voucher` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `kode_voucher` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`voucherid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(2, 'refido.arjunal.a@students.esqbs.ac.id', '$2y$10$to08QA8PCFFpyq7OCty9.uhtuziOLhQZkc/VHqT6A0KHjufgMzE.G', 'Sensei ji', '03124324341', '74942d81fc2154f2abf73d8b1bd8e9973e5f322e4cf81ff5796aebd5b5fa4fcc', '1', 'role1', 'Refido123'),
+(3, 'damar.adji.s@students.esqbs.ac.id', '$2y$10$TGqhCYkkCa9I2MqW2Nc8F.j4i3wdPJa5i708e4odsXmoRefuQkDTq', 'Damar', '23232323', '0ff24d051c96cfb0492b0f9765b1d70e0ed037ceaa989aeb828fd6efa2424107', '1', 'role2', 'Damar123'),
+(4, 'afifah.k.rusli@students.esqbs.ac.id', '$2y$10$TW8cNpUyyoSXIY0CqwuQvO3FKLktRwUftICfjK/bmt3sjZQgoAcOu', 'Afifah', '023232323', 'ca5d7b4dacc0a88b9e2c0df29955349400374c946554a5d07820207c17741aea', '1', 'role2', NULL),
+(5, 'khaira.isyara@students.esqbs.ac.id', '$2y$10$Z1HH7NvXeyYJyV296q/qpOz4grt0LzH.QiGWn6Wo.rL.ItZvyFerS', 'Khaira', '2121212121', '31b841bd7f65dfe1ddb99c16000888a993d20798f498627277e2462d153c49e4', '1', 'role2', 'Khaira123');
 
 --
 -- Constraints for dumped tables
@@ -583,6 +585,13 @@ ALTER TABLE `film_user`
 ALTER TABLE `film_wishlist`
   ADD CONSTRAINT `filmid_fkfw_1` FOREIGN KEY (`film_id`) REFERENCES `film` (`filmid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `userid_fkfw_2` FOREIGN KEY (`userid`) REFERENCES `user` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD CONSTRAINT `filmid_fkw_1` FOREIGN KEY (`film_id`) REFERENCES `film` (`filmid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `userid_fkw_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user`

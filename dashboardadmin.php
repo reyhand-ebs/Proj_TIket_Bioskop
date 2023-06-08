@@ -14,59 +14,7 @@ require_once('./pages/authorization_admin.php');
 	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 	<link rel="stylesheet" href="./css/style.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script>
-		$(document).ready(function () {
-			// Menangani peristiwa klik pada tombol "Cari"
-			$("#searchButton").on('click', function () {
-				search();
-			});
-
-			// Menangani peristiwa tekan tombol "Enter" di dalam input pencarian
-			$("#searchInput").on('keydown', function (event) {
-				if (event.keyCode === 13) { // 13 adalah kode tombol "Enter"
-					search();
-					return false;
-				}
-			});
-			// Fungsi pencarian
-			function search() {
-				var query = $("#searchInput").val();
-				if (query !== '') {
-					window.location.href = "?p=search&query=" + query;
-				}
-			}
-			var limitWords = document.getElementsByClassName('limit-words');
-			for (var i = 0; i < limitWords.length; i++) {
-				var text = limitWords[i].textContent;
-				var words = text.split(' ');
-				if (words.length > 15) {
-					var limitedText = words.slice(0, 15).join(' ');
-					limitWords[i].textContent = limitedText + '...';
-				}
-			}
-
-			const spinnerWrapperEl = document.querySelector('.spinner-wrapper');
-			window.addEventListener('load', () => {
-				spinnerWrapperEl.style.opacity = 1;
-
-				setTimeout(() => {
-					spinnerWrapperEl.style.display = 'none';
-				}, 1000);
-			})
-
-			function addDropdownItem(id) {
-				var dropdownWrapper = document.getElementById(id).parentNode;
-				var clone = dropdownWrapper.cloneNode(true);
-				clone.querySelector('.dropdown-menu').innerHTML = '';
-				dropdownWrapper.parentNode.insertBefore(clone, dropdownWrapper.nextElementSibling);
-			}
-
-			function deleteDropdownItem(button) {
-				var dropdownWrapper = button.parentNode;
-				dropdownWrapper.parentNode.removeChild(dropdownWrapper);
-			}
-		});
-	</script>
+	<script src="./js/script.js"></script>
 </head>
 
 <body>
