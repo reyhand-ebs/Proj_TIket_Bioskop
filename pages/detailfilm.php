@@ -9,6 +9,8 @@ $objFilm->SelectOneFilm();
 
 <head>
     <title><?php echo $objFilm->judul_film; ?> | Bioskop 165</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
 </head>
 
 <body>
@@ -56,6 +58,7 @@ $objFilm->SelectOneFilm();
             <h2>Ulasan</h2>
             <hr class="border-5" style="color: #30689C;">
             <div class="row">
+                <!--
                 <div id="star-rating">
                     <span class="star" style="font-size: 25px; color: gray; cursor: pointer;"
                         data-rating="1">&#9733;</span>
@@ -69,8 +72,118 @@ $objFilm->SelectOneFilm();
                         data-rating="5">&#9733;</span>
                 </div>
                 <p id="selected-rating"></p>
-            </div>
+            </div> -->
 
+            <?php
+       require_once "./class/class.komentar.php";
+       $objKomentar = new Komentar();
+       if(isset($_POST['btnSubmit'])){	
+        // $objfilm->id_film = $_POST['id_film']
+        $objKomentar->nama = $_POST['nama'];
+        $objKomentar->rating = $_POST['rating'];
+        $objKomentar->deskripsi = $_POST['deskripsi'];	 
+         //$objKomentar->rilis = $_POST['rilis'];	
+         
+              
+         
+         if(isset($_GET['id'])){		
+             $objKomentar->id = $_GET['id'];
+             $objKomentar->UpdateKomentar();
+         }
+         else{	
+             $objKomentar->AddKomentar();
+         }			
+         
+         echo "<script> alert('$objKomentar->message'); </script>";
+         if($objKomentar->hasil){
+             echo '<script> window.location = "dashboardmember.php?p=member_detail";</script>';
+         }
+                     
+     }
+     
+
+       ?>
+
+
+
+
+
+
+            <div class="row">
+            <div class="col-md-4">
+                <form method="POST" action="">
+                    <div class="col">
+                        <input type="text" name="nama" id="nama" placeholder="nama" style="width:100%;">
+                    </div>
+                    <br>
+                    <div class="col">
+                        <textarea name="deskripsi" rows="4" style="width: 300%; color: #1F1F1F; border-radius: 10px;" placeholder="Tulis ulasan..."></textarea>
+                    </div>
+                    <br>
+                    <div class="rateyo" id="rating"
+                    data-rateyo-rating="4"
+                    data-rateyo-num-stars="5"
+                    data-ratayo-score="3">
+
+                    </div>
+                    <input type="hidden" name="rating">
+
+                    <br>
+                    <button type="submit" class="btn btn-primary" name="btnSubmit">Kirim</button>
+                </form>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+        <script>
+            $(function () {
+                $(".rateyo").rateYo().on("rateyo.change", function (e, data) {
+                    var rating = data.rating;
+                    $(this).parent().find('.score').text('score :'+ $(this).attr('data-rateyo-score'));
+                    $(this).parent().find('.result').text('rating :'+ rating);
+                    $(this).parent().find('input[name=rating]').val(rating); //add rating value to input field
+                });
+            });
+        </script>
+
+
+<?php
+         require_once "./class/class.komentar.php";
+         $objKomentar = new Komentar();
+         $arrayResult = $objKomentar->SelectAllKomentar();
+
+         if(count($arrayResult) == 0){
+            echo "-";
+         }else{
+            $no = 1;
+            foreach($arrayResult as $datakomentar){
+                echo '<span style="color: white;">' .$no. '</span>';
+                echo '<hr color="grey">';
+                echo '<div class="row">';
+                echo '<div class="rounded-circle">';
+                echo '<img src="./img/profile.png" style="width: 70px;" alt="Gambar">';
+                echo '</div>';
+                echo '</div>';
+                echo '<div class="col">';
+                echo '<h2>'.$datakomentar->nama.'</h2>';
+                echo '<i class="bx bxs-star text-warning" ></i>';
+                echo '<span style="font-size: 18px; color: Black;">'.$datakomentar->rating.'</span>';
+                echo '<h4>'.$datakomentar->deskripsi.'</h4>';
+                $no++;
+                
+
+            }
+         }
+
+
+         ?>
+
+
+
+
+
+
+<!--
             <div class="row mb-4">
                 <div class="col">
                     <textarea rows="5" style="width: 100%; color: #1F1F1F; border-radius: 10px;"
@@ -137,7 +250,7 @@ $objFilm->SelectOneFilm();
                 <h5>Khaira Isyara</h5>
                 <i class='bx bxs-star text-warning'></i>
                 <span style="font-size: 18px; color: white;">5</span>
-                <p>"Keren film nyee..."</p>
+                <p>"Keren film nyee..."</p>-->
             </div>
         </div>
     </div>

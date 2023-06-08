@@ -1,7 +1,7 @@
 <?php
 	class Komentar extends Connection {
 		private $deskripsi = '';
-		private $tanggal = '';
+		//private $tanggal = '';
 		private $nama = '';
 		private $rating = '';
 		//private $id_user = '';
@@ -22,8 +22,8 @@
 
 
 		public function AddKomentar(){
-			$sql = "INSERT INTO topik(deskripsi, tanggal,nama,rating)
-					VALUES ('$this->deskripsi','$this->now()', '$this->nama', '$this->rating')";
+			$sql = "INSERT INTO topik(deskripsi,nama,rating)
+					VALUES ('$this->deskripsi','$this->nama', '$this->rating')";
 			$this->hasil = $this->connection->exec($sql);
 					
 			if($this->hasil)
@@ -58,7 +58,7 @@
 					$objKomentar->nama = $data->nama;
 					$objKomentar->rating = $data->rating;
 					$objKomentar->deskripsi = $data->deskripsi;
-					$objKomentar->tanggal = $data->tanggal;
+					//$objKomentar->tanggal = $data->tanggal;
 					//$objfilm->genreid = $data->genreid;
 					$arrResult[$i] = $objKomentar;
 					$i++;
