@@ -29,7 +29,7 @@ if (isset($_POST['btnBatal'])) {
 <body>
     <div class="mt-5 mb-5 px-5">
         <h3 class="mb-5">Ubah Aktor</h3>
-        <form class="mb-5">
+        <form class="mb-5" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group mb-2">
@@ -52,10 +52,8 @@ if (isset($_POST['btnBatal'])) {
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="foto_aktor">Foto Aktor</label></br>
-                        <form action="proses_upload.php" method="post" enctype="multipart/form-data">
-                            <input type="file" id="foto_aktor" name="foto_aktor">
-                            <!--<input class="btn btn-dark btn-lg rounded-pill" type="submit" value="Unggah" style="background-color: #FFFFFF; color: #113250; font-weight: 400; font-size: 15px; text-align: center; width: 100px;">-->
-                        </form>
+                        <input type="file" id="foto_aktor" name="foto_aktor">
+                        <!--<input class="btn btn-dark btn-lg rounded-pill" type="submit" value="Unggah" style="background-color: #FFFFFF; color: #113250; font-weight: 400; font-size: 15px; text-align: center; width: 100px;">-->
                     </div>
                 </div>
             </div>

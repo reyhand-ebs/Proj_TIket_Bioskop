@@ -28,16 +28,18 @@ if (isset($_POST['btnTambah'])) {
         $objfilm->director_film = $_POST['director_film'];
         $objfilm->writer_film = $_POST['writer_film'];
         $objfilm->detail_film = $_POST['detail_film'];
+        $objfilm->trailer_film = $_POST['trailer_film'];
+        $objfilm->harga_film = $_POST['harga_film'];
 
         $file_film = $_FILES['file_film']['name'];
         $temp_file = $_FILES['file_film']['tmp_name'];
         $target_dir = "./videos/";
         $target_file = $target_dir . basename($file_film);
-    
+
         if (move_uploaded_file($temp_file, $target_file)) {
             $objfilm->file_film = $file_film;
             $objfilm->AddFilm();
-    
+
             if ($objfilm->hasil) {
                 echo "<script> alert('" . $objfilm->message . "'); </script>";
                 echo '<script> window.location = "?p=addfilmaktorandgenre";</script>';

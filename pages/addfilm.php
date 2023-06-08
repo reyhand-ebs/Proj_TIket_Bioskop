@@ -49,7 +49,7 @@ require_once "addfilmproses.php";
 							<hr>
 						</label>
 						<?php date_default_timezone_set("Asia/Jakarta");
-						echo '<input type="text" class="form-control" id="tanggal_upload" name="tanggal_upload" value="'.date("d/m/Y").'" readonly>';
+						echo '<input type="text" class="form-control" id="tanggal_upload" name="tanggal_upload" value="'.date("Y-m-d").'" readonly>';
 						?>
 					</div>
 				</div>
@@ -85,6 +85,22 @@ require_once "addfilmproses.php";
 						<input type="text" class="form-control" id="writer_film" name="writer_film">
 					</div>
 				</div>
+				<div class="col-md-6">
+					<div class="form-group mb-2">
+						<label for="trailer_film">Trailer Film
+							<hr>
+						</label>
+						<input type="text" class="form-control" id="trailer_film" name="trailer_film">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group mb-2">
+						<label for="harga_film">Harga Film
+							<hr>
+						</label>
+						<input type="text" class="form-control" id="harga_film" name="harga_film">
+					</div>
+				</div>
 				<div class="col-md-12">
 					<div class="form-group mb-2">
 						<label for="detail_film">Sinopsis
@@ -112,7 +128,7 @@ require_once "addfilmproses.php";
 			</div>
 			<div class="text-right pt-3">
 				<button class="btn btn-lg rounded-pill btn-primary fw-semibold" style="width: 130px;" name="btnTambah"
-					type="submit">Tambah</button>
+					type="submit">Next</button>
 			</div>
 		</form>
 	</div>
