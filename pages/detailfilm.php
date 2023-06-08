@@ -30,8 +30,8 @@ $objFilm->SelectOneFilm();
                 <p class="mb-4" style="color: gold; font-weight: 600; font-size: 30px;">Rp. <?php echo number_format($objFilm->harga_film, 2, ',', '.'); ?></p>
                 <a href=""><button class="btn btn-lg rounded-pill text-dark" style="border-color: #113250;">+
                         Wishlist</button></a>
-                <a href="payment.php"><button class="btn btn-lg rounded-pill text-white"
-                        style="background-color: #113250;">Beli Tiket</button></a>
+                <a href="?p=payment&filmid=<?php echo $objFilm->filmid; ?>"><button class="btn btn-lg rounded-pill text-white"
+                        style="background-color: #113250;" name="btnBeli" type="next">Beli Tiket</button></a>
             </div>
         </div>
         <div class="row pt-3">
