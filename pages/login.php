@@ -40,7 +40,7 @@
                   <a class="" href="#!" style="color: #70AFE9">Lupa password?</a></br></br>
 
                   <div class="pt-1 mb-4 text-center">
-                    <button class="btn btn-dark btn-lg rounded-pill" type="button" style="background-color: #113250; width: 170px; height: 50px;">Masuk</button>
+                    <a href="index.php?p=indexmember"><button class="btn btn-dark btn-lg rounded-pill" type="button" style="background-color: #113250; width: 170px; height: 50px;">Masuk</button></a>
                   </div>
 
                   <div class="text-center">

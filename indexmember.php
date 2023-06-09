@@ -27,7 +27,7 @@
             <a class="nav-link active" aria-current="page" href="#">Beranda</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Film Saya</a>
+            <a class="nav-link active" aria-current="page" href="index.php?p=filmsaya">Film Saya</a>
             </li>
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -62,27 +62,47 @@
     </div>
     </nav>
 
-    
+    <?php
+    $pages_dir = 'pages';
+    if (!empty($_GET['p'])) {
+        $pages = scandir($pages_dir, 0);
+        unset($pages[0], $pages[1]);
 
-    <footer class="text-white pt-5" style="background-color: rgb(29, 34, 40)">
+        $p = $_GET['p'];
+        if (in_array($p . '.php', $pages)) {
+            include($pages_dir . '/' . $p . '.php');
+        } else {
+            echo 'Halaman tidak ditemukan! :(';
+        }
+    } else {
+        include($pages_dir . '/home.php');
+    }
+    ?>
+
+<footer class="bg-black text-white pt-5">
         <div class="footer-top mt-20 container">
             <div class="row gy-4">
-                <div class="col-lg-3">
-                    <img class="logo w-50" src="img/bisokop online.png" alt="">
+                <div class="col-lg-4">
+                    <img class="logo w-75" src="./img/bioskop online.png" alt="">
                 </div>
-                <div class="col-lg-2">
-                    <h3 class="text-white">Brand</h3>
+                <div class="col-lg-3">
+                    <h3 class="text-white fs-2">Brand</h3>
                     <ul class="list-unstyled">
-                        <li><a href="?p=home" style="color: #fff; text-decoration: none;">Home</a></li>
-                        <li><a href="?p=explore" style="color: #fff; text-decoration: none;">Explore</a></li>
-                        <li><a href="?p=contact" style="color: #fff; text-decoration: none;">Contact</a></li>
+                        <li><a href="?p=login" style="color: #fff; text-decoration: none;">Login</a></li>
+                        <li><a href="?p=signup" style="color: #fff; text-decoration: none;">Sign Up</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4">
-                    <h3 class="text-white">Contact</h3>
+                <div class="col-lg-5">
+                    <h3 class="text-white fs-2">Contact</h3>
                     <ul class="list-unstyled">
                         <li>Address: Jl. TB Simatupang</li>
-                        <li>Email: @students.esqbs.ac.id</li>
+                        <li>Email: afifah.k.rusli@students.esqbs.ac.id</li>
+                        <li>Email: muhammad.aldy.f@students.esqbs.ac.id</li>
+                        <li>Email: khaira.isyara@students.esqbs.ac.id</li>
+                        <li>Email: chikal.mulia@students.esqbs.ac.id</li>
+                        <li>Email: damar.adji.s@students.esqbs.ac.id</li>
+                        <li>Email: refido.arjunal.a@students.esqbs.ac.id</li>
+                        <li>Email: mohamad.reyhand.f@students.esqbs.ac.id</li>
                     </ul>
                 </div>
             </div>
@@ -91,7 +111,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <p class="mb-0">© 2022 </p>
+                        <p class="mb-0">© 2022 copyright all right reserved | Designed with by Bioskop 165</p>
                     </div>
                     <div class="col-md-6">
                         <div class="social-icons">
