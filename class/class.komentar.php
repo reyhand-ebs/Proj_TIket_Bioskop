@@ -1,11 +1,19 @@
 <?php
 	class Komentar extends Connection {
-		private $deskripsi = '';
+		//private $deskripsi = '';
 		//private $tanggal = '';
-		private $nama = '';
-		private $rating = '';
+		//private $nama = '';
+		//private $rating = '';
 		//private $id_user = '';
 		//private $userid = '';
+		private $film_id = '';
+		private $rating = '';
+		private $komen_user = '';
+		private $user_id = '';
+		private $name = '';
+		private $hasil = false;
+		private $message = '';
+
 
 		public function __get($atribute) {
 			if (property_exists($this, $atribute)) {
@@ -20,17 +28,41 @@
 		}
 
 
+		public function AddKomentar()
+{
+    $sql = "INSERT INTO film_user (film_id, rating, komen_user, user_id) 
+            VALUES (:film_id, :rating, :komen_user, :user_id)";
+    $query = $this->connection->prepare($sql);
+    $query->bindParam(':rating', $this->rating);
+    $query->bindParam(':komen_user', $this->komen_user);
+    $query->bindParam(':user_id', $this->user_id);
+	$query->bindParam(':film_id', $this->film_id);
 
-		public function AddKomentar(){
-			$sql = "INSERT INTO topik(deskripsi,nama,rating)
-					VALUES ('$this->deskripsi','$this->nama', '$this->rating')";
-			$this->hasil = $this->connection->exec($sql);
+    if ($query->execute()) {
+        $this->hasil = true;
+        $this->message = 'Data berhasil ditambahkan';
+    } else {
+        $this->hasil = false;
+        $this->message = 'Data gagal ditambahkan';
+    }
+}
+
+
+
+
+
+
+
+		//public function AddKomentar(){
+			//$sql = "INSERT INTO topik(deskripsi,nama,rating)
+					//VALUES ('$this->deskripsi','$this->nama', '$this->rating')";
+			//$this->hasil = $this->connection->exec($sql);
 					
-			if($this->hasil)
-				$this->message ='Data berhasil ditambahkan!';					
-			else
-				$this->message ='Data gagal ditambahkan!';	
-		}
+			//if($this->hasil)
+				//$this->message ='Data berhasil ditambahkan!';					
+			//else
+				//$this->message ='Data gagal ditambahkan!';	
+		//}
 		
 		public function UpdateKomentar(){
 			$sql = "UPDATE user SET email = '$this->email', name='$this->name', nohp='$this->nohp' WHERE userid = '$this->userid'";
@@ -43,9 +75,80 @@
 		}
 
 
+		//public function SelectAllKomentar()
+		//{
+			//$sql = "SELECT film_user.*, user.name FROM film_user 
+			//INNER JOIN user ON film_user.user_id = user.userid
+			//WHERE film_user.user_id = :user_id
+			//UNION 
+			//SELECT film_user.*, NULL AS name FROM film_user 
+			//JOIN ON film.filmid =film_user.film_id
+			//WHERE film_user.film_id = :film_id ";
+			//$result = $this->connection->query($sql);
+
+			//$arrResult = array();
+			//$i = 0;
+			//if($result->rowCount() > 0)
+			//{
+				//while($data = $result->fetch(PDO::FETCH_OBJ))
+				//{
+					//$objKomentar = new Komentar();
+					//$objKomentar->film_id = $data->film_id;
+					///$objKomentar->rating_user = $data->rating_user;
+					//$objKomentar->komen_user = $data->komen_user;
+					//$objKomentar->user_id = $data->user_id;
+					//$objKomentar->name = $data->name;
+					//$arrResult[$i] = $objKomentar;
+					//$i++;
+					
+				//}
+			//}
+			//return $arrResult;
+
+
+		//}
+		public function SelectOneKomentar($user_id, $film_id)
+{
+    $sql = "SELECT film_user.*, user.name FROM film_user 
+            INNER JOIN user ON film_user.user_id = user.userid
+            WHERE film_user.user_id = :user_id
+            UNION 
+            SELECT film_user.*, NULL AS name FROM film_user 
+            INNER JOIN film ON film.filmid = film_user.film_id
+            WHERE film_user.film_id = :film_id";
+
+    $stmt = $this->connection->prepare($sql);
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->bindParam(':film_id', $film_id);
+    $stmt->execute();
+
+    //$arrResult = array();
+    //$i = 0;
+    if ($stmt->rowCount() == 1) {
+        while ($data = $stmt->fetch(PDO::FETCH_OBJ)) {
+            //$objKomentar = new Komentar();
+            //$objKomentar->film_id = $data->film_id;
+            //$objKomentar->rating_user = $data->rating_user;
+            //$objKomentar->komen_user = $data->komen_user;
+            //$objKomentar->user_id = $data->user_id;
+            //$objKomentar->name = $data->name;
+            //$arrResult[$i] = $objKomentar;
+            //$i++;
+			$this->film_id = $data->film_id;
+			$this->komen_user = $data->komen_user;
+			$this->rating = $data->rating;
+			$this->user_id = $data->user_id;
+			$this->name = $data->name;
+        }
+    }
+    //return $arrResult;
+}
+
+
+
 		public function SelectAllKomentar(){
 			//$sql = "SELECT u.*, r.genre FROM film u, genre r WHERE u.genre=r.genreid ORDER BY id_film";
-			$sql = "SELECT * FROM topik";
+			$sql = "SELECT * FROM film_user";
 			$result = $this->connection->query($sql);
 			
 			$arrResult = Array();
@@ -54,11 +157,11 @@
 				while($data= $result->fetch(PDO::FETCH_OBJ))
 				{
 					$objKomentar = new Komentar();
-					$objKomentar->id = $data->id;
-					$objKomentar->nama = $data->nama;
+					$objKomentar->film_id = $data->film_id;
+					//$objKomentar->nama = $data->nama;
 					$objKomentar->rating = $data->rating;
-					$objKomentar->deskripsi = $data->deskripsi;
-					//$objKomentar->tanggal = $data->tanggal;
+					$objKomentar->komen_user = $data->komen_user;
+					$objKomentar->user_id = $data->user_id;
 					//$objfilm->genreid = $data->genreid;
 					$arrResult[$i] = $objKomentar;
 					$i++;

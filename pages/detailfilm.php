@@ -74,18 +74,31 @@ $objFilm->SelectOneFilm();
                 <p id="selected-rating"></p>
             </div> -->
 
+
+
             <?php
        require_once "./class/class.komentar.php";
        $objKomentar = new Komentar();
        if(isset($_POST['btnSubmit'])){	
-        // $objfilm->id_film = $_POST['id_film']
-        $objKomentar->nama = $_POST['nama'];
+        //$objfilm->film_id = $_GET['film_id'];
+        //$objKomentar->nama = $_POST['nama'];
         $objKomentar->rating = $_POST['rating'];
-        $objKomentar->deskripsi = $_POST['deskripsi'];	 
+        $objKomentar->user_id = $_SESSION['userid'];
+        $objKomentar->name = $_SESSION['name'];
+        $objKomentar->komen_user = $_POST['komen_user'];	 
+        
          //$objKomentar->rilis = $_POST['rilis'];	
          
-              
+         $objFilm = new Film();
+         $objFilm->filmid = $_GET['filmid'];
+         $objFilm->SelectOneFilm();
+
+         $objKomentar->film_id = $objFilm->filmid;
+
+
          
+   
+
          if(isset($_GET['id'])){		
              $objKomentar->id = $_GET['id'];
              $objKomentar->UpdateKomentar();
@@ -112,12 +125,13 @@ $objFilm->SelectOneFilm();
             <div class="row">
             <div class="col-md-4">
                 <form method="POST" action="">
+                    <!--
                     <div class="col">
                         <input type="text" name="nama" id="nama" placeholder="nama" style="width:100%;">
-                    </div>
+                    </div>-->
                     <br>
                     <div class="col">
-                        <textarea name="deskripsi" rows="4" style="width: 300%; color: #1F1F1F; border-radius: 10px;" placeholder="Tulis ulasan..."></textarea>
+                        <textarea name="komen_user" rows="4" style="width: 300%; color: #1F1F1F; border-radius: 10px;" placeholder="Tulis ulasan..."></textarea>
                     </div>
                     <br>
                     <div class="rateyo" id="rating"
@@ -165,10 +179,10 @@ $objFilm->SelectOneFilm();
                 echo '</div>';
                 echo '</div>';
                 echo '<div class="col">';
-                echo '<h2>'.$datakomentar->nama.'</h2>';
+                echo '<h2>'.$datakomentar->name.'</h2>';
                 echo '<i class="bx bxs-star text-warning" ></i>';
                 echo '<span style="font-size: 18px; color: Black;">'.$datakomentar->rating.'</span>';
-                echo '<h4>'.$datakomentar->deskripsi.'</h4>';
+                echo '<h4>'.$datakomentar->komen_user.'</h4>';
                 $no++;
                 
 
