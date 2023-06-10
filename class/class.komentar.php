@@ -8,6 +8,7 @@
 		//private $userid = '';
 		private $film_id = '';
 		private $rating = '';
+		private $nama = '';
 		private $komen_user = '';
 		private $user_id = '';
 		private $name = '';
@@ -30,10 +31,11 @@
 
 		public function AddKomentar()
 {
-    $sql = "INSERT INTO film_user (film_id, rating, komen_user, user_id) 
-            VALUES (:film_id, :rating, :komen_user, :user_id)";
+    $sql = "INSERT INTO film_user (film_id, rating, nama, komen_user, user_id) 
+            VALUES (:film_id, :rating, :nama, :komen_user, :user_id)";
     $query = $this->connection->prepare($sql);
     $query->bindParam(':rating', $this->rating);
+	$query->bindParam(':nama', $this->nama);
     $query->bindParam(':komen_user', $this->komen_user);
     $query->bindParam(':user_id', $this->user_id);
 	$query->bindParam(':film_id', $this->film_id);
@@ -41,6 +43,7 @@
     if ($query->execute()) {
         $this->hasil = true;
         $this->message = 'Data berhasil ditambahkan';
+		
     } else {
         $this->hasil = false;
         $this->message = 'Data gagal ditambahkan';
@@ -158,7 +161,7 @@
 				{
 					$objKomentar = new Komentar();
 					$objKomentar->film_id = $data->film_id;
-					//$objKomentar->nama = $data->nama;
+					$objKomentar->nama = $data->nama;
 					$objKomentar->rating = $data->rating;
 					$objKomentar->komen_user = $data->komen_user;
 					$objKomentar->user_id = $data->user_id;

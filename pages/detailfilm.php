@@ -84,7 +84,7 @@ $objFilm->SelectOneFilm();
         //$objKomentar->nama = $_POST['nama'];
         $objKomentar->rating = $_POST['rating'];
         $objKomentar->user_id = $_SESSION['userid'];
-        $objKomentar->name = $_SESSION['name'];
+        $objKomentar->nama = $_POST['nama'];
         $objKomentar->komen_user = $_POST['komen_user'];	 
         
          //$objKomentar->rilis = $_POST['rilis'];	
@@ -94,6 +94,7 @@ $objFilm->SelectOneFilm();
          $objFilm->SelectOneFilm();
 
          $objKomentar->film_id = $objFilm->filmid;
+         $objKomentar->name = $objUser->name;
 
 
          
@@ -105,6 +106,7 @@ $objFilm->SelectOneFilm();
          }
          else{	
              $objKomentar->AddKomentar();
+             
          }			
          
          echo "<script> alert('$objKomentar->message'); </script>";
@@ -125,10 +127,10 @@ $objFilm->SelectOneFilm();
             <div class="row">
             <div class="col-md-4">
                 <form method="POST" action="">
-                    <!--
+                    
                     <div class="col">
                         <input type="text" name="nama" id="nama" placeholder="nama" style="width:100%;">
-                    </div>-->
+                    </div>
                     <br>
                     <div class="col">
                         <textarea name="komen_user" rows="4" style="width: 300%; color: #1F1F1F; border-radius: 10px;" placeholder="Tulis ulasan..."></textarea>
@@ -179,7 +181,7 @@ $objFilm->SelectOneFilm();
                 echo '</div>';
                 echo '</div>';
                 echo '<div class="col">';
-                echo '<h2>'.$datakomentar->name.'</h2>';
+                echo '<h2>'.$datakomentar->nama.'</h2>';
                 echo '<i class="bx bxs-star text-warning" ></i>';
                 echo '<span style="font-size: 18px; color: Black;">'.$datakomentar->rating.'</span>';
                 echo '<h4>'.$datakomentar->komen_user.'</h4>';
