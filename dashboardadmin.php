@@ -69,6 +69,10 @@ require_once('./pages/authorization_admin.php');
 					<li class="nav-item px-2">
 						<a href="?p=aktorlist" class="nav-link text-white">Aktor List</a>
 					</li>
+					<li class="nav-item px-2">
+						<a href="?p=profile" class="nav-link text-white">Profil List</a>
+					</li>
+					
 				</ul>
 			</div>
 			<ul class="nav navbar-nav navbar-right sticky-end fs-6">
@@ -129,6 +133,9 @@ require_once('./pages/authorization_admin.php');
 						<li><a href="?p=userlist" style="color: #fff; text-decoration: none;">Film List</a></li>
 						<li><a href="?p=userlist" style="color: #fff; text-decoration: none;">Genre List</a></li>
 						<li><a href="?p=userlist" style="color: #fff; text-decoration: none;">Aktor List</a></li>
+						<li><a href="?p=profile" style="color: #fff; text-decoration: none;">Profil List</a></li>
+						
+
 					</ul>
 				</div>
 				<div class="col-lg-5 col-md-5">
