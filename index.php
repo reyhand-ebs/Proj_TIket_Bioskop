@@ -85,15 +85,17 @@ include('inc.koneksi.php');
 </head>
 
 <body class="container-0">
+    
     <!-- INI SPINNER LOADING START -->
-    <!-- <div class="spinner-wrapper">
+    
+    <div class="spinner-wrapper">
         <div class="spinner-grow text-primary" style="width: 7rem; height: 7rem;" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
-    </div> -->
-
+    </div>
+    
     <!-- INI SPINNER LOADING END -->
-
+    
     <!-- NAVIGASI START -->
     <nav class="nav navbar navbar-expand-lg bg-dark sticky-top py-0 fw-medium fs-6">
         <div class="container-fluid">
